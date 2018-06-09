@@ -1,8 +1,48 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="controller.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+   <children>
+      <AnchorPane prefHeight="386.0" prefWidth="914.0">
+         <children>
+            <Label layoutX="32.0" layoutY="66.0" text="Herzlich willkommen zu K.L.A.U.S.">
+               <font>
+                  <Font size="41.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="106.0" prefHeight="71.0" prefWidth="703.0" text="Was möchten Sie tun?">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="208.0" text="Produkteinsatz" />
+            <Button layoutX="39.0" layoutY="224.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Ändern" />
+            <Label layoutX="39.0" layoutY="265.0" text="Zielbestimmung" />
+            <Button layoutX="39.0" layoutY="281.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Ändern" />
+            <Label layoutX="39.0" layoutY="322.0" text="Umgebung" />
+            <Button layoutX="39.0" layoutY="338.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Ändern" />
+            <Label layoutX="159.0" layoutY="208.0" text="FAs" />
+            <Button layoutX="159.0" layoutY="224.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Ändern" />
+            <Label layoutX="159.0" layoutY="265.0" text="NFAs" />
+            <Button layoutX="159.0" layoutY="281.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Ändern" />
+            <Label layoutX="159.0" layoutY="322.0" text="Schätzparameter" />
+            <Button layoutX="159.0" layoutY="338.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Ändern" />
+            <Button layoutX="665.0" layoutY="338.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Importieren" />
+            <Button layoutX="777.0" layoutY="338.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Exportieren" />
+         </children>
+      </AnchorPane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>
