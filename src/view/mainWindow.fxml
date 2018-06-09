@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -10,7 +12,7 @@
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <children>
-      <AnchorPane prefHeight="386.0" prefWidth="914.0">
+      <AnchorPane prefHeight="382.0" prefWidth="875.0" GridPane.rowIndex="1">
          <children>
             <Label layoutX="32.0" layoutY="66.0" text="Herzlich willkommen zu K.L.A.U.S.">
                <font>
@@ -36,6 +38,11 @@
             <Button layoutX="159.0" layoutY="338.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Ändern" />
             <Button layoutX="665.0" layoutY="338.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Importieren" />
             <Button layoutX="777.0" layoutY="338.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Exportieren" />
+            <ImageView fitHeight="150.0" fitWidth="148.0" layoutX="746.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../res/dhbw.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
@@ -43,6 +50,7 @@
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints />
       <RowConstraints />
    </rowConstraints>
 </GridPane>
