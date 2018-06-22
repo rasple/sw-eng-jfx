@@ -1,5 +1,8 @@
 package controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -8,13 +11,17 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
+import javassist.bytecode.stackmap.TypeData;
 import model.Anforderungsanalyse;
 import model.Produktfunktion;
 import org.apache.commons.lang.StringUtils;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ProduktfunktionenController implements Initializable {
 
@@ -48,17 +55,27 @@ public class ProduktfunktionenController implements Initializable {
     @FXML
     private TableColumn<Produktfunktion, Integer> det;
 
-
     private ObservableList<Produktfunktion> produktfunktionen;
 
     @FXML
     void onClickAbort(MouseEvent event) {
-
+        Stage stage = (Stage) cancel.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     void onClickSave(MouseEvent event) {
-
+        Anforderungsanalyse.getInstance().setProduktfunktionen(produktfunktionen);
+        for (Produktfunktion p : produktfunktionen) {
+            ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+            try {
+                System.out.println(ow.writeValueAsString(p));
+            } catch (JsonProcessingException ex) {
+                Logger.getLogger(TypeData.ClassName.class.getName()).log(Level.SEVERE, "", ex);
+            }
+        }
+        Stage stage = (Stage) ok.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
