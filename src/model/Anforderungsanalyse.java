@@ -7,16 +7,16 @@ import java.util.List;
 public class Anforderungsanalyse {
 
     private List<Produktfunktion> produktfunktionen;
+    private List<Produktdaten> produktdaten;
 
     private static Anforderungsanalyse anforderungsanalyse;
 
     private Anforderungsanalyse() {
         produktfunktionen = new ArrayList<Produktfunktion>();
+        produktdaten = new ArrayList<Produktdaten>();
     }
 
-    public List<Produktfunktion> getProduktfunktionen() {
-        return produktfunktionen;
-    }
+
 
     public static Anforderungsanalyse getInstance() {
         if (anforderungsanalyse == null) {
@@ -25,7 +25,19 @@ public class Anforderungsanalyse {
         return anforderungsanalyse;
     }
 
+    public List<Produktfunktion> getProduktfunktionen() {
+        return produktfunktionen;
+    }
     public void setProduktfunktionen(List<Produktfunktion> produktfunktionen) {
         this.produktfunktionen = produktfunktionen;
     }
+
+    public List<Produktdaten> getProduktdaten() {
+        return produktdaten;
+    }
+
+    public void setProduktdaten(List<Produktdaten> produktdaten) {
+        this.produktdaten = produktdaten;
+    }
+
 }

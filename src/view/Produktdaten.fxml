@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="407.0" prefWidth="411.0" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.ProduktfunktionenController">
+            fx:controller="controller.ProduktdatenController">
     <children>
-        <Label fx:id="label" layoutX="22.0" layoutY="14.0" prefHeight="34.0" prefWidth="217.0" text="Produktfunktionen">
+        <Label fx:id="label" layoutX="22.0" layoutY="14.0" prefHeight="34.0" prefWidth="217.0" text="Produktdaten">
             <font>
                 <Font size="22.0"/>
             </font>
@@ -19,7 +19,7 @@
             <columns>
                 <TableColumn fx:id="id" prefWidth="75.0" text="ID"/>
                 <TableColumn fx:id="desc" prefWidth="123.0" text="Beschreibung"/>
-                <TableColumn fx:id="ftr" prefWidth="83.0" text="FTR"/>
+                <TableColumn fx:id="ert" prefWidth="83.0" text="ERT"/>
                 <TableColumn fx:id="det" prefWidth="82.0" text="DET"/>
             </columns>
         </TableView>

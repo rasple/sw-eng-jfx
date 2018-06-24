@@ -1,24 +1,32 @@
 package model;
 
 public class Produktfunktion {
-    private int ret;
-    private int det;
-    private String desc;
     private String id;
+    private String desc;
+    private int ftr;
+    private int det;
+
 
     public Produktfunktion() {
-        this.ret = 0;
-        this.det = 0;
-        this.desc = "";
-        this.id = "";
+        this.setId("");
+        this.setDesc("");
+        this.setFtr(0);
+        this.setDet(0);
     }
 
-    public int getRet() {
-        return ret;
+    public Produktfunktion(String desc, String id, int ftr, int det) {
+        this.setId(id);
+        this.setDesc(desc);
+        this.setFtr(ftr);
+        this.setDet(det);
     }
 
-    public void setRet(int ret) {
-        this.ret = ret;
+    public int getFtr() {
+        return ftr;
+    }
+
+    public void setFtr(int ftr) {
+        this.ftr = ftr;
     }
 
     public int getDet() {
