@@ -5,7 +5,8 @@ import java.util.List;
 
 // Singleton
 public class Anforderungsanalyse {
-
+    
+    // Kein Interface arghh. Dein Ernst
     private List<Produktfunktion> produktfunktionen;
     private List<Produktdaten> produktdaten;
 
