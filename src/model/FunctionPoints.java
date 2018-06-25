@@ -1,5 +1,4 @@
-package nachkalkulation;
-import aufwandsabschaetzung.*;
+
 
 public class FunctionPoints {
 	private double istfp;
