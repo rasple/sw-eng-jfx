@@ -43,8 +43,11 @@ public class Anforderungsanalyse {
     public void setProduktdaten(List<Produktdaten> produktdaten) {
         this.produktdaten = produktdaten;
     }
-   
-    public void selbstoptimierung(){
+    
+    //Um die Methode ausführen zu können, muss der user eingeben wie lange das Projekt wirklich gedauert hat und davor die 
+    // Aufwandsabschätzung durchgeführt haben
+    public void selbstoptimierung(double mannmonate){
+        fp.setMannmonate(mannmonate);
         this.sollfaktoren=this.optimieren.optimieren(this.fp.getIstfp(), this.fp.getSollfp, this.userfaktoren.getFaktoren());
     
     }
