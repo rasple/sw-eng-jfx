@@ -1,4 +1,4 @@
-package nachkalkulation;
+package model;
 /**
  * 
  * Erzeugt die Klasse DefaultOptimierung
