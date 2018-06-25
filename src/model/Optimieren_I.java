@@ -1,5 +1,6 @@
 package nachkalkulation;
 
 public interface Optimieren_I {
-	double[] optimieren(double bewertetefp, double sollfp, int[] factors);
+	Faktoren optimieren(double istfp, double sollfp, double[] factors);
+	
 }

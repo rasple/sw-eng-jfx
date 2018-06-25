@@ -1,4 +1,5 @@
-package model;
+package nachkalkulation;
+import aufwandsabschaetzung.*;
 /**
  * Diese Klasse wird verwendet, wenn der User keine eigene Klasse für die Nachkalkulation verwendet
  *
@@ -8,9 +9,10 @@ public class DefaultOptimierung implements Optimieren_I {
 
 	
 	@Override
-	public double[] optimieren(double istfp, double sollfp, double[] factors) {
+	
+	public Faktoren optimieren(double istfp, double sollfp, double[] factors) {
 		// TODO Auto-generated method stub
-		final double unbewertetefp= this.calcunbewertefp(istfp, factors);
+		final double unbewertetefp= Faktoren.calcunbewertefp(istfp, factors);
 		int pos=0, maxpos= factors.length;
 		double dif=istfp-sollfp, currentfp;
 		boolean groesser;
@@ -18,7 +20,7 @@ public class DefaultOptimierung implements Optimieren_I {
 			groesser=true;
 		}
 		else if( sollfp==istfp){
-			return factors;
+			return new Faktoren(factors);
 		}
 		else{
 			groesser=false;
@@ -39,28 +41,11 @@ public class DefaultOptimierung implements Optimieren_I {
 					pos++;
 				}
 			}
-			currentfp= this.calcbewertefp(unbewertetefp, factors);
+			currentfp= Faktoren.calcbewertefp(unbewertetefp, factors);
 			dif= currentfp-sollfp;
 		}
-		return factors;
+		return new Faktoren(factors);
 	}
-	private double calcunbewertefp(double bewertetefp, double[] factors){
-		double fac= this.calcfac(factors);
-		double unbewertetefp=  bewertetefp/ fac;
-		return unbewertetefp;
-	}
-	private double calcbewertefp(double unbewertefp, double []factors){
-		double fac = this.calcfac(factors);
-		return unbewertefp*fac;
-		
-	}
-	private double calcfac(double[] factors){
-		int sumfactors=0;
-		double fac;
-		for( double factor :factors){
-			sumfactors+=factor;
-		}
-		fac= sumfactors/100 +0.7;
-		return fac;
-	}
+	
+	
 }

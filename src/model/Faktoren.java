@@ -98,5 +98,23 @@ public class Faktoren {
 		this.faktoren[9]=this.anpassbarkeit;
 		return faktoren;
 	}
-	
+	public static double calcunbewertefp(double bewertetefp, double[] factors){
+		double fac= Faktoren.calcfac(factors);
+		double unbewertetefp=  bewertetefp/ fac;
+		return unbewertetefp;
+	}
+	public static  double calcbewertefp(double unbewertefp, double []factors){
+		double fac = Faktoren.calcfac(factors);
+		return unbewertefp*fac;
+		
+	}
+	public static double calcfac(double[] factors){
+		int sumfactors=0;
+		double fac;
+		for( double factor :factors){
+			sumfactors+=factor;
+		}
+		fac= sumfactors/100 +0.7;
+		return fac;
+	}
 }
