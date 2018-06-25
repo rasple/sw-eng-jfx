@@ -2,7 +2,6 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import nachkalkulation.*;
 // Singleton
 public class Anforderungsanalyse {
     
