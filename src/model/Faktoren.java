@@ -1,4 +1,4 @@
-package nachkalkulation;
+package model;
 
 public class Faktoren {
 	private double verfechtung;
