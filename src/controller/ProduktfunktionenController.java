@@ -13,10 +13,9 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
-import javassist.bytecode.stackmap.TypeData;
 import model.Anforderungsanalyse;
 import model.Produktfunktion;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -71,7 +70,7 @@ public class ProduktfunktionenController implements Initializable {
             try {
                 System.out.println(ow.writeValueAsString(p));
             } catch (JsonProcessingException ex) {
-                Logger.getLogger(TypeData.ClassName.class.getName()).log(Level.SEVERE, "", ex);
+                Logger.getLogger(ProduktfunktionenController.class.getName()).log(Level.SEVERE, "", ex);
             }
         }
         Stage stage = (Stage) ok.getScene().getWindow();

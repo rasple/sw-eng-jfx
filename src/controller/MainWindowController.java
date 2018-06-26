@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javassist.bytecode.stackmap.TypeData;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -24,7 +23,7 @@ public class MainWindowController {
             produktfunktionenWindow.setTitle("Produktfunktionen");
             produktfunktionenWindow.show();
         } catch (IOException ex) {
-            Logger.getLogger(TypeData.ClassName.class.getName()).log(Level.SEVERE, "", ex);
+            Logger.getLogger(ProduktfunktionenController.class.getName()).log(Level.SEVERE, "", ex);
         }
     }
 
@@ -37,7 +36,39 @@ public class MainWindowController {
             produktfunktionenWindow.setTitle("Produktdaten");
             produktfunktionenWindow.show();
         } catch (IOException ex) {
-            Logger.getLogger(TypeData.ClassName.class.getName()).log(Level.SEVERE, "", ex);
+            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
+        }
+    }
+
+    public void onClickExport(MouseEvent event) {
+    }
+
+    public void onClickImport(MouseEvent event) {
+    }
+
+    public void onClickOpti(MouseEvent event) {
+        Stage optiWindow = new Stage();
+        optiWindow.initModality(Modality.APPLICATION_MODAL);
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../view/Produktdaten.fxml"));
+            optiWindow.setScene(new Scene(root));
+            optiWindow.setTitle("Produktdaten");
+            optiWindow.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
+        }
+    }
+
+    public void onClickAufwabsch(MouseEvent event) {
+        Stage aufwabschWindow = new Stage();
+        aufwabschWindow.initModality(Modality.APPLICATION_MODAL);
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../view/Produktdaten.fxml"));
+            aufwabschWindow.setScene(new Scene(root));
+            aufwabschWindow.setTitle("Produktdaten");
+            aufwabschWindow.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
         }
     }
 }

@@ -19,7 +19,7 @@
             <columns>
                 <TableColumn fx:id="id" prefWidth="75.0" text="ID"/>
                 <TableColumn fx:id="desc" prefWidth="123.0" text="Beschreibung"/>
-                <TableColumn fx:id="ert" prefWidth="83.0" text="ERT"/>
+                <TableColumn fx:id="ret" prefWidth="83.0" text="RET"/>
                 <TableColumn fx:id="det" prefWidth="82.0" text="DET"/>
             </columns>
         </TableView>

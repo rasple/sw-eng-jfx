@@ -47,7 +47,7 @@ public class Anforderungsanalyse {
     // Aufwandsabschätzung durchgeführt haben
     public void selbstoptimierung(double mannmonate){
         fp.setMannmonate(mannmonate);
-        this.sollfaktoren=this.optimieren.optimieren(this.fp.getIstfp(), this.fp.getSollfp, this.userfaktoren.getFaktoren());
+        this.sollfaktoren = this.optimieren.optimieren(this.fp.getIstfp(), this.fp.getSollfp(), this.userfaktoren.getFaktoren());
     
     }
 

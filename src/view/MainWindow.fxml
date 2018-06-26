@@ -117,10 +117,14 @@
          <children>
             <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="66.0" prefWidth="428.0">
                <buttons>
-                  <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Exportieren"/>
-                  <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Importieren"/>
-                  <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="221.0"
+                   <Button mnemonicParsing="false" onMouseClicked="#onClickExport" prefHeight="28.0" prefWidth="98.0"
+                           text="Exportieren"/>
+                   <Button mnemonicParsing="false" onMouseClicked="#onClickImport" prefHeight="28.0" prefWidth="98.0"
+                           text="Importieren"/>
+                   <Button mnemonicParsing="false" onMouseClicked="#onClickOpti" prefHeight="28.0" prefWidth="98.0"
                           text="Selbstoptimierende Nachkalkulation"/>
+                   <Button mnemonicParsing="false" onMouseClicked="#onClickAufwabsch" prefHeight="28.0" prefWidth="98.0"
+                           text="Aufwandsabschätzung"/>
                </buttons>
             </ButtonBar>
          </children>

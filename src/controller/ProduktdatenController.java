@@ -13,10 +13,9 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
-import javassist.bytecode.stackmap.TypeData;
 import model.Anforderungsanalyse;
 import model.Produktdaten;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -43,7 +42,7 @@ public class ProduktdatenController implements Initializable {
     private TableColumn<Produktdaten, String> desc;
 
     @FXML
-    private TableColumn<Produktdaten, Integer> ert;
+    private TableColumn<Produktdaten, Integer> ret;
 
     @FXML
     private TableColumn<Produktdaten, Integer> det;
@@ -70,7 +69,7 @@ public class ProduktdatenController implements Initializable {
             try {
                 System.out.println(ow.writeValueAsString(p));
             } catch (JsonProcessingException ex) {
-                Logger.getLogger(TypeData.ClassName.class.getName()).log(Level.SEVERE, "", ex);
+                Logger.getLogger(ProduktdatenController.class.getName()).log(Level.SEVERE, "", ex);
             }
         }
         Stage stage = (Stage) ok.getScene().getWindow();
@@ -155,15 +154,15 @@ public class ProduktdatenController implements Initializable {
                 new PropertyValueFactory<Produktdaten, String>("desc")
         );
 
-        ert.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-        ert.setOnEditCommit(
+        ret.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        ret.setOnEditCommit(
                 t -> (
                         t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())
-                ).setErt(t.getNewValue())
+                ).setRet(t.getNewValue())
         );
-        ert.setCellValueFactory(
-                new PropertyValueFactory<Produktdaten, Integer>("ert")
+        ret.setCellValueFactory(
+                new PropertyValueFactory<Produktdaten, Integer>("ret")
         );
         det.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         det.setOnEditCommit(

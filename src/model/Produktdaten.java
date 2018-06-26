@@ -4,20 +4,20 @@ public class Produktdaten {
 
     private String id;
     private String desc;
-    private int ert;
+    private int ret;
     private int det;
 
     public Produktdaten() {
         this.setId("");
         this.setDesc("");
-        this.setErt(0);
+        this.setRet(0);
         this.setDet(0);
     }
 
-    public Produktdaten(String id, String desc, int ert, int det) {
+    public Produktdaten(String id, String desc, int ret, int det) {
         this.setId(id);
         this.setDesc(desc);
-        this.setErt(ert);
+        this.setRet(ret);
         this.setDet(det);
     }
 
@@ -37,12 +37,12 @@ public class Produktdaten {
         this.desc = desc;
     }
 
-    public int getErt() {
-        return ert;
+    public int getRet() {
+        return ret;
     }
 
-    public void setErt(int ert) {
-        this.ert = ert;
+    public void setRet(int ret) {
+        this.ret = ret;
     }
 
     public int getDet() {
