@@ -50,7 +50,7 @@ public class MainWindowController {
         Stage optiWindow = new Stage();
         optiWindow.initModality(Modality.APPLICATION_MODAL);
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/Produktdaten.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../view/Opti.fxml"));
             optiWindow.setScene(new Scene(root));
             optiWindow.setTitle("Produktdaten");
             optiWindow.show();
@@ -63,7 +63,7 @@ public class MainWindowController {
         Stage aufwabschWindow = new Stage();
         aufwabschWindow.initModality(Modality.APPLICATION_MODAL);
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/Produktdaten.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../view/Aufwabsch.fxml"));
             aufwabschWindow.setScene(new Scene(root));
             aufwabschWindow.setTitle("Produktdaten");
             aufwabschWindow.show();
