@@ -1,4 +1,4 @@
-package aufwandsabschaetzung;
+package model;
 
 public interface Konfiguration_I {
 	public double calcmannmonate(double fp);
