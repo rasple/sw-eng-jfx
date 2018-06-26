@@ -24,6 +24,7 @@ public class AufwabschController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         // Simon, mach hier deine Berechnungen und schreib die ergebnisse in
         //textbox.setText();
     }
