@@ -1,4 +1,4 @@
-package aufwandsabschaetzung;
+package model;
 
 public class Konfiguration implements Konfiguration_I{
 /**
