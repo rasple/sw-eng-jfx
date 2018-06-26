@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="407.0" prefWidth="411.0" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.ProduktfunktionenController">
+            xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controller.ProduktfunktionenController">
     <children>
         <Label fx:id="label" layoutX="22.0" layoutY="14.0" prefHeight="34.0" prefWidth="217.0" text="Produktfunktionen">
             <font>
@@ -17,11 +17,11 @@
                 prefHeight="34.0" prefWidth="95.0" text="Abbrechen"/>
         <TableView fx:id="table" layoutX="22.0" layoutY="59.0" prefHeight="301.0" prefWidth="364.0">
             <columns>
-                <TableColumn fx:id="id" prefWidth="75.0" text="ID"/>
-                <TableColumn fx:id="desc" prefWidth="123.0" text="Beschreibung"/>
-                <TableColumn fx:id="ftr" prefWidth="83.0" text="FTR"/>
-                <TableColumn fx:id="det" prefWidth="82.0" text="DET"/>
-                <TableColumn fx:id="type" prefWidth="101.0" text="Typ"/>
+                <TableColumn fx:id="id" prefWidth="54.0" text="ID"/>
+                <TableColumn fx:id="desc" prefWidth="118.0" text="Beschreibung"/>
+                <TableColumn fx:id="ftr" prefWidth="63.0" text="FTR"/>
+                <TableColumn fx:id="det" prefWidth="57.0" text="DET"/>
+                <TableColumn fx:id="type" prefWidth="71.0" text="Typ"/>
             </columns>
         </TableView>
         <Button fx:id="add" layoutX="318.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#onClickAdd"

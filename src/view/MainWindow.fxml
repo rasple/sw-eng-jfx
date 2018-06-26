@@ -5,22 +5,22 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<VBox prefHeight="692.0" prefWidth="366.0" xmlns:fx="http://javafx.com/fxml/1"
+<VBox prefHeight="774.0" prefWidth="389.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="controller.MainWindowController">
    <children>
       <HBox prefHeight="76.0" prefWidth="422.0">
          <children>
             <AnchorPane prefHeight="70.0" prefWidth="501.0">
                <children>
-                  <ImageView fitHeight="80.0" fitWidth="93.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true"
-                             preserveRatio="true">
+                   <ImageView fitHeight="80.0" fitWidth="93.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true"
+                              preserveRatio="true">
                      <image>
                          <Image url="@../res/dhbw.png"/>
                      </image>
                   </ImageView>
                   <Label layoutX="107.0" layoutY="13.0" prefHeight="69.0" prefWidth="196.0" text="K.L.A.U.S">
                      <font>
-                        <Font size="41.0"/>
+                         <Font size="41.0"/>
                      </font>
                   </Label>
                </children>
@@ -33,98 +33,160 @@
                <content>
                   <VBox prefHeight="451.0" prefWidth="411.0">
                      <children>
-                        <Label prefHeight="26.0" prefWidth="206.0" text="Produktfunktionen">
-                           <font>
-                              <Font size="18.0"/>
-                           </font>
-                        </Label>
-                        <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
-                           <buttons>
-                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Löschen"/>
-                              <Button mnemonicParsing="false" onMouseClicked="#onClickProduktfunktionen"
-                                      prefHeight="28.0" prefWidth="98.0" text="Ändern"/>
-                           </buttons>
-                        </ButtonBar>
-                        <Separator prefHeight="26.0" prefWidth="205.0"/>
-                        <Label prefHeight="26.0" prefWidth="206.0" text="Produktdaten">
-                           <font>
-                              <Font size="18.0"/>
-                           </font>
-                        </Label>
-                        <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
-                           <buttons>
-                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Löschen"/>
-                              <Button mnemonicParsing="false" onMouseClicked="#onClickProduktdaten" prefHeight="28.0"
-                                      prefWidth="98.0" text="Ändern"/>
-                           </buttons>
-                        </ButtonBar>
-                        <Separator prefHeight="26.0" prefWidth="205.0"/>
-                        <Label prefHeight="26.0" prefWidth="207.0" text="Produktumgebung">
-                           <font>
-                              <Font size="18.0"/>
-                           </font>
-                        </Label>
-                        <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
-                           <buttons>
-                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Löschen"/>
-                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Ändern"/>
-                           </buttons>
-                        </ButtonBar>
-                        <Separator prefHeight="26.0" prefWidth="205.0"/>
-                        <Label prefHeight="26.0" prefWidth="207.0" text="Produkteinsatz">
-                           <font>
-                              <Font size="18.0"/>
-                           </font>
-                        </Label>
-                        <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
-                           <buttons>
-                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Löschen"/>
-                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Ändern"/>
-                           </buttons>
-                        </ButtonBar>
-                        <Separator prefHeight="26.0" prefWidth="205.0"/>
-                        <Label prefHeight="26.0" prefWidth="205.0" text="Zielbestimmung">
-                           <font>
-                              <Font size="18.0"/>
-                           </font>
-                        </Label>
-                        <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
-                           <buttons>
-                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Löschen"/>
-                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Ändern"/>
-                           </buttons>
-                        </ButtonBar>
-                        <Separator prefHeight="26.0" prefWidth="205.0"/>
-                        <Label prefHeight="26.0" prefWidth="205.0" text="Schätzfaktoren">
-                           <font>
-                              <Font size="18.0"/>
-                           </font>
-                        </Label>
-                        <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
-                           <buttons>
-                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Löschen"/>
-                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="Ändern"/>
-                           </buttons>
-                        </ButtonBar>
+                         <AnchorPane prefHeight="98.0" prefWidth="389.0">
+                             <children>
+                                 <Label layoutX="14.0" layoutY="18.0" prefHeight="26.0" prefWidth="206.0"
+                                        text="Produktfunktionen">
+                                     <font>
+                                         <Font size="18.0"/>
+                                     </font>
+                                 </Label>
+                                 <ButtonBar layoutX="17.0" layoutY="46.0" nodeOrientation="RIGHT_TO_LEFT"
+                                            prefHeight="40.0" prefWidth="200.0">
+                                     <buttons>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickResetProduktfunktionen"
+                                                 prefHeight="28.0" prefWidth="98.0" text="Löschen"/>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickEditProduktfunktionen"
+                                                 prefHeight="28.0" prefWidth="98.0" text="Ändern"/>
+                                     </buttons>
+                                 </ButtonBar>
+                             </children>
+                         </AnchorPane>
+                         <Separator prefHeight="26.0" prefWidth="205.0"/>
+                         <AnchorPane>
+                             <children>
+                                 <Label layoutX="14.0" layoutY="1.0" prefHeight="26.0" prefWidth="206.0"
+                                        text="Produktdaten">
+                                     <font>
+                                         <Font size="18.0"/>
+                                     </font>
+                                 </Label>
+                                 <ButtonBar layoutX="14.0" layoutY="28.0" nodeOrientation="RIGHT_TO_LEFT"
+                                            prefHeight="40.0" prefWidth="200.0">
+                                     <buttons>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickResetProduktdaten"
+                                                 prefHeight="28.0" prefWidth="98.0" text="Löschen"/>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickEditProduktdaten"
+                                                 prefHeight="28.0" prefWidth="98.0" text="Ändern"/>
+                                     </buttons>
+                                 </ButtonBar>
+                             </children>
+                         </AnchorPane>
+                         <Separator prefHeight="26.0" prefWidth="205.0"/>
+                         <AnchorPane prefHeight="57.0" prefWidth="389.0">
+                             <children>
+                                 <Label layoutX="12.0" layoutY="11.0" prefHeight="26.0" prefWidth="207.0"
+                                        text="Produktumgebung">
+                                     <font>
+                                         <Font size="18.0"/>
+                                     </font>
+                                 </Label>
+                                 <ButtonBar layoutX="15.0" layoutY="38.0" nodeOrientation="RIGHT_TO_LEFT"
+                                            prefHeight="40.0" prefWidth="200.0">
+                                     <buttons>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickResetProduktumgebung"
+                                                 prefHeight="28.0" prefWidth="98.0" text="Löschen"/>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickEditProduktumgebung"
+                                                 prefHeight="28.0" prefWidth="98.0" text="Ändern"/>
+                                     </buttons>
+                                 </ButtonBar>
+                             </children>
+                         </AnchorPane>
+                         <Separator prefHeight="26.0" prefWidth="205.0"/>
+                         <AnchorPane prefHeight="74.0" prefWidth="389.0">
+                             <children>
+                                 <Label layoutX="14.0" layoutY="1.0" prefHeight="26.0" prefWidth="207.0"
+                                        text="Produkteinsatz">
+                                     <font>
+                                         <Font size="18.0"/>
+                                     </font>
+                                 </Label>
+                                 <ButtonBar layoutX="14.0" layoutY="27.0" nodeOrientation="RIGHT_TO_LEFT"
+                                            prefHeight="40.0" prefWidth="200.0">
+                                     <buttons>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickResetProdukteinsatz"
+                                                 prefHeight="28.0" prefWidth="98.0" text="Löschen"/>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickEditProdukteinsatz"
+                                                 prefHeight="28.0" prefWidth="98.0" text="Ändern"/>
+                                     </buttons>
+                                 </ButtonBar>
+                             </children>
+                         </AnchorPane>
+                         <Separator prefHeight="26.0" prefWidth="205.0"/>
+                         <AnchorPane prefHeight="76.0" prefWidth="389.0">
+                             <children>
+                                 <Label layoutX="13.0" layoutY="5.0" prefHeight="26.0" prefWidth="205.0"
+                                        text="Zielbestimmung">
+                                     <font>
+                                         <Font size="18.0"/>
+                                     </font>
+                                 </Label>
+                                 <ButtonBar layoutX="15.0" layoutY="33.0" nodeOrientation="RIGHT_TO_LEFT"
+                                            prefHeight="40.0" prefWidth="200.0">
+                                     <buttons>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickResetZielbestimmung"
+                                                 prefHeight="28.0" prefWidth="98.0" text="Löschen"/>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickEditZielbestimmung"
+                                                 prefHeight="28.0" prefWidth="98.0" text="Ändern"/>
+                                     </buttons>
+                                 </ButtonBar>
+                             </children>
+                         </AnchorPane>
+                         <Separator prefHeight="26.0" prefWidth="205.0"/>
+                         <AnchorPane prefHeight="80.0" prefWidth="389.0">
+                             <children>
+                                 <Label layoutX="12.0" layoutY="1.0" prefHeight="26.0" prefWidth="205.0"
+                                        text="Schätzfaktoren">
+                                     <font>
+                                         <Font size="18.0"/>
+                                     </font>
+                                 </Label>
+                                 <ButtonBar layoutX="14.0" layoutY="26.0" nodeOrientation="RIGHT_TO_LEFT"
+                                            prefHeight="40.0" prefWidth="200.0">
+                                     <buttons>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickResetSchaetzfaktoren"
+                                                 prefHeight="28.0" prefWidth="98.0" text="Löschen"/>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickEditSchaetzfaktoren"
+                                                 prefHeight="28.0" prefWidth="98.0" text="Ändern"/>
+                                     </buttons>
+                                 </ButtonBar>
+                             </children>
+                         </AnchorPane>
                      </children>
                   </VBox>
                </content>
             </Tab>
          </tabs>
       </TabPane>
-      <Separator prefWidth="200.0"/>
-      <HBox alignment="TOP_CENTER" prefHeight="90.0" prefWidth="411.0">
+       <Separator prefWidth="200.0"/>
+       <HBox alignment="TOP_CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="48.0" prefWidth="389.0">
+           <children>
+               <ButtonBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="389.0">
+                   <buttons>
+                       <Button mnemonicParsing="false" onMouseClicked="#onClickOpti" prefHeight="30.0" prefWidth="208.0"
+                               text="Selbstoptimierende Nachkalkulation" textAlignment="CENTER" wrapText="true">
+                           <font>
+                               <Font size="9.0"/>
+                           </font>
+                       </Button>
+                       <Button mnemonicParsing="false" onMouseClicked="#onClickAufwabsch" prefHeight="30.0"
+                               prefWidth="98.0" text="Aufwandsabschätzung" textAlignment="CENTER" wrapText="true">
+                           <font>
+                               <Font size="9.0"/>
+                           </font>
+                       </Button>
+                   </buttons>
+               </ButtonBar>
+           </children>
+       </HBox>
+       <HBox prefHeight="33.0" prefWidth="389.0">
          <children>
-            <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="66.0" prefWidth="428.0">
+             <ButtonBar prefHeight="37.0" prefWidth="389.0">
                <buttons>
-                   <Button mnemonicParsing="false" onMouseClicked="#onClickExport" prefHeight="28.0" prefWidth="98.0"
+                   <Button mnemonicParsing="false" onMouseClicked="#onClickExport" prefHeight="30.0" prefWidth="189.0"
                            text="Exportieren"/>
-                   <Button mnemonicParsing="false" onMouseClicked="#onClickImport" prefHeight="28.0" prefWidth="98.0"
+                   <Button mnemonicParsing="false" onMouseClicked="#onClickImport" prefHeight="30.0" prefWidth="98.0"
                            text="Importieren"/>
-                   <Button mnemonicParsing="false" onMouseClicked="#onClickOpti" prefHeight="28.0" prefWidth="98.0"
-                          text="Selbstoptimierende Nachkalkulation"/>
-                   <Button mnemonicParsing="false" onMouseClicked="#onClickAufwabsch" prefHeight="28.0" prefWidth="98.0"
-                           text="Aufwandsabschätzung"/>
                </buttons>
             </ButtonBar>
          </children>

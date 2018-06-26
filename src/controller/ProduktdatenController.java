@@ -18,6 +18,9 @@ import utils.Convert;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 public class ProduktdatenController implements Initializable {
     @FXML
@@ -63,6 +66,7 @@ public class ProduktdatenController implements Initializable {
 
     @FXML
     void onClickSave(MouseEvent event) {
+        produktdaten = produktdaten.stream().filter(i -> !StringUtils.isEmpty(i.getId())).collect(Collectors.collectingAndThen(toList(), l -> FXCollections.observableArrayList(l)));
         Anforderungsanalyse.getInstance().setProduktdaten(produktdaten);
         for (Produktdaten p : produktdaten) {
             System.out.println(Convert.toJSON(p));

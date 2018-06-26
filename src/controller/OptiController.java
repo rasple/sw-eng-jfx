@@ -30,7 +30,7 @@ public class OptiController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         TextInputDialog dialog = new TextInputDialog("0");
         dialog.setTitle("Eingabe");
-        dialog.setHeaderText("Für die Berechnung der Selbsoptimierenden Nachkalkulation ist die reale Zeit des Projekts in Mannmonaten erforderlich");
+        dialog.setHeaderText("Bitte um Eingabe:");
         dialog.setContentText("Zeit in Mannmonaten");
         dialog.getEditor().textProperty().addListener(new ChangeListener<String>() {
             @Override

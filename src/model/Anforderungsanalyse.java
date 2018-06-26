@@ -13,10 +13,16 @@ public class Anforderungsanalyse {
     private Optimieren_I optimieren;
     private FunctionPoints fp;
     private static Anforderungsanalyse anforderungsanalyse;
+    private Zielbestimmung zielbestimmung;
+    private Produktumgebung produktumgebung;
+    private Produkteinsatz produkteinsatz;
 
     private Anforderungsanalyse() {
         produktfunktionen = new ArrayList<Produktfunktion>();
         produktdaten = new ArrayList<Produktdaten>();
+        zielbestimmung = new Zielbestimmung();
+        produktumgebung = new Produktumgebung();
+        produkteinsatz = new Produkteinsatz();
     }
 
 
@@ -51,4 +57,27 @@ public class Anforderungsanalyse {
     
     }
 
+    public Produkteinsatz getProdukteinsatz() {
+        return produkteinsatz;
+    }
+
+    public void setProdukteinsatz(Produkteinsatz produkteinsatz) {
+        this.produkteinsatz = produkteinsatz;
+    }
+
+    public Produktumgebung getProduktumgebung() {
+        return produktumgebung;
+    }
+
+    public void setProduktumgebung(Produktumgebung produktumgebung) {
+        this.produktumgebung = produktumgebung;
+    }
+
+    public Zielbestimmung getZielbestimmung() {
+        return zielbestimmung;
+    }
+
+    public void setZielbestimmung(Zielbestimmung zielbestimmung) {
+        this.zielbestimmung = zielbestimmung;
+    }
 }
