@@ -1,13 +1,11 @@
 package controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
@@ -16,11 +14,10 @@ import javafx.util.converter.IntegerStringConverter;
 import model.Anforderungsanalyse;
 import model.Produktdaten;
 import org.apache.commons.lang3.StringUtils;
+import utils.Convert;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ProduktdatenController implements Initializable {
     @FXML
@@ -48,6 +45,9 @@ public class ProduktdatenController implements Initializable {
     private TableColumn<Produktdaten, Integer> det;
 
     @FXML
+    private TableColumn<Produktdaten, String> type;
+
+    @FXML
     private Button add;
 
     @FXML
@@ -65,12 +65,7 @@ public class ProduktdatenController implements Initializable {
     void onClickSave(MouseEvent event) {
         Anforderungsanalyse.getInstance().setProduktdaten(produktdaten);
         for (Produktdaten p : produktdaten) {
-            ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-            try {
-                System.out.println(ow.writeValueAsString(p));
-            } catch (JsonProcessingException ex) {
-                Logger.getLogger(ProduktdatenController.class.getName()).log(Level.SEVERE, "", ex);
-            }
+            System.out.println(Convert.toJSON(p));
         }
         Stage stage = (Stage) ok.getScene().getWindow();
         stage.close();
@@ -107,6 +102,12 @@ public class ProduktdatenController implements Initializable {
         table.setItems(produktdaten);
         table.setEditable(true);
         table.setPlaceholder(new Label("Klicken zum editieren"));
+
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        type.setCellFactory(ComboBoxTableCell.forTableColumn("EIF", "ILF"));
+        type.setOnEditCommit(
+                event -> table.getItems().get(event.getTablePosition().getRow())
+                        .setType(event.getNewValue()));
 
         id.setCellFactory(TextFieldTableCell.forTableColumn());
         id.setOnEditCommit(

@@ -3,6 +3,7 @@ package controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -18,6 +19,7 @@ public class MainWindowController {
         Stage produktfunktionenWindow = new Stage();
         produktfunktionenWindow.initModality(Modality.APPLICATION_MODAL);
         try {
+            produktfunktionenWindow.getIcons().add(new Image("/res/dhbw.png"));
             Parent root = FXMLLoader.load(getClass().getResource("../view/Produktfunktionen.fxml"));
             produktfunktionenWindow.setScene(new Scene(root));
             produktfunktionenWindow.setTitle("Produktfunktionen");
@@ -31,6 +33,7 @@ public class MainWindowController {
         Stage produktfunktionenWindow = new Stage();
         produktfunktionenWindow.initModality(Modality.APPLICATION_MODAL);
         try {
+            produktfunktionenWindow.getIcons().add(new Image("/res/dhbw.png"));
             Parent root = FXMLLoader.load(getClass().getResource("../view/Produktdaten.fxml"));
             produktfunktionenWindow.setScene(new Scene(root));
             produktfunktionenWindow.setTitle("Produktdaten");
@@ -50,6 +53,7 @@ public class MainWindowController {
         Stage optiWindow = new Stage();
         optiWindow.initModality(Modality.APPLICATION_MODAL);
         try {
+            optiWindow.getIcons().add(new Image("/res/dhbw.png"));
             Parent root = FXMLLoader.load(getClass().getResource("../view/Opti.fxml"));
             optiWindow.setScene(new Scene(root));
             optiWindow.setTitle("Produktdaten");
@@ -63,6 +67,7 @@ public class MainWindowController {
         Stage aufwabschWindow = new Stage();
         aufwabschWindow.initModality(Modality.APPLICATION_MODAL);
         try {
+            aufwabschWindow.getIcons().add(new Image("/res/dhbw.png"));
             Parent root = FXMLLoader.load(getClass().getResource("../view/Aufwabsch.fxml"));
             aufwabschWindow.setScene(new Scene(root));
             aufwabschWindow.setTitle("Produktdaten");

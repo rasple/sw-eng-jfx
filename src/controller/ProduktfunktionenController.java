@@ -1,13 +1,11 @@
 package controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
@@ -16,11 +14,10 @@ import javafx.util.converter.IntegerStringConverter;
 import model.Anforderungsanalyse;
 import model.Produktfunktion;
 import org.apache.commons.lang3.StringUtils;
+import utils.Convert;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ProduktfunktionenController implements Initializable {
 
@@ -29,6 +26,7 @@ public class ProduktfunktionenController implements Initializable {
 
     @FXML
     public Button remove;
+
 
     @FXML
     private Button ok;
@@ -54,6 +52,9 @@ public class ProduktfunktionenController implements Initializable {
     @FXML
     private TableColumn<Produktfunktion, Integer> det;
 
+    @FXML
+    public TableColumn<Produktfunktion, String> type;
+
     private ObservableList<Produktfunktion> produktfunktionen;
 
     @FXML
@@ -66,12 +67,7 @@ public class ProduktfunktionenController implements Initializable {
     void onClickSave(MouseEvent event) {
         Anforderungsanalyse.getInstance().setProduktfunktionen(produktfunktionen);
         for (Produktfunktion p : produktfunktionen) {
-            ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-            try {
-                System.out.println(ow.writeValueAsString(p));
-            } catch (JsonProcessingException ex) {
-                Logger.getLogger(ProduktfunktionenController.class.getName()).log(Level.SEVERE, "", ex);
-            }
+            System.out.println(Convert.toJSON(p));
         }
         Stage stage = (Stage) ok.getScene().getWindow();
         stage.close();
@@ -113,27 +109,11 @@ public class ProduktfunktionenController implements Initializable {
 
         table.setPlaceholder(new Label("Klicken zum editieren"));
 
-
-        /*id.setCellFactory(new Callback<TableColumn<Produktfunktion, String>, TableCell<Produktfunktion, String>>() {
-            @Override
-            public TableCell<Produktfunktion, String> call(TableColumn<Produktfunktion, String> produktfunktionStringTableColumn) {
-                return new TableCell<Produktfunktion, String>() {
-
-                    @Override
-                    protected void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if(empty){
-                            setText("");
-                        }
-                        else {
-                            setText("PF /" + item + "/");
-
-                        }
-                        return;
-                    }
-                };
-            }
-        });*/
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        type.setCellFactory(ComboBoxTableCell.forTableColumn("EIF", "ILF"));
+        type.setOnEditCommit(
+                event -> table.getItems().get(event.getTablePosition().getRow())
+                        .setType(event.getNewValue()));
 
         id.setCellFactory(TextFieldTableCell.forTableColumn());
         id.setOnEditCommit(

@@ -5,6 +5,7 @@ public class Produktfunktion {
     private String desc;
     private int ftr;
     private int det;
+    private String type;
 
 
     public Produktfunktion() {
@@ -12,13 +13,15 @@ public class Produktfunktion {
         this.setDesc("");
         this.setFtr(0);
         this.setDet(0);
+        this.setType("");
     }
 
-    public Produktfunktion(String desc, String id, int ftr, int det) {
+    public Produktfunktion(String desc, String id, int ftr, int det, String type) {
         this.setId(id);
         this.setDesc(desc);
         this.setFtr(ftr);
         this.setDet(det);
+        this.setType(type);
     }
 
     public int getFtr() {
@@ -51,5 +54,13 @@ public class Produktfunktion {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

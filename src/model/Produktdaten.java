@@ -6,19 +6,22 @@ public class Produktdaten {
     private String desc;
     private int ret;
     private int det;
+    private String type;
 
     public Produktdaten() {
         this.setId("");
         this.setDesc("");
         this.setRet(0);
         this.setDet(0);
+        this.setType("");
     }
 
-    public Produktdaten(String id, String desc, int ret, int det) {
+    public Produktdaten(String id, String desc, int ret, int det, String type) {
         this.setId(id);
         this.setDesc(desc);
         this.setRet(ret);
         this.setDet(det);
+        this.setType(type);
     }
 
     public String getId() {
@@ -51,5 +54,13 @@ public class Produktdaten {
 
     public void setDet(int det) {
         this.det = det;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

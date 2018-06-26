@@ -15,7 +15,7 @@
                   <ImageView fitHeight="80.0" fitWidth="93.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true"
                              preserveRatio="true">
                      <image>
-                        <Image url="@../resources/dhbw.png"/>
+                         <Image url="@../res/dhbw.png"/>
                      </image>
                   </ImageView>
                   <Label layoutX="107.0" layoutY="13.0" prefHeight="69.0" prefWidth="196.0" text="K.L.A.U.S">

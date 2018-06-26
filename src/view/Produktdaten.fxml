@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="407.0" prefWidth="411.0" xmlns:fx="http://javafx.com/fxml/1"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="407.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8"
             fx:controller="controller.ProduktdatenController">
     <children>
         <Label fx:id="label" layoutX="22.0" layoutY="14.0" prefHeight="34.0" prefWidth="217.0" text="Produktdaten">
@@ -17,10 +17,11 @@
                 prefHeight="34.0" prefWidth="95.0" text="Abbrechen"/>
         <TableView fx:id="table" layoutX="22.0" layoutY="59.0" prefHeight="301.0" prefWidth="364.0">
             <columns>
-                <TableColumn fx:id="id" prefWidth="75.0" text="ID"/>
-                <TableColumn fx:id="desc" prefWidth="123.0" text="Beschreibung"/>
-                <TableColumn fx:id="ret" prefWidth="83.0" text="RET"/>
-                <TableColumn fx:id="det" prefWidth="82.0" text="DET"/>
+                <TableColumn fx:id="id" prefWidth="64.0" text="ID"/>
+                <TableColumn fx:id="desc" prefWidth="95.0" text="Beschreibung"/>
+                <TableColumn fx:id="ret" prefWidth="53.0" text="RET"/>
+                <TableColumn fx:id="det" prefWidth="50.0" text="DET"/>
+                <TableColumn fx:id="type" prefWidth="101.0" text="Typ"/>
             </columns>
         </TableView>
         <Button fx:id="add" layoutX="318.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#onClickAdd"
