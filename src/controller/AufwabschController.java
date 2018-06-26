@@ -27,5 +27,6 @@ public class AufwabschController implements Initializable {
 
         // Simon, mach hier deine Berechnungen und schreib die ergebnisse in
         //textbox.setText();
+        //ok papa
     }
 }
