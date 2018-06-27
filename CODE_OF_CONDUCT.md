@@ -1,4 +1,5 @@
 # Regeln
 
 1. Nicht schubsen
-2. Ok war alles
+2. Nicht andere Leute seine Mutter beleidigen
+3. Ok war alles
