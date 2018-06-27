@@ -114,7 +114,7 @@ public class ProduktfunktionenController implements Initializable {
         table.setPlaceholder(new Label("Klicken zum editieren"));
 
         type.setCellValueFactory(new PropertyValueFactory<>("type"));
-        type.setCellFactory(ComboBoxTableCell.forTableColumn("EIF", "ILF"));
+        type.setCellFactory(ComboBoxTableCell.forTableColumn("EI", "EO", "EQ"));
         type.setOnEditCommit(
                 event -> table.getItems().get(event.getTablePosition().getRow())
                         .setType(event.getNewValue()));

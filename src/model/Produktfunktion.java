@@ -7,7 +7,6 @@ public class Produktfunktion {
     private int det;
     private String type;
 
-
     public Produktfunktion() {
         this.setId("");
         this.setDesc("");

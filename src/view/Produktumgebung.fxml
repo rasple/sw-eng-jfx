@@ -5,7 +5,7 @@
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controller.ProduktumgebungController">
     <children>
-        <TitledPane animated="false" collapsible="false" prefHeight="416.0" prefWidth="539.0" text="Zielbestimmung">
+        <TitledPane animated="false" collapsible="false" prefHeight="416.0" prefWidth="539.0" text="Produktumgebung">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="382.0" prefWidth="537.0">
                     <children>
