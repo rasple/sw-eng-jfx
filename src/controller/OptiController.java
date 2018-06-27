@@ -31,9 +31,10 @@ public class OptiController implements Initializable {
         TextInputDialog dialog = new TextInputDialog("0");
 
         Pattern pattern = Pattern.compile("\\d*|\\d+\\,\\d*");
-        TextFormatter formatter = new TextFormatter(change -> {
+        TextFormatter formatter = new TextFormatter<>(change -> {
             return pattern.matcher(change.getControlNewText()).matches() ? change : null;
         });
+
         dialog.getEditor().setTextFormatter(formatter);
         dialog.setTitle("Eingabe");
         dialog.setHeaderText("Bitte um Eingabe:");

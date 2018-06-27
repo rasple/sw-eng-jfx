@@ -2,9 +2,9 @@ package model;
 
 public class Faktoren {
 	private double verfechtung;
-	private double dezentrale_daten;
-	private double tranksaktionsrate;
-	private double rechnenoperationen;
+    private double dezentraleDaten;
+    private double transaktionsrate;
+    private double rechenoperationen;
 	private double kontrollverfahren;
 	private double ausnahmeregelung;
 	private double logik;
@@ -15,6 +15,16 @@ public class Faktoren {
 	
 	public Faktoren(){
 		this.faktoren= new double[10];
+        this.verfechtung = 0.0;
+        this.dezentraleDaten = 0.0;
+        this.transaktionsrate = 0.0;
+        this.rechenoperationen = 0.0;
+        this.kontrollverfahren = 0.0;
+        this.ausnahmeregelung = 0.0;
+        this.logik = 0.0;
+        this.wiederverwendbarkeit = 0.0;
+        this.datenbestandskonvertierung = 0.0;
+        this.anpassbarkeit = 0.0;
 	}
 	public Faktoren(double[] faktoren){
 		int pos=0;
@@ -30,23 +40,29 @@ public class Faktoren {
 	public void setVerfechtung(double verfechtung) {
 		this.verfechtung = verfechtung;
 	}
-	public double getDezentrale_daten() {
-		return dezentrale_daten;
-	}
-	public void setDezentrale_daten(double dezentrale_daten) {
-		this.dezentrale_daten = dezentrale_daten;
-	}
-	public double getTranksaktionsrate() {
-		return tranksaktionsrate;
-	}
-	public void setTranksaktionsrate(double tranksaktionsrate) {
-		this.tranksaktionsrate = tranksaktionsrate;
-	}
-	public double getRechnenoperationen() {
-		return rechnenoperationen;
-	}
-	public void setRechnenoperationen(double rechnenoperationen) {
-		this.rechnenoperationen = rechnenoperationen;
+
+    public double getDezentraleDaten() {
+        return dezentraleDaten;
+    }
+
+    public void setDezentraleDaten(double dezentraleDaten) {
+        this.dezentraleDaten = dezentraleDaten;
+    }
+
+    public double getTransaktionsrate() {
+        return transaktionsrate;
+    }
+
+    public void setTransaktionsrate(double transaktionsrate) {
+        this.transaktionsrate = transaktionsrate;
+    }
+
+    public double getRechenoperationen() {
+        return rechenoperationen;
+    }
+
+    public void setRechenoperationen(double rechenoperationen) {
+        this.rechenoperationen = rechenoperationen;
 	}
 	public double getKontrollverfahren() {
 		return kontrollverfahren;
@@ -87,9 +103,9 @@ public class Faktoren {
 
 	public double[] getFaktoren() {
 		this.faktoren[0]=this.verfechtung;
-		this.faktoren[1]=this.dezentrale_daten;
-		this.faktoren[2]=this.tranksaktionsrate;
-		this.faktoren[3]=this.rechnenoperationen;		
+        this.faktoren[1] = this.dezentraleDaten;
+        this.faktoren[2] = this.transaktionsrate;
+        this.faktoren[3] = this.rechenoperationen;
 		this.faktoren[4]=this.kontrollverfahren;
 		this.faktoren[5]=this.ausnahmeregelung;
 		this.faktoren[6]=this.logik;

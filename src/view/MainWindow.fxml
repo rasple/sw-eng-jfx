@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<VBox prefHeight="774.0" prefWidth="389.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+<VBox prefHeight="774.0" prefWidth="408.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="controller.MainWindowController">
    <children>
       <HBox prefHeight="76.0" prefWidth="422.0">
@@ -35,7 +35,7 @@
                      <children>
                          <AnchorPane prefHeight="98.0" prefWidth="389.0">
                              <children>
-                                 <Label layoutX="14.0" layoutY="18.0" prefHeight="26.0" prefWidth="206.0"
+                                 <Label layoutX="18.0" layoutY="18.0" prefHeight="26.0" prefWidth="206.0"
                                         text="Produktfunktionen">
                                      <font>
                                          <Font size="18.0"/>
@@ -50,18 +50,18 @@
                                                  prefHeight="28.0" prefWidth="98.0" text="Ändern"/>
                                      </buttons>
                                  </ButtonBar>
+                                 <Button layoutX="204.0" layoutY="52.0" mnemonicParsing="false"
+                                         onMouseClicked="#onClickImport" prefHeight="28.0" prefWidth="98.0"
+                                         text="Importieren"/>
+                                 <Button layoutX="310.0" layoutY="52.0" mnemonicParsing="false"
+                                         onMouseClicked="#onClickExport" prefHeight="28.0" prefWidth="94.0"
+                                         text="Exportieren"/>
                              </children>
                          </AnchorPane>
                          <Separator prefHeight="26.0" prefWidth="205.0"/>
                          <AnchorPane>
                              <children>
-                                 <Label layoutX="14.0" layoutY="1.0" prefHeight="26.0" prefWidth="206.0"
-                                        text="Produktdaten">
-                                     <font>
-                                         <Font size="18.0"/>
-                                     </font>
-                                 </Label>
-                                 <ButtonBar layoutX="14.0" layoutY="28.0" nodeOrientation="RIGHT_TO_LEFT"
+                                 <ButtonBar layoutX="18.0" layoutY="28.0" nodeOrientation="RIGHT_TO_LEFT"
                                             prefHeight="40.0" prefWidth="200.0">
                                      <buttons>
                                          <Button mnemonicParsing="false" onMouseClicked="#onClickResetProduktdaten"
@@ -70,18 +70,36 @@
                                                  prefHeight="28.0" prefWidth="98.0" text="Ändern"/>
                                      </buttons>
                                  </ButtonBar>
+                                 <Button layoutX="309.0" layoutY="34.0" mnemonicParsing="false"
+                                         onMouseClicked="#onClickExport" prefHeight="28.0" prefWidth="94.0"
+                                         text="Exportieren"/>
+                                 <Button layoutX="204.0" layoutY="34.0" mnemonicParsing="false"
+                                         onMouseClicked="#onClickImport" prefHeight="28.0" prefWidth="98.0"
+                                         text="Importieren"/>
+                                 <Label layoutX="20.0" layoutY="1.0" prefHeight="26.0" prefWidth="206.0"
+                                        text="Produktdaten">
+                                     <font>
+                                         <Font size="18.0"/>
+                                     </font>
+                                 </Label>
                              </children>
                          </AnchorPane>
                          <Separator prefHeight="26.0" prefWidth="205.0"/>
                          <AnchorPane prefHeight="57.0" prefWidth="389.0">
                              <children>
-                                 <Label layoutX="12.0" layoutY="11.0" prefHeight="26.0" prefWidth="207.0"
+                                 <Button layoutX="309.0" layoutY="44.0" mnemonicParsing="false"
+                                         onMouseClicked="#onClickExport" prefHeight="28.0" prefWidth="94.0"
+                                         text="Exportieren"/>
+                                 <Button layoutX="204.0" layoutY="44.0" mnemonicParsing="false"
+                                         onMouseClicked="#onClickImport" prefHeight="28.0" prefWidth="98.0"
+                                         text="Importieren"/>
+                                 <Label layoutX="18.0" layoutY="11.0" prefHeight="26.0" prefWidth="207.0"
                                         text="Produktumgebung">
                                      <font>
                                          <Font size="18.0"/>
                                      </font>
                                  </Label>
-                                 <ButtonBar layoutX="15.0" layoutY="38.0" nodeOrientation="RIGHT_TO_LEFT"
+                                 <ButtonBar layoutX="18.0" layoutY="38.0" nodeOrientation="RIGHT_TO_LEFT"
                                             prefHeight="40.0" prefWidth="200.0">
                                      <buttons>
                                          <Button mnemonicParsing="false" onMouseClicked="#onClickResetProduktumgebung"
@@ -95,13 +113,19 @@
                          <Separator prefHeight="26.0" prefWidth="205.0"/>
                          <AnchorPane prefHeight="74.0" prefWidth="389.0">
                              <children>
-                                 <Label layoutX="14.0" layoutY="1.0" prefHeight="26.0" prefWidth="207.0"
+                                 <Button layoutX="310.0" layoutY="33.0" mnemonicParsing="false"
+                                         onMouseClicked="#onClickExport" prefHeight="28.0" prefWidth="94.0"
+                                         text="Exportieren"/>
+                                 <Button layoutX="206.0" layoutY="33.0" mnemonicParsing="false"
+                                         onMouseClicked="#onClickImport" prefHeight="28.0" prefWidth="98.0"
+                                         text="Importieren"/>
+                                 <Label layoutX="22.0" layoutY="2.0" prefHeight="26.0" prefWidth="207.0"
                                         text="Produkteinsatz">
                                      <font>
                                          <Font size="18.0"/>
                                      </font>
                                  </Label>
-                                 <ButtonBar layoutX="14.0" layoutY="27.0" nodeOrientation="RIGHT_TO_LEFT"
+                                 <ButtonBar layoutX="20.0" layoutY="27.0" nodeOrientation="RIGHT_TO_LEFT"
                                             prefHeight="40.0" prefWidth="200.0">
                                      <buttons>
                                          <Button mnemonicParsing="false" onMouseClicked="#onClickResetProdukteinsatz"
@@ -115,13 +139,19 @@
                          <Separator prefHeight="26.0" prefWidth="205.0"/>
                          <AnchorPane prefHeight="76.0" prefWidth="389.0">
                              <children>
-                                 <Label layoutX="13.0" layoutY="5.0" prefHeight="26.0" prefWidth="205.0"
+                                 <Button layoutX="310.0" layoutY="39.0" mnemonicParsing="false"
+                                         onMouseClicked="#onClickExport" prefHeight="28.0" prefWidth="94.0"
+                                         text="Exportieren"/>
+                                 <Button layoutX="206.0" layoutY="39.0" mnemonicParsing="false"
+                                         onMouseClicked="#onClickImport" prefHeight="28.0" prefWidth="98.0"
+                                         text="Importieren"/>
+                                 <Label layoutX="19.0" layoutY="5.0" prefHeight="26.0" prefWidth="205.0"
                                         text="Zielbestimmung">
                                      <font>
                                          <Font size="18.0"/>
                                      </font>
                                  </Label>
-                                 <ButtonBar layoutX="15.0" layoutY="33.0" nodeOrientation="RIGHT_TO_LEFT"
+                                 <ButtonBar layoutX="20.0" layoutY="33.0" nodeOrientation="RIGHT_TO_LEFT"
                                             prefHeight="40.0" prefWidth="200.0">
                                      <buttons>
                                          <Button mnemonicParsing="false" onMouseClicked="#onClickResetZielbestimmung"
@@ -135,13 +165,19 @@
                          <Separator prefHeight="26.0" prefWidth="205.0"/>
                          <AnchorPane prefHeight="80.0" prefWidth="389.0">
                              <children>
-                                 <Label layoutX="12.0" layoutY="1.0" prefHeight="26.0" prefWidth="205.0"
+                                 <Button layoutX="310.0" layoutY="32.0" mnemonicParsing="false"
+                                         onMouseClicked="#onClickExport" prefHeight="28.0" prefWidth="94.0"
+                                         text="Exportieren"/>
+                                 <Button layoutX="206.0" layoutY="32.0" mnemonicParsing="false"
+                                         onMouseClicked="#onClickImport" prefHeight="28.0" prefWidth="98.0"
+                                         text="Importieren"/>
+                                 <Label layoutX="21.0" layoutY="1.0" prefHeight="26.0" prefWidth="205.0"
                                         text="Schätzfaktoren">
                                      <font>
                                          <Font size="18.0"/>
                                      </font>
                                  </Label>
-                                 <ButtonBar layoutX="14.0" layoutY="26.0" nodeOrientation="RIGHT_TO_LEFT"
+                                 <ButtonBar layoutX="20.0" layoutY="26.0" nodeOrientation="RIGHT_TO_LEFT"
                                             prefHeight="40.0" prefWidth="200.0">
                                      <buttons>
                                          <Button mnemonicParsing="false" onMouseClicked="#onClickResetSchaetzfaktoren"
@@ -159,9 +195,9 @@
          </tabs>
       </TabPane>
        <Separator prefWidth="200.0"/>
-       <HBox alignment="TOP_CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="48.0" prefWidth="389.0">
+       <HBox prefHeight="48.0" prefWidth="389.0">
            <children>
-               <ButtonBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="389.0">
+               <ButtonBar prefHeight="17.0" prefWidth="389.0">
                    <buttons>
                        <Button mnemonicParsing="false" onMouseClicked="#onClickOpti" prefHeight="30.0" prefWidth="208.0"
                                text="Selbstoptimierende Nachkalkulation" textAlignment="CENTER" wrapText="true">

@@ -16,6 +16,7 @@ public class Anforderungsanalyse {
     private Zielbestimmung zielbestimmung;
     private Produktumgebung produktumgebung;
     private Produkteinsatz produkteinsatz;
+    private Faktoren faktoren;
 
     private Anforderungsanalyse() {
         produktfunktionen = new ArrayList<Produktfunktion>();
@@ -23,6 +24,7 @@ public class Anforderungsanalyse {
         zielbestimmung = new Zielbestimmung();
         produktumgebung = new Produktumgebung();
         produkteinsatz = new Produkteinsatz();
+        faktoren = new Faktoren();
     }
 
 
@@ -79,5 +81,13 @@ public class Anforderungsanalyse {
 
     public void setZielbestimmung(Zielbestimmung zielbestimmung) {
         this.zielbestimmung = zielbestimmung;
+    }
+
+    public Faktoren getFaktoren() {
+        return faktoren;
+    }
+
+    public void setFaktoren(Faktoren faktoren) {
+        this.faktoren = faktoren;
     }
 }
