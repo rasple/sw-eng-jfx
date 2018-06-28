@@ -90,4 +90,8 @@ public class Anforderungsanalyse {
     public void setFaktoren(Faktoren faktoren) {
         this.faktoren = faktoren;
     }
+
+    public static void setAnforderungsanalyse(Anforderungsanalyse anforderungsanalyse) {
+        Anforderungsanalyse.anforderungsanalyse = anforderungsanalyse;
+    }
 }

@@ -19,7 +19,8 @@
                          <Image url="@../res/dhbw.png"/>
                      </image>
                   </ImageView>
-                   <Label layoutX="107.0" layoutY="13.0" prefHeight="69.0" prefWidth="196.0" text="K.L.A.U.S.">
+                   <Label fx:id="klaus" layoutX="107.0" layoutY="13.0" prefHeight="69.0" prefWidth="196.0"
+                          text="K.L.A.U.S.">
                      <font>
                          <Font size="41.0"/>
                      </font>

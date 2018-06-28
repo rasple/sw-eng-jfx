@@ -23,7 +23,7 @@ public class IO {
         fileChooser.setTitle("Speichere Datei");
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("KLAUS Dateien (*.klaus)", "*.klaus");
         fileChooser.getExtensionFilters().add(extFilter);
-        File file = fileChooser.showOpenDialog(stage);
+        File file = fileChooser.showSaveDialog(stage);
         writeFile(xml, file);
     }
 
