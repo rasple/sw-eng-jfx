@@ -10,7 +10,7 @@
     <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="658.0">
             <children>
-                <Button layoutX="347.0" layoutY="321.0" mnemonicParsing="false" onMouseClicked="#onClickOk"
+                <Button fx:id="ok" layoutX="347.0" layoutY="321.0" mnemonicParsing="false" onMouseClicked="#onClickOk"
                         prefHeight="44.0" prefWidth="80.0" text="OK"/>
                 <Label alignment="TOP_LEFT" fx:id="textbox" layoutX="8.0" layoutY="6.0" prefHeight="309.0"
                        prefWidth="427.0"/>
