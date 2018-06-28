@@ -41,13 +41,19 @@ public class Anforderungsanalyse {
     }
     /**
      *
-     * @return -1 Produktfunktion ist invalid, -2 Produktdaten invalid
+     * @return -1 Produktfunktion ist invalid, -2 Produktdaten invalid, -3 Produktfunktionen nicht vorhanden, -4 Produktdaten nicht vorhanden
      */
     public double aufwandsabschaetzung(){
         int unbewertefp=0;
         Produktfunktion currentfkt;
         Produktdaten currentda;
         ListIterator<Produktfunktion> iteratorfkt= this.produktfunktionen.listIterator();
+        if(this.produktfunktionen.isEmpty()){
+            return -3;
+        }
+        if(this.produktdaten.isEmpty()){
+            return -4;
+        }
         while(iteratorfkt.hasNext()){
             currentfkt= iteratorfkt.next();
             if(currentfkt.isvalid()){
