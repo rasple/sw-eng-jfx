@@ -30,7 +30,7 @@ public class MainWindowController {
 
     @FXML
     void onClickExportProduktfunktion() {
-        IO.save(Anforderungsanalyse.getInstance().getProduktfunktionen(), (Stage) klaus.getScene().getWindow());
+        IO.save(new ArrayList<Produktfunktion>(Anforderungsanalyse.getInstance().getProduktfunktionen()), (Stage) klaus.getScene().getWindow());
     }
 
     @FXML

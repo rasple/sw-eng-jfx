@@ -1,14 +1,10 @@
 package utils;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.json.JSONObject;
-import org.json.XML;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import javax.xml.bind.JAXB;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -18,19 +14,22 @@ import java.util.logging.Logger;
 
 public class IO {
     public static void save(Object obj, Stage stage) {
+        System.out.println(obj);
+
+        StringWriter stringWriter = new StringWriter();
+        JAXB.marshal(obj, stringWriter);
+        String xml = stringWriter.toString();
+        System.out.println(xml);
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            JSONObject json = new JSONObject(mapper.writeValueAsString(obj));
-            String xml = XML.toString(json);
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Speichere Datei");
             FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("KLAUS Dateien (*.klaus)", "*.klaus");
             fileChooser.getExtensionFilters().add(extFilter);
             File file = fileChooser.showSaveDialog(stage);
             writeFile(xml, file);
-        } catch (Exception ex) {
-            Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", ex);
+        } catch (Exception e) {
         }
+
     }
 
     public static Object load(Stage stage) {
@@ -39,13 +38,13 @@ public class IO {
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("KLAUS Dateien (*.klaus)", "*.klaus");
         fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showOpenDialog(stage);
-        String objString = "";
+        String xmlString = "";
         try {
-            objString = readFile(file.getPath(), StandardCharsets.UTF_8);
+            xmlString = readFile(file.getPath(), StandardCharsets.UTF_8);
         } catch (IOException ex) {
             Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", ex);
         }
-        return Convert.XMLToObject(objString);
+        return JAXB.unmarshal(new StringReader(xmlString), Object.class);
     }
 
 
