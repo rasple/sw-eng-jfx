@@ -5,8 +5,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<VBox prefHeight="774.0" prefWidth="427.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controller.MainWindowController">
+<VBox pickOnBounds="false" prefHeight="774.0" prefWidth="427.0" xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainWindowController">
    <children>
       <HBox prefHeight="76.0" prefWidth="422.0">
          <children>
@@ -19,7 +19,7 @@
                          <Image url="@../res/dhbw.png"/>
                      </image>
                   </ImageView>
-                  <Label layoutX="107.0" layoutY="13.0" prefHeight="69.0" prefWidth="196.0" text="K.L.A.U.S">
+                   <Label layoutX="107.0" layoutY="13.0" prefHeight="69.0" prefWidth="196.0" text="K.L.A.U.S.">
                      <font>
                          <Font size="41.0"/>
                      </font>
@@ -217,8 +217,8 @@
                                      <Font size="13.0"/>
                                  </font>
                              </Label>
-                             <Label layoutX="9.0" layoutY="161.0" prefHeight="41.0" prefWidth="216.0"
-                                    text="Recherche und Archiv: Bob Andrews" wrapText="true">
+                             <Label layoutX="9.0" layoutY="161.0" prefHeight="56.0" prefWidth="216.0"
+                                    text="Recherche und Archiv: &#10;Bob Andrews" wrapText="true">
                                  <font>
                                      <Font size="13.0"/>
                                  </font>
@@ -242,7 +242,7 @@
                              <Separator layoutY="55.0" prefHeight="3.0" prefWidth="425.0"/>
                              <Separator layoutX="4.0" layoutY="108.0" prefHeight="3.0" prefWidth="419.0"/>
                              <Separator layoutX="1.0" layoutY="160.0" prefHeight="3.0" prefWidth="425.0"/>
-                             <Separator layoutX="1.0" layoutY="201.0" prefHeight="3.0" prefWidth="425.0"/>
+                             <Separator layoutY="216.0" prefHeight="3.0" prefWidth="425.0"/>
                          </children>
                      </AnchorPane>
                  </content>

@@ -16,6 +16,7 @@ public class Main extends Application {
         primaryStage.setTitle("K.L.A.U.S");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        primaryStage.setResizable(false);
     }
 
 
