@@ -68,7 +68,10 @@ public class ProduktfunktionenController implements Initializable {
 
     @FXML
     void onClickSave(MouseEvent event) {
-        produktfunktionen = produktfunktionen.stream().filter(i -> !StringUtils.isEmpty(i.getId())).collect(Collectors.collectingAndThen(toList(), l -> FXCollections.observableArrayList(l)));
+        produktfunktionen = produktfunktionen.stream().filter(i -> !StringUtils.isEmpty(i.getId()))
+                .filter(i -> !StringUtils.isEmpty(i.getType()))
+                .collect(Collectors.collectingAndThen(toList(), l -> FXCollections.observableArrayList(l)));
+
         Anforderungsanalyse.getInstance().setProduktfunktionen(produktfunktionen);
         for (Produktfunktion p : produktfunktionen) {
             System.out.println(Convert.toJSON(p));
@@ -190,15 +193,3 @@ public class ProduktfunktionenController implements Initializable {
 
 
 }
-
-/*if(table.getItems().stream().map((i)->i.getId()).anyMatch((i) -> i == t.getNewValue())) {
-                            Alert alert = new Alert(Alert.AlertType.ERROR);
-                            alert.setTitle("Fehler!");
-                            alert.setHeaderText("Produktfunktion kann nicht hinzugefügt werden");
-                            alert.setContentText("ID existiert bereits");
-                            alert.showAndWait();
-                        } else {
-                            (t.getTableView().getItems().get(
-                                    t.getTablePosition().getRow())
-                            ).setDesc(t.getNewValue());
-                        }*/
