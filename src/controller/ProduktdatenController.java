@@ -66,7 +66,9 @@ public class ProduktdatenController implements Initializable {
 
     @FXML
     void onClickSave(MouseEvent event) {
-        produktdaten = produktdaten.stream().filter(i -> !StringUtils.isEmpty(i.getId())).collect(Collectors.collectingAndThen(toList(), l -> FXCollections.observableArrayList(l)));
+        produktdaten = produktdaten.stream().filter(i -> !StringUtils.isEmpty(i.getId()))
+                .filter(i -> !StringUtils.isEmpty(i.getType()))
+                .collect(Collectors.collectingAndThen(toList(), l -> FXCollections.observableArrayList(l)));
         Anforderungsanalyse.getInstance().setProduktdaten(produktdaten);
         for (Produktdaten p : produktdaten) {
             System.out.println(Convert.toJSON(p));

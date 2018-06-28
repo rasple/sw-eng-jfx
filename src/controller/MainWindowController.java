@@ -25,80 +25,77 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MainWindowController {
-
     @FXML
     public Label klaus;
 
     @FXML
-    void onClickImportProduktfunktion() {
-        List<Produktfunktion> produktfunktion = (List<Produktfunktion>) IO.load((Stage) klaus.getScene().getWindow());
-        IO.load((Stage) klaus.getScene().getWindow());
-        // Anforderungsanalyse.getInstance().setProduktfunktionen((List<Produktfunktion>) IO.load((Stage) klaus.getScene().getWindow()));
+    void onClickExportProduktfunktion() {
+        IO.save(Anforderungsanalyse.getInstance().getProduktfunktionen(), (Stage) klaus.getScene().getWindow());
     }
 
     @FXML
-    void onClickExportProduktfunktion() {
-        IO.save(Anforderungsanalyse.getInstance().getProdukteinsatz(), (Stage) klaus.getScene().getWindow());
+    void onClickImportProduktfunktion() {
+        Anforderungsanalyse.getInstance().setProduktfunktionen((List<Produktfunktion>) IO.load((Stage) klaus.getScene().getWindow()));
     }
 
     @FXML
     void onClickExportProduktdaten() {
-
+        IO.save(Anforderungsanalyse.getInstance().getProduktdaten(), (Stage) klaus.getScene().getWindow());
     }
 
     @FXML
     void onClickImportProduktdaten() {
-
+        Anforderungsanalyse.getInstance().setProduktdaten((List<Produktdaten>) IO.load((Stage) klaus.getScene().getWindow()));
     }
 
     @FXML
     void onClickExportProduktumgebung() {
-
+        IO.save(Anforderungsanalyse.getInstance().getProduktumgebung(), (Stage) klaus.getScene().getWindow());
     }
 
     @FXML
     void onClickImportProduktumgebung() {
-
+        Anforderungsanalyse.getInstance().setProduktumgebung((Produktumgebung) IO.load((Stage) klaus.getScene().getWindow()));
     }
 
     @FXML
     void onClickExportProdukteinsatz() {
-
+        IO.save(Anforderungsanalyse.getInstance().getProdukteinsatz(), (Stage) klaus.getScene().getWindow());
     }
 
     @FXML
     void onClickImportProdukteinsatz() {
-
+        Anforderungsanalyse.getInstance().setProdukteinsatz((Produkteinsatz) IO.load((Stage) klaus.getScene().getWindow()));
     }
 
     @FXML
     void onClickExportZielbestimmung() {
-
+        IO.save(Anforderungsanalyse.getInstance().getZielbestimmung(), (Stage) klaus.getScene().getWindow());
     }
 
     @FXML
     void onClickImportZielbestimmung() {
-
+        Anforderungsanalyse.getInstance().setZielbestimmung((Zielbestimmung) IO.load((Stage) klaus.getScene().getWindow()));
     }
 
     @FXML
     void onClickExportSchaetzfaktoren() {
-
+        IO.save(Anforderungsanalyse.getInstance().getFaktoren(), (Stage) klaus.getScene().getWindow());
     }
 
     @FXML
     void onClickImportSchaetzfaktoren() {
-
+        Anforderungsanalyse.getInstance().setFaktoren((Faktoren) IO.load((Stage) klaus.getScene().getWindow()));
     }
 
     @FXML
     public void onClickExport(MouseEvent event) {
-
+        IO.save(Anforderungsanalyse.getInstance(), (Stage) klaus.getScene().getWindow());
     }
 
     @FXML
     public void onClickImport(MouseEvent event) {
-
+        Anforderungsanalyse.getInstance().setAnforderungsanalyse((Anforderungsanalyse) IO.load((Stage) klaus.getScene().getWindow()));
     }
     public void onClickEditProduktfunktionen(MouseEvent mouseEvent) {
         Stage produktfunktionenWindow = new Stage();
@@ -179,7 +176,7 @@ public class MainWindowController {
             aufwabschWindow.getIcons().add(new Image("/res/dhbw.png"));
             Parent root = FXMLLoader.load(getClass().getResource("../view/Aufwabsch.fxml"));
             aufwabschWindow.setScene(new Scene(root));
-            aufwabschWindow.setTitle("Produktdaten");
+            aufwabschWindow.setTitle("Aufwandsabschätzung");
             aufwabschWindow.show();
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
@@ -314,6 +311,7 @@ public class MainWindowController {
         }
 
     }
+
 
 }
 
