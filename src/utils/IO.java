@@ -1,5 +1,6 @@
 package utils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.json.JSONObject;
@@ -17,14 +18,19 @@ import java.util.logging.Logger;
 
 public class IO {
     public static void save(Object obj, Stage stage) {
-        JSONObject json = new JSONObject(obj);
-        String xml = XML.toString(json);
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Speichere Datei");
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("KLAUS Dateien (*.klaus)", "*.klaus");
-        fileChooser.getExtensionFilters().add(extFilter);
-        File file = fileChooser.showSaveDialog(stage);
-        writeFile(xml, file);
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            JSONObject json = new JSONObject(mapper.writeValueAsString(obj));
+            String xml = XML.toString(json);
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Speichere Datei");
+            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("KLAUS Dateien (*.klaus)", "*.klaus");
+            fileChooser.getExtensionFilters().add(extFilter);
+            File file = fileChooser.showSaveDialog(stage);
+            writeFile(xml, file);
+        } catch (Exception ex) {
+            Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", ex);
+        }
     }
 
     public static Object load(Stage stage) {
