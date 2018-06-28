@@ -176,7 +176,7 @@ public class MainWindowController {
             aufwabschWindow.getIcons().add(new Image("/res/dhbw.png"));
             Parent root = FXMLLoader.load(getClass().getResource("../view/Aufwabsch.fxml"));
             aufwabschWindow.setScene(new Scene(root));
-            aufwabschWindow.setTitle("Produktdaten");
+            aufwabschWindow.setTitle("Aufwandsabschätzung");
             aufwabschWindow.show();
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);

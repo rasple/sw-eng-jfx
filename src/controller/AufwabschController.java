@@ -26,7 +26,7 @@ public class AufwabschController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         // Simon, mach hier deine Berechnungen und schreib die ergebnisse in
-        //textbox.setText();
+        textbox.setText("Hallo Welt");
         //ok papa
     }
 }
