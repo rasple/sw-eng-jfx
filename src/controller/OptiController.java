@@ -9,6 +9,8 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import model.Anforderungsanalyse;
+import model.Faktoren;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -42,7 +44,7 @@ public class OptiController implements Initializable {
 
         Optional<String> result = dialog.showAndWait();
         double mannmonate = Double.valueOf(result.get());
-
+        Faktoren sollfaktoren=Anforderungsanalyse.getInstance().selbstoptimierung(mannmonate);
         System.out.println(mannmonate);
 
         // Simon, mach hier deine Berechnungen und schreib die ergebnisse in

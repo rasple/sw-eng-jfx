@@ -1,5 +1,5 @@
 package model;
-
+import java.util.HashMap;
 public class Produktdaten {
 
     private String id;
@@ -23,7 +23,33 @@ public class Produktdaten {
         this.setDet(det);
         this.setType(type);
     }
+    public int calcFP(HashMap<String, int[][]> fpmatrix){
+        return fpmatrix.get(this.type)[this.calcPosRet()][this.calcPosDet()];
+    }
+    public boolean isValid(){
+        return this.ret>0 && this.det>0 && !this.type.isEmpty();
+    }
 
+    private int calcPosRet(){
+        if(this.ret<2){
+            return 0;
+        }
+        else if(this.ret<6){
+            return 1;
+        }
+        else{
+            return 2;
+        }
+    }
+    private int calcPosDet(){
+        if(this.det<20){
+            return 0;
+        }
+        else if(this.det<51){
+            return 1;
+        }
+        else return 2;
+    }
     public String getId() {
         return id;
     }

@@ -1,6 +1,49 @@
 package model;
-
+import java.util.HashMap;
 public class Konfiguration implements Konfiguration_I{
+
+	private int[][] kompILF;
+	private int[][] kompEIF;
+	private int[][] kompEI;
+	private int[][] kompEO;
+	private int[][] kompEQ;
+	private HashMap<String, int[][]> HashMapFunktion;
+	private HashMap<String, int[][]> HashMapDaten;
+	/**
+	 * Initialisierung der Komplexitätsmatrizen. Es werden an den entsprechenden Stellen gleich die Werte
+	 * der FunctionPoints gespeichert;
+	 */
+	public Konfiguration(){
+		int[] pos={0,0,1,2,2}, wertILF={7,10,15}, wertEIF={5,7,10}, wertEI={3,4,6}, wertEO ={4,5,7}, wertEQ={3,4,6,};
+		this.kompILF= new int[3][3];
+		this.kompEIF= new int[3][3];
+		this.kompEI= new int[3][3];
+		this.kompEO= new int[3][3];
+		this.kompEQ= new int[3][3];
+		for(int i=0; i<3; i++){
+			for(int j=0; j<3;j++){
+				this.kompILF[i][j]=wertILF[pos[j+i]];
+				this.kompEIF[i][j]=wertEIF[pos[j+i]];
+				this.kompEI[i][j]=wertEI[pos[j+i]];
+				this.kompEO[i][j]=wertEO[pos[j+i]];
+				this.kompEQ[i][j]=wertEQ[pos[j+i]];
+
+			}
+		}
+		this.HashMapFunktion= new HashMap<>();
+		this.HashMapFunktion.put("EO", this.kompEO);
+		this.HashMapFunktion.put("EI", this.kompEI);
+		this.HashMapFunktion.put("EQ", this.kompEQ);
+		this.HashMapDaten= new HashMap<>();
+		this.HashMapDaten.put("ILF", this.kompILF);
+		this.HashMapDaten.put("EIF", this.kompEIF);
+	}
+	public HashMap<String, int[][]> getHashMapFunktion(){
+		return this.HashMapFunktion;
+	}
+	public HashMap<String, int[][]> getHashMapDaten(){
+		return this.HashMapDaten;
+	}
 /**
  * Rechnet die Functionpoints nach der IBM-MM Tabelle in Mannmonate um
  * Zwischen den Stützstellen wird linear interpoliert

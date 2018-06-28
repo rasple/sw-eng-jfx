@@ -12,6 +12,7 @@ public class Faktoren {
 	private double datenbestandskonvertierung;
 	private double anpassbarkeit;
 	private double[] faktoren;
+	private double faktor;
 	
 	public Faktoren(){
 		this.faktoren= new double[10];
@@ -25,6 +26,7 @@ public class Faktoren {
         this.wiederverwendbarkeit = 0.0;
         this.datenbestandskonvertierung = 0.0;
         this.anpassbarkeit = 0.0;
+
 	}
 	public Faktoren(double[] faktoren){
 		int pos=0;
@@ -132,5 +134,42 @@ public class Faktoren {
 		}
 		fac= sumfactors/100 +0.7;
 		return fac;
+	}
+	public double calcbewertetefp(double unbewertetefp){
+		this.faktor= this.calcfacin();
+		return unbewertetefp* this.faktor;
+	}
+	private double calcfacin(){
+		double sumfactors=0;
+		for( double factor :this.faktoren){
+			sumfactors+=factor;
+		}
+		return sumfactors/100 +0.7;
+	}
+
+	@Override
+	public String toString(){
+		StringBuilder sb= new StringBuilder();
+		sb.append("Verfechtung:");
+		sb.append(this.verfechtung);
+		sb.append("\nDezentrale Daten:");
+		sb.append(this.dezentraleDaten);
+		sb.append("\nTransaktionsrate:");
+		sb.append(this.transaktionsrate);
+		sb.append("\nRechenoperationen:");
+		sb.append(this.rechenoperationen);
+		sb.append("\nKontrollverfahren:");
+		sb.append(this.kontrollverfahren);
+		sb.append("\nAusnahmeregelung:");
+		sb.append(this.ausnahmeregelung);
+		sb.append("\nLogik");
+		sb.append(this.logik);
+		sb.append("\nWiederverwendbarkeit");
+		sb.append(this.wiederverwendbarkeit);
+		sb.append("\nDatenbestandskonvertierung");
+		sb.append(this.datenbestandskonvertierung);
+		sb.append("\nAnpassbarkeit");
+		sb.append(this.anpassbarkeit);
+		return sb.toString();
 	}
 }
