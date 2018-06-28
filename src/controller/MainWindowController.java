@@ -1,28 +1,105 @@
 package controller;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.*;
+import utils.IO;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MainWindowController {
 
+    @FXML
+    public Label klaus;
 
+    @FXML
+    void onClickImportProduktfunktion() {
+        List<Produktfunktion> produktfunktion = (List<Produktfunktion>) IO.load((Stage) klaus.getScene().getWindow());
+        IO.load((Stage) klaus.getScene().getWindow());
+        // Anforderungsanalyse.getInstance().setProduktfunktionen((List<Produktfunktion>) IO.load((Stage) klaus.getScene().getWindow()));
+    }
+
+    @FXML
+    void onClickExportProduktfunktion() {
+        IO.save(Anforderungsanalyse.getInstance().getProdukteinsatz(), (Stage) klaus.getScene().getWindow());
+    }
+
+    @FXML
+    void onClickExportProduktdaten() {
+
+    }
+
+    @FXML
+    void onClickImportProduktdaten() {
+
+    }
+
+    @FXML
+    void onClickExportProduktumgebung() {
+
+    }
+
+    @FXML
+    void onClickImportProduktumgebung() {
+
+    }
+
+    @FXML
+    void onClickExportProdukteinsatz() {
+
+    }
+
+    @FXML
+    void onClickImportProdukteinsatz() {
+
+    }
+
+    @FXML
+    void onClickExportZielbestimmung() {
+
+    }
+
+    @FXML
+    void onClickImportZielbestimmung() {
+
+    }
+
+    @FXML
+    void onClickExportSchaetzfaktoren() {
+
+    }
+
+    @FXML
+    void onClickImportSchaetzfaktoren() {
+
+    }
+
+    @FXML
+    public void onClickExport(MouseEvent event) {
+
+    }
+
+    @FXML
+    public void onClickImport(MouseEvent event) {
+
+    }
     public void onClickEditProduktfunktionen(MouseEvent mouseEvent) {
         Stage produktfunktionenWindow = new Stage();
         produktfunktionenWindow.initModality(Modality.APPLICATION_MODAL);
@@ -33,7 +110,7 @@ public class MainWindowController {
             produktfunktionenWindow.setTitle("Produktfunktionen");
             produktfunktionenWindow.show();
         } catch (IOException ex) {
-            Logger.getLogger(ProduktfunktionenController.class.getName()).log(Level.SEVERE, "", ex);
+            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
         }
     }
 
@@ -224,12 +301,7 @@ public class MainWindowController {
         }
     }
 
-    public void onClickExport(MouseEvent event) {
 
-    }
-
-    public void onClickImport(MouseEvent event) {
-    }
 
     public void onClickGithub(MouseEvent event) {
 
