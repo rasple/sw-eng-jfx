@@ -29,6 +29,6 @@ System.out.println("Hello World");
 ```
  
 Contributors:
-Frank Meier
-Simon Frank
-Johannes Lange
+* Frank Meier
+* Simon Frank
+* Johannes Lange
