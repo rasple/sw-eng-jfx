@@ -102,7 +102,7 @@ public class MainWindowController {
         produktfunktionenWindow.initModality(Modality.APPLICATION_MODAL);
         try {
             produktfunktionenWindow.getIcons().add(new Image("/res/dhbw.png"));
-            Parent root = FXMLLoader.load(getClass().getResource("../view/Produktfunktionen.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/Produktfunktionen.fxml"));
             produktfunktionenWindow.setScene(new Scene(root));
             produktfunktionenWindow.setTitle("Produktfunktionen");
             produktfunktionenWindow.show();
@@ -130,7 +130,7 @@ public class MainWindowController {
         produktfunktionenWindow.initModality(Modality.APPLICATION_MODAL);
         try {
             produktfunktionenWindow.getIcons().add(new Image("/res/dhbw.png"));
-            Parent root = FXMLLoader.load(getClass().getResource("../view/Produktdaten.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/Produktdaten.fxml"));
             produktfunktionenWindow.setScene(new Scene(root));
             produktfunktionenWindow.setTitle("Produktdaten");
             produktfunktionenWindow.show();
@@ -160,7 +160,7 @@ public class MainWindowController {
         optiWindow.initModality(Modality.APPLICATION_MODAL);
         try {
             optiWindow.getIcons().add(new Image("/res/dhbw.png"));
-            Parent root = FXMLLoader.load(getClass().getResource("../view/Opti.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/Opti.fxml"));
             optiWindow.setScene(new Scene(root));
             optiWindow.setTitle("Produktdaten");
             optiWindow.show();
@@ -174,7 +174,7 @@ public class MainWindowController {
         aufwabschWindow.initModality(Modality.APPLICATION_MODAL);
         try {
             aufwabschWindow.getIcons().add(new Image("/res/dhbw.png"));
-            Parent root = FXMLLoader.load(getClass().getResource("../view/Aufwabsch.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/Aufwabsch.fxml"));
             aufwabschWindow.setScene(new Scene(root));
             aufwabschWindow.setTitle("Aufwandsabschätzung");
             aufwabschWindow.show();
@@ -203,7 +203,7 @@ public class MainWindowController {
         produktumgebungWindow.initModality(Modality.APPLICATION_MODAL);
         try {
             produktumgebungWindow.getIcons().add(new Image("/res/dhbw.png"));
-            Parent root = FXMLLoader.load(getClass().getResource("../view/Produktumgebung.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/Produktumgebung.fxml"));
             produktumgebungWindow.setScene(new Scene(root));
             produktumgebungWindow.setTitle("Produktumgebung");
             produktumgebungWindow.show();
@@ -231,7 +231,7 @@ public class MainWindowController {
         produkteinsatzWindow.initModality(Modality.APPLICATION_MODAL);
         try {
             produkteinsatzWindow.getIcons().add(new Image("/res/dhbw.png"));
-            Parent root = FXMLLoader.load(getClass().getResource("../view/Produkteinsatz.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/Produkteinsatz.fxml"));
             produkteinsatzWindow.setScene(new Scene(root));
             produkteinsatzWindow.setTitle("Produkteinsatz");
             produkteinsatzWindow.show();
@@ -260,7 +260,7 @@ public class MainWindowController {
         zielbestimmungWindow.initModality(Modality.APPLICATION_MODAL);
         try {
             zielbestimmungWindow.getIcons().add(new Image("/res/dhbw.png"));
-            Parent root = FXMLLoader.load(getClass().getResource("../view/Zielbestimmung.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/Zielbestimmung.fxml"));
             zielbestimmungWindow.setScene(new Scene(root));
             zielbestimmungWindow.setTitle("Zielbestimmung");
             zielbestimmungWindow.show();
@@ -289,7 +289,7 @@ public class MainWindowController {
         schaetzfaktorenWindow.initModality(Modality.APPLICATION_MODAL);
         try {
             schaetzfaktorenWindow.getIcons().add(new Image("/res/dhbw.png"));
-            Parent root = FXMLLoader.load(getClass().getResource("../view/Schaetzfaktoren.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/Schaetzfaktoren.fxml"));
             schaetzfaktorenWindow.setScene(new Scene(root));
             schaetzfaktorenWindow.setTitle("Schätzfaktoren");
             schaetzfaktorenWindow.show();
