@@ -1,6 +1,9 @@
 package model;
 
-public class Faktoren {
+import java.io.Serializable;
+import java.util.Arrays;
+
+public class Faktoren implements Serializable {
 	private double verfechtung;
     private double dezentraleDaten;
     private double transaktionsrate;
@@ -148,6 +151,24 @@ public class Faktoren {
 	}
 
 	@Override
+	public String toString() {
+		return "Faktoren{" +
+				"verfechtung=" + verfechtung +
+				", dezentraleDaten=" + dezentraleDaten +
+				", transaktionsrate=" + transaktionsrate +
+				", rechenoperationen=" + rechenoperationen +
+				", kontrollverfahren=" + kontrollverfahren +
+				", ausnahmeregelung=" + ausnahmeregelung +
+				", logik=" + logik +
+				", wiederverwendbarkeit=" + wiederverwendbarkeit +
+				", datenbestandskonvertierung=" + datenbestandskonvertierung +
+				", anpassbarkeit=" + anpassbarkeit +
+				", faktoren=" + Arrays.toString(faktoren) +
+				", faktor=" + faktor +
+				'}';
+	}
+
+	/*@Override
 	public String toString(){
 		StringBuilder sb= new StringBuilder();
 		sb.append("Verfechtung:");
@@ -171,5 +192,5 @@ public class Faktoren {
 		sb.append("\nAnpassbarkeit");
 		sb.append(this.anpassbarkeit);
 		return sb.toString();
-	}
+	}*/
 }

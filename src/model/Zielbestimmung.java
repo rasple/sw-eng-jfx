@@ -1,6 +1,8 @@
 package model;
 
-public class Zielbestimmung {
+import java.io.Serializable;
+
+public class Zielbestimmung implements Serializable {
 
     private String text;
 
@@ -18,5 +20,12 @@ public class Zielbestimmung {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    @Override
+    public String toString() {
+        return "Zielbestimmung{" +
+                "text='" + text + '\'' +
+                '}';
     }
 }

@@ -1,6 +1,9 @@
 package model;
+
+import java.io.Serializable;
 import java.util.HashMap;
-public class Produktfunktion {
+
+public class Produktfunktion implements Serializable {
     private String id;
     private String desc;
     private int ftr;
@@ -128,5 +131,16 @@ public class Produktfunktion {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Produktfunktion{" +
+                "id='" + id + '\'' +
+                ", desc='" + desc + '\'' +
+                ", ftr=" + ftr +
+                ", det=" + det +
+                ", type='" + type + '\'' +
+                '}';
     }
 }

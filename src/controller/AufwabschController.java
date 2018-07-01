@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.Anforderungsanalyse;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -14,8 +15,10 @@ public class AufwabschController implements Initializable {
 
     @FXML
     public Label textbox;
+
     @FXML
     public Button ok;
+
 
     public void onClickOk(MouseEvent event) {
         Stage stage = (Stage) ok.getScene().getWindow();
@@ -33,7 +36,7 @@ public class AufwabschController implements Initializable {
             erg="Die Produktdaten sind inkorrekt";
         }
         else{
-            erg ="Das Projekt dauert nach der Functionpointmethode " +mannmonate+ " Mannmonate";
+            erg = "Das Projekt dauert nach der Functionpointmethode " + mannmonate + " Mannmonate";
         }
         // Simon, mach hier deine Berechnungen und schreib die ergebnisse in
         System.out.println(erg);

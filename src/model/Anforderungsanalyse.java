@@ -1,10 +1,11 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 // Singleton
-public class Anforderungsanalyse {
+public class Anforderungsanalyse implements Serializable {
     
     // Kein Interface arghh. Dein Ernst
     private List<Produktfunktion> produktfunktionen;
@@ -142,5 +143,22 @@ public class Anforderungsanalyse {
 
     public static void setAnforderungsanalyse(Anforderungsanalyse anforderungsanalyse) {
         Anforderungsanalyse.anforderungsanalyse = anforderungsanalyse;
+    }
+
+    @Override
+    public String toString() {
+        return "Anforderungsanalyse{" +
+                "produktfunktionen=" + produktfunktionen +
+                ", produktdaten=" + produktdaten +
+                ", userfaktoren=" + userfaktoren +
+                ", sollfaktoren=" + sollfaktoren +
+                ", optimieren=" + optimieren +
+                ", fp=" + fp +
+                ", zielbestimmung=" + zielbestimmung +
+                ", produktumgebung=" + produktumgebung +
+                ", produkteinsatz=" + produkteinsatz +
+                ", faktoren=" + faktoren +
+                ", config=" + config +
+                '}';
     }
 }

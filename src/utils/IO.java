@@ -15,7 +15,6 @@ import java.util.logging.Logger;
 public class IO {
     public static void save(Object obj, Stage stage) {
         System.out.println(obj);
-
         StringWriter stringWriter = new StringWriter();
         JAXB.marshal(obj, stringWriter);
         String xml = stringWriter.toString();
@@ -28,6 +27,7 @@ public class IO {
             File file = fileChooser.showSaveDialog(stage);
             writeFile(xml, file);
         } catch (Exception e) {
+
         }
 
     }

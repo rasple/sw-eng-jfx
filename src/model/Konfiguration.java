@@ -1,6 +1,10 @@
 package model;
+
+import java.io.Serializable;
+import java.util.Arrays;
 import java.util.HashMap;
-public class Konfiguration implements Konfiguration_I{
+
+public class Konfiguration implements Konfiguration_I, Serializable {
 
 	private int[][] kompILF;
 	private int[][] kompEIF;
@@ -113,5 +117,18 @@ public class Konfiguration implements Konfiguration_I{
 			fp = 2900;
 		}
 		return fp;
+	}
+
+	@Override
+	public String toString() {
+		return "Konfiguration{" +
+				"kompILF=" + Arrays.toString(kompILF) +
+				", kompEIF=" + Arrays.toString(kompEIF) +
+				", kompEI=" + Arrays.toString(kompEI) +
+				", kompEO=" + Arrays.toString(kompEO) +
+				", kompEQ=" + Arrays.toString(kompEQ) +
+				", HashMapFunktion=" + HashMapFunktion +
+				", HashMapDaten=" + HashMapDaten +
+				'}';
 	}
 }
