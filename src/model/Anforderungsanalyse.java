@@ -45,20 +45,20 @@ public class Anforderungsanalyse implements Serializable {
      * @return -1 Produktfunktion ist invalid, -2 Produktdaten invalid, -3 Produktfunktionen nicht vorhanden, -4 Produktdaten nicht vorhanden
      */
     public double aufwandsabschaetzung(){
-        int unbewertefp=0;
-        Produktfunktion currentfkt;
-        Produktdaten currentda;
-        ListIterator<Produktfunktion> iteratorfkt= this.produktfunktionen.listIterator();
+        int unbewerteFP = 0;
+        Produktfunktion currentFkt;
+        Produktdaten currentDa;
+        ListIterator<Produktfunktion> iteratorFkt = this.produktfunktionen.listIterator();
         if(this.produktfunktionen.isEmpty()){
             return -3;
         }
         if(this.produktdaten.isEmpty()){
             return -4;
         }
-        while(iteratorfkt.hasNext()){
-            currentfkt= iteratorfkt.next();
-            if(currentfkt.isvalid()){
-                unbewertefp+=currentfkt.calcFp(config.getHashMapFunktion());
+        while (iteratorFkt.hasNext()) {
+            currentFkt = iteratorFkt.next();
+            if (currentFkt.isvalid()) {
+                unbewerteFP += currentFkt.calcFp(config.getHashMapFunktion());
             }
             else{
                 return -1;
@@ -67,16 +67,16 @@ public class Anforderungsanalyse implements Serializable {
         }
         ListIterator<Produktdaten>iteratorda=this.produktdaten.listIterator();
         while(iteratorda.hasNext()){
-            currentda=iteratorda.next();
-            if(currentda.isValid()){
-                unbewertefp+=currentda.calcFP(config.getHashMapDaten());
+            currentDa = iteratorda.next();
+            if (currentDa.isValid()) {
+                unbewerteFP += currentDa.calcFP(config.getHashMapDaten());
             }
             else{
                 return -2;
             }
         }
-        System.out.println(unbewertefp);
-        this.fp.setIstfp(this.faktoren.calcbewertetefp(unbewertefp));
+        System.out.println(unbewerteFP);
+        this.fp.setIstfp(this.faktoren.calcbewertetefp(unbewerteFP));
         return fp.getCalcMannmonate();
 
     }

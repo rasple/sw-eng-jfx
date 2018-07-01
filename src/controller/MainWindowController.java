@@ -171,12 +171,59 @@ public class MainWindowController {
 
     public void onClickAufwabsch(MouseEvent event) {
         Stage aufwabschWindow = new Stage();
+
         aufwabschWindow.initModality(Modality.APPLICATION_MODAL);
+
+        String ergebnis = "";
+
+        double mannmonate = Anforderungsanalyse.getInstance().aufwandsabschaetzung();
+
+        if (mannmonate == -1) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Fehler");
+            alert.setHeaderText("Ein Fehler ist aufgetreten");
+            alert.setContentText("Die Produktfunktionen sind inkorrekt");
+            alert.showAndWait();
+            return;
+        } else if (mannmonate == -2) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Fehler");
+            alert.setHeaderText("Ein Fehler ist aufgetreten");
+            alert.setContentText("Die Produktdaten sind inkorrekt");
+            alert.showAndWait();
+            return;
+        } else if (mannmonate == -3) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Fehler");
+            alert.setHeaderText("Ein Fehler ist aufgetreten");
+            alert.setContentText("Keine Produktfunktionen angegeben");
+            alert.showAndWait();
+            return;
+        } else if (mannmonate == -4) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Fehler");
+            alert.setHeaderText("Ein Fehler ist aufgetreten");
+            alert.setContentText("Keine Produktdaten angegeben");
+            alert.showAndWait();
+            return;
+        } else {
+            ergebnis = "Das Projekt dauert nach der Functionpointmethode " + mannmonate + " Mannmonate";
+        }
+
+        System.out.println(ergebnis);
         try {
             aufwabschWindow.getIcons().add(new Image("/res/dhbw.png"));
-            Parent root = FXMLLoader.load(getClass().getResource("/view/Aufwabsch.fxml"));
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(
+                            "/view/Aufwabsch.fxml"
+                    )
+            );
+            Parent root = loader.load();
+            AufwabschController controller = loader.getController();
+            controller.textbox.setText(ergebnis);
             aufwabschWindow.setScene(new Scene(root));
             aufwabschWindow.setTitle("Aufwandsabschätzung");
+
             aufwabschWindow.show();
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
