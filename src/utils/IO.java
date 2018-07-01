@@ -3,24 +3,17 @@ package utils;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import javax.xml.bind.JAXB;
 import java.beans.ExceptionListener;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.StringWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class IO {
     public static void save(Object obj, Stage stage) {
-        System.out.println(obj);
-        StringWriter stringWriter = new StringWriter();
-        JAXB.marshal(obj, stringWriter);
-        String xml = stringWriter.toString();
-        System.out.println(xml);
         try {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Speichere Datei");
@@ -35,6 +28,7 @@ public class IO {
                     Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", e);
                 }
             });
+            System.out.println();
             encoder.writeObject(obj);
             encoder.close();
             fos.close();
@@ -50,7 +44,12 @@ public class IO {
         fileChooser.setTitle("Öffne Datei");
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("KLAUS Dateien (*.klaus)", "*.klaus");
         fileChooser.getExtensionFilters().add(extFilter);
-        File file = fileChooser.showOpenDialog(stage);
+        File file;
+        try {
+            file = fileChooser.showOpenDialog(stage);
+        } catch (Exception e) {
+            return null;
+        }
         Object decoded = null;
         try {
             FileInputStream fis = new FileInputStream(file);
@@ -58,9 +57,11 @@ public class IO {
             decoded = decoder.readObject();
             decoder.close();
             fis.close();
+            return decoded;
         } catch (Exception ex) {
             Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", ex);
+            return null;
         }
-        return decoded;
+
     }
 }

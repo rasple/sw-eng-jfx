@@ -35,7 +35,10 @@ public class MainWindowController {
 
     @FXML
     void onClickImportProduktfunktion() {
-        Anforderungsanalyse.getInstance().setProduktfunktionen((List<Produktfunktion>) IO.load((Stage) klaus.getScene().getWindow()));
+        List<Produktfunktion> produktfunktion = (List<Produktfunktion>) IO.load((Stage) klaus.getScene().getWindow());
+        if (produktfunktion != null) {
+            Anforderungsanalyse.getInstance().setProduktfunktionen(produktfunktion);
+        }
     }
 
     @FXML
@@ -45,7 +48,10 @@ public class MainWindowController {
 
     @FXML
     void onClickImportProduktdaten() {
-        Anforderungsanalyse.getInstance().setProduktdaten((List<Produktdaten>) IO.load((Stage) klaus.getScene().getWindow()));
+        List<Produktdaten> produktdaten = (List<Produktdaten>) IO.load((Stage) klaus.getScene().getWindow());
+        if (produktdaten != null) {
+            Anforderungsanalyse.getInstance().setProduktdaten(produktdaten);
+        }
     }
 
     @FXML
@@ -55,7 +61,10 @@ public class MainWindowController {
 
     @FXML
     void onClickImportProduktumgebung() {
-        Anforderungsanalyse.getInstance().setProduktumgebung((Produktumgebung) IO.load((Stage) klaus.getScene().getWindow()));
+        Produktumgebung produktumgebung = (Produktumgebung) IO.load((Stage) klaus.getScene().getWindow());
+        if (produktumgebung != null) {
+            Anforderungsanalyse.getInstance().setProduktumgebung(produktumgebung);
+        }
     }
 
     @FXML
@@ -65,7 +74,10 @@ public class MainWindowController {
 
     @FXML
     void onClickImportProdukteinsatz() {
-        Anforderungsanalyse.getInstance().setProdukteinsatz((Produkteinsatz) IO.load((Stage) klaus.getScene().getWindow()));
+        Produkteinsatz produkteinsatz = (Produkteinsatz) IO.load((Stage) klaus.getScene().getWindow());
+        if (produkteinsatz != null) {
+            Anforderungsanalyse.getInstance().setProdukteinsatz(produkteinsatz);
+        }
     }
 
     @FXML
@@ -75,7 +87,10 @@ public class MainWindowController {
 
     @FXML
     void onClickImportZielbestimmung() {
-        Anforderungsanalyse.getInstance().setZielbestimmung((Zielbestimmung) IO.load((Stage) klaus.getScene().getWindow()));
+        Zielbestimmung zielbestimmung = (Zielbestimmung) IO.load((Stage) klaus.getScene().getWindow());
+        if (zielbestimmung != null) {
+            Anforderungsanalyse.getInstance().setZielbestimmung(zielbestimmung);
+        }
     }
 
     @FXML
@@ -85,7 +100,10 @@ public class MainWindowController {
 
     @FXML
     void onClickImportSchaetzfaktoren() {
-        Anforderungsanalyse.getInstance().setFaktoren((Faktoren) IO.load((Stage) klaus.getScene().getWindow()));
+        Faktoren faktoren = (Faktoren) IO.load((Stage) klaus.getScene().getWindow());
+        if (faktoren != null) {
+            Anforderungsanalyse.getInstance().setFaktoren(faktoren);
+        }
     }
 
     @FXML
@@ -95,7 +113,10 @@ public class MainWindowController {
 
     @FXML
     public void onClickImport(MouseEvent event) {
-        Anforderungsanalyse.getInstance().setAnforderungsanalyse((Anforderungsanalyse) IO.load((Stage) klaus.getScene().getWindow()));
+        Anforderungsanalyse anforderungsanalyse = (Anforderungsanalyse) IO.load((Stage) klaus.getScene().getWindow());
+        if (anforderungsanalyse != null) {
+            Anforderungsanalyse.getInstance().setAnforderungsanalyse(anforderungsanalyse);
+        }
     }
     public void onClickEditProduktfunktionen(MouseEvent mouseEvent) {
         Stage produktfunktionenWindow = new Stage();

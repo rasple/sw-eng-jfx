@@ -6,15 +6,15 @@ import java.util.List;
 import java.util.ListIterator;
 // Singleton
 public class Anforderungsanalyse implements Serializable {
-    
+
     // Kein Interface arghh. Dein Ernst
+    private static Anforderungsanalyse anforderungsanalyse;
     private List<Produktfunktion> produktfunktionen;
     private List<Produktdaten> produktdaten;
     private Faktoren userfaktoren;
     private Faktoren sollfaktoren;
     private Optimieren_I optimieren;
     private FunctionPoints fp;
-    private static Anforderungsanalyse anforderungsanalyse;
     private Zielbestimmung zielbestimmung;
     private Produktumgebung produktumgebung;
     private Produkteinsatz produkteinsatz;
@@ -106,8 +106,6 @@ public class Anforderungsanalyse implements Serializable {
     public void setProduktdaten(List<Produktdaten> produktdaten) {
         this.produktdaten = produktdaten;
     }
-    
-
 
     public Produkteinsatz getProdukteinsatz() {
         return produkteinsatz;
