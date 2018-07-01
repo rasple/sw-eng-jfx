@@ -4,11 +4,13 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import javax.xml.bind.JAXB;
-import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.beans.ExceptionListener;
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.StringWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,9 +27,20 @@ public class IO {
             FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("KLAUS Dateien (*.klaus)", "*.klaus");
             fileChooser.getExtensionFilters().add(extFilter);
             File file = fileChooser.showSaveDialog(stage);
-            writeFile(xml, file);
-        } catch (Exception e) {
 
+            FileOutputStream fos = new FileOutputStream(file);
+            XMLEncoder encoder = new XMLEncoder(fos);
+            encoder.setExceptionListener(new ExceptionListener() {
+                public void exceptionThrown(Exception e) {
+                    Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", e);
+                }
+            });
+            encoder.writeObject(obj);
+            encoder.close();
+            fos.close();
+
+        } catch (Exception e) {
+            Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", e);
         }
 
     }
@@ -38,30 +51,16 @@ public class IO {
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("KLAUS Dateien (*.klaus)", "*.klaus");
         fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showOpenDialog(stage);
-        String xmlString = "";
+        Object decoded = null;
         try {
-            xmlString = readFile(file.getPath(), StandardCharsets.UTF_8);
-        } catch (IOException ex) {
+            FileInputStream fis = new FileInputStream(file);
+            XMLDecoder decoder = new XMLDecoder(fis);
+            decoded = decoder.readObject();
+            decoder.close();
+            fis.close();
+        } catch (Exception ex) {
             Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", ex);
         }
-        return JAXB.unmarshal(new StringReader(xmlString), Object.class);
-    }
-
-
-    static String readFile(String path, Charset encoding) throws IOException {
-        byte[] encoded = Files.readAllBytes(Paths.get(path));
-        return new String(encoded, encoding);
-    }
-
-    static void writeFile(String content, File file) {
-        try {
-            FileWriter fileWriter = null;
-            fileWriter = new FileWriter(file);
-            fileWriter.write(content);
-            fileWriter.close();
-        } catch (IOException ex) {
-            Logger.getLogger(IO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        return decoded;
     }
 }
