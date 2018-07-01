@@ -28,7 +28,3 @@ So macht man Quellcode: (Nicht die Sprache vergessen)
 System.out.println("Hello World");
 ```
  
-Contributors:
-* Frank Meier
-* Simon Frank
-* Johannes Lange
