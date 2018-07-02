@@ -183,8 +183,8 @@ public class Faktoren implements Serializable {
 				'}';
 	}
 
-	/*@Override
-	public String toString(){
+
+	public String Userausgabe(){
 		StringBuilder sb= new StringBuilder();
 		sb.append("Verfechtung:");
 		sb.append(this.verfechtung);
@@ -207,5 +207,5 @@ public class Faktoren implements Serializable {
 		sb.append("\nAnpassbarkeit");
 		sb.append(this.anpassbarkeit);
 		return sb.toString();
-	}*/
+	}
 }

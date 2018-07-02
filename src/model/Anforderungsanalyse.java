@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.logging.Level;
+
+
 
 // Singleton
 public class Anforderungsanalyse implements Serializable, Cloneable {
@@ -21,7 +23,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
     private Optimieren_I optimieren;
 
 
-    private FunctionPoints functionPoints;
+    private FunctionPoints fp;
     private Zielbestimmung zielbestimmung;
     private Produktumgebung produktumgebung;
     private Produkteinsatz produkteinsatz;
@@ -29,6 +31,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
 
 
     private Konfiguration_I config;
+    private List<Fabrik_I> nachkalfabrik; //Liste für Fabriken für die Algo der Nachkalkulation
 
     public Anforderungsanalyse clone(Anforderungsanalyse anfOld) {
         Anforderungsanalyse anfNew = new Anforderungsanalyse();
@@ -37,7 +40,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
         anfNew.setUserfaktoren(new Faktoren(anfOld.userfaktoren));
         anfNew.setSollfaktoren(new Faktoren(anfOld.sollfaktoren));
         anfNew.setOptimieren(anfOld.optimieren);
-        anfNew.setFunctionPoints(new FunctionPoints(new Konfiguration(), new DefaultOptimierung()));
+        anfNew.setFp(new FunctionPoints(new Konfiguration(), new DefaultOptimierung()));
         anfNew.setZielbestimmung(new Zielbestimmung(anfOld.zielbestimmung));
         anfNew.setProduktumgebung(new Produktumgebung(anfOld.produktumgebung));
         anfNew.setProdukteinsatz(new Produkteinsatz(anfOld.produkteinsatz));
@@ -67,8 +70,10 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
         produktumgebung = new Produktumgebung();
         produkteinsatz = new Produkteinsatz();
         faktoren = new Faktoren();
-        functionPoints = new FunctionPoints(new Konfiguration(), new DefaultOptimierung()); // Default immer der eigene Algo
+        fp= new FunctionPoints(new Konfiguration(), new DefaultOptimierung()); // Default immer der eigene Algo
         config= new Konfiguration();
+        nachkalfabrik= new ArrayList<>();
+        nachkalfabrik.add(new DefaultFabrik());
     }
 
 
@@ -115,21 +120,27 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
             }
         }
         System.out.println(unbewerteFP);
-        this.functionPoints.setIstfp(this.faktoren.calcbewertetefp(unbewerteFP));
-        return functionPoints.getCalcMannmonate();
+        this.fp.setIstfp(this.faktoren.calcbewertetefp(unbewerteFP));
+        return fp.getCalcMannmonate();
 
     }
     //Um die Methode ausführen zu können, muss der user eingeben wie lange das Projekt wirklich gedauert hat und davor die
     // Aufwandsabschätzung durchgeführt haben
-    public Faktoren selbstoptimierung(double mannmonate){
-        this.aufwandsabschaetzung();
-        this.sollfaktoren = functionPoints.selbstoptimierung(mannmonate, userfaktoren.getFaktoren());
+    public Faktoren selbstoptimierung(double mannmonate) throws SelbstoptiException{
+        Double result=this.aufwandsabschaetzung();
+        switch (result.intValue()){
+            case -1: throw new SelbstoptiException("Produktfunktionen nicht vollständig", -1);
+            case -2: throw new SelbstoptiException("Produktdaten nicht vollständig",-2);
+            case -3: throw new SelbstoptiException("Produktfunktionen nicht vorhanden",-3);
+            case -4: throw new SelbstoptiException("Produktdaten nicht vorhanden",-4);
+        }
+        this.sollfaktoren=fp.selbstoptimierung(mannmonate, faktoren.getFaktoren());
         return this.sollfaktoren;
     }
     //Diese Methode soll aufgerufen werden, wenn der User einer anderen
-    //ALgo für die selbstoptimierte Nachkalkulation haben will
-    public void setFpOpti(Fabrik_I fabrik){
-        functionPoints.setOpti(fabrik.create());
+    //ALgo für die selbstoptimierte Nachkalkulation haben will. Es kann ein Algo aus der Liste ausgewählt werden
+    public void setFpOpti(int pos){
+        fp.setOpti(this.nachkalfabrik.get(pos).create());
     }
     public List<Produktfunktion> getProduktfunktionen() {
         return produktfunktionen;
@@ -186,12 +197,12 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
         this.sollfaktoren = sollfaktoren;
     }
 
-    public FunctionPoints getFunctionPoints() {
-        return functionPoints;
+    public FunctionPoints getFp() {
+        return fp;
     }
 
-    public void setFunctionPoints(FunctionPoints functionPoints) {
-        this.functionPoints = functionPoints;
+    public void setFp(FunctionPoints functionPoints) {
+        this.fp = functionPoints;
     }
 
     public static void setAnforderungsanalyse(Anforderungsanalyse anforderungsanalyse) {
@@ -214,7 +225,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
                 ", userfaktoren=" + userfaktoren +
                 ", sollfaktoren=" + sollfaktoren +
                 ", optimieren=" + optimieren +
-                ", functionPoints=" + functionPoints +
+                ", fp=" + fp +
                 ", zielbestimmung=" + zielbestimmung +
                 ", produktumgebung=" + produktumgebung +
                 ", produkteinsatz=" + produkteinsatz +
