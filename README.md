@@ -5,7 +5,7 @@ Dieses Projekt dient der Erstellung von Anforderungsanalysen und Aufwandsabschä
 
 [Spezifikation](https://github.com/rasple/sw-eng-jfx/tree/master/spezifikation.pdf)
 
-# Anforderungen
+# Anforderungen (Grob)
 ## Produktfunktionen
 * Beim Anlegen festlegen ob Eingabe, Ausgabe oder Abfrage
 * Bekannte FTRs und DETs eingeben
@@ -14,12 +14,11 @@ Dieses Projekt dient der Erstellung von Anforderungsanalysen und Aufwandsabschä
 * RETs und DETs abfragen
 ## Schätzkonfiguration
 * Seite 15 Spezifikation
-* Auswahl von dem User ob Standard oder berechnete Schätzfaktoren.
-Des alten Projektes übernommen werden.
-## Selbstoptimierte Nachkalkulation 
-* Es wird ein Algo übergeben. Wird angewendet.
+* Auswahl vom User ob Standard oder berechnete Schätzfaktoren des alten Projekts übernommen werden.
+## Selbstoptimierende Nachkalkulation 
+* Es wird ein Algorithmus übergeben. Wird angewendet.
 * Verändert zunächst einen Parameter bis Soll und Ist gleich sind.
- In den Einstellung kann verändert werden welcher Algo verwendet werden soll
+* In den Einstellung kann verändert werden welcher Algo verwendet werden soll
 * Muss modular als eigenes Jar-File austauschbar sein
 
 So macht man Quellcode: (Nicht die Sprache vergessen)
@@ -28,7 +27,3 @@ So macht man Quellcode: (Nicht die Sprache vergessen)
 System.out.println("Hello World");
 ```
  
-Contributors:
-* Frank Meier
-* Simon Frank
-* Johannes Lange

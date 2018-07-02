@@ -1,6 +1,8 @@
 package model;
 
-public class Produktumgebung {
+import java.io.Serializable;
+
+public class Produktumgebung implements Serializable {
 
     private String text;
 
@@ -18,5 +20,12 @@ public class Produktumgebung {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    @Override
+    public String toString() {
+        return "Produktumgebung{" +
+                "text='" + text + '\'' +
+                '}';
     }
 }

@@ -1,6 +1,9 @@
 package model;
+
+import java.io.Serializable;
 import java.util.HashMap;
-public class Produktdaten {
+
+public class Produktdaten implements Serializable {
 
     private String id;
     private String desc;
@@ -88,5 +91,16 @@ public class Produktdaten {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Produktdaten{" +
+                "id='" + id + '\'' +
+                ", desc='" + desc + '\'' +
+                ", ret=" + ret +
+                ", det=" + det +
+                ", type='" + type + '\'' +
+                '}';
     }
 }

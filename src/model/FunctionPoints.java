@@ -1,6 +1,8 @@
 package model;
 
-public class FunctionPoints {
+import java.io.Serializable;
+
+public class FunctionPoints implements Serializable {
 	private double istfp;
 	private double sollfp;
 	private double calcmannmonate;
@@ -50,5 +52,17 @@ public class FunctionPoints {
 		this.istmanmonate= mannmonate;
 		this.sollfp= this.config.calcfp(mannmonate);
 
+	}
+
+	@Override
+	public String toString() {
+		return "FunctionPoints{" +
+				"istfp=" + istfp +
+				", sollfp=" + sollfp +
+				", calcmannmonate=" + calcmannmonate +
+				", istmanmonate=" + istmanmonate +
+				", config=" + config +
+				", opti=" + opti +
+				'}';
 	}
 }
