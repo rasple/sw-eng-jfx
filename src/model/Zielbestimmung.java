@@ -14,6 +14,10 @@ public class Zielbestimmung implements Serializable {
         this.text = text;
     }
 
+    public Zielbestimmung(Zielbestimmung zielbestimmung) {
+        this.text = zielbestimmung.text;
+    }
+
     public String getText() {
         return text;
     }

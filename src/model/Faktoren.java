@@ -31,6 +31,20 @@ public class Faktoren implements Serializable {
         this.anpassbarkeit = 0.0;
 
 	}
+
+    public Faktoren(Faktoren faktoren) {
+        this.faktoren = new double[10];
+        this.verfechtung = faktoren.verfechtung;
+        this.dezentraleDaten = faktoren.dezentraleDaten;
+        this.transaktionsrate = faktoren.transaktionsrate;
+        this.rechenoperationen = faktoren.rechenoperationen;
+        this.kontrollverfahren = faktoren.kontrollverfahren;
+        this.ausnahmeregelung = faktoren.ausnahmeregelung;
+        this.logik = faktoren.logik;
+        this.wiederverwendbarkeit = faktoren.wiederverwendbarkeit;
+        this.datenbestandskonvertierung = faktoren.datenbestandskonvertierung;
+        this.anpassbarkeit = faktoren.anpassbarkeit;
+    }
 	public Faktoren(double[] faktoren){
 		int pos=0;
 		this.faktoren= new double[10];
@@ -39,7 +53,8 @@ public class Faktoren implements Serializable {
 			pos++;
 		}
 	}
-	public double getVerfechtung() {
+
+    public double getVerfechtung() {
 		return verfechtung;
 	}
 	public void setVerfechtung(double verfechtung) {

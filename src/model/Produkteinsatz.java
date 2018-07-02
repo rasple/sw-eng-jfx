@@ -13,6 +13,10 @@ public class Produkteinsatz implements Serializable {
         this.text = text;
     }
 
+    public Produkteinsatz(Produkteinsatz produkteinsatz) {
+        this.text = produkteinsatz.text;
+    }
+
     public String getText() {
         return text;
     }

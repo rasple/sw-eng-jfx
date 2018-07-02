@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <VBox pickOnBounds="false" prefHeight="763.0" prefWidth="424.0" xmlns:fx="http://javafx.com/fxml/1"
-      xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controller.MainWindowController">
+      fx:controller="controller.MainWindowController">
    <children>
       <HBox prefHeight="76.0" prefWidth="422.0">
          <children>
@@ -152,20 +152,21 @@
                  <content>
                      <AnchorPane>
                          <children>
-                             <Label layoutX="8.0" prefHeight="59.0" prefWidth="208.0"
-                                    text="User Interface und User Experience: Mat. Nr. 4588745" wrapText="true">
+                             <Label layoutX="8.0" prefHeight="59.0" prefWidth="263.0"
+                                    text="User Interface und User Experience: &#10;Mat. Nr. 4588745" wrapText="true">
                                  <font>
                                      <Font size="13.0" />
                                  </font>
                              </Label>
-                             <Label layoutX="8.0" layoutY="60.0" prefHeight="48.0" prefWidth="268.0"
-                                    text="Aufwandsabschätzung und Selbstopimierung: Mat. Nr. 2384618" wrapText="true">
+                             <Label layoutX="8.0" layoutY="60.0" prefHeight="48.0" prefWidth="343.0"
+                                    text="Aufwandsabschätzung und Selbstopimierung: &#10;Mat. Nr. 2384618"
+                                    wrapText="true">
                                  <font>
                                      <Font size="13.0" />
                                  </font>
                              </Label>
                              <Label layoutX="8.0" layoutY="113.0" prefHeight="41.0" prefWidth="216.0"
-                                    text="Testing und Quality control: " wrapText="true">
+                                    text="Testing und Quality control: &#10;" wrapText="true">
                                  <font>
                                      <Font size="13.0" />
                                  </font>
@@ -183,7 +184,7 @@
                                      <Image url="@../res/GPLv3.png" />
                                  </image>
                              </ImageView>
-                             <Hyperlink layoutX="66.0" layoutY="515.0" onMouseClicked="#onClickGithub"
+                             <Hyperlink layoutX="65.0" layoutY="515.0" onMouseClicked="#onClickGithub"
                                         text="Complete sources are available on Github"/>
                              <Separator layoutY="55.0" prefHeight="3.0" prefWidth="425.0" />
                              <Separator layoutX="4.0" layoutY="108.0" prefHeight="3.0" prefWidth="419.0" />

@@ -2,6 +2,7 @@ package utils;
 
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.Anforderungsanalyse;
 
 import java.beans.ExceptionListener;
 import java.beans.XMLDecoder;
@@ -15,6 +16,7 @@ import java.util.logging.Logger;
 public class IO {
     public static void save(Object obj, Stage stage) {
         try {
+
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Speichere Datei");
             FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("KLAUS Dateien (*.klaus)", "*.klaus");
@@ -23,16 +25,27 @@ public class IO {
 
             FileOutputStream fos = new FileOutputStream(file);
             XMLEncoder encoder = new XMLEncoder(fos);
+
             encoder.setExceptionListener(new ExceptionListener() {
-                public void exceptionThrown(Exception e) {
-                    Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", e);
+                public void exceptionThrown(Exception ex) {
+                    System.out.println(ex);
+                    Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", ex);
                 }
             });
-            System.out.println();
-            encoder.writeObject(obj);
-            encoder.close();
-            fos.close();
 
+            if (obj instanceof Anforderungsanalyse) {
+                // Wegen Singleton und so
+                Anforderungsanalyse anforderungsanalyse = Anforderungsanalyse.getInstance().getCopyOfCurrentAnforderungsanalyse();
+                Anforderungsanalyse.getInstance().resetAnforderungsanalyse();
+                encoder.writeObject(anforderungsanalyse);
+                encoder.close();
+                fos.close();
+                Anforderungsanalyse.setAnforderungsanalyse(anforderungsanalyse);
+            } else {
+                encoder.writeObject(obj);
+                encoder.close();
+                fos.close();
+            }
         } catch (Exception e) {
             Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", e);
         }
@@ -44,24 +57,26 @@ public class IO {
         fileChooser.setTitle("Öffne Datei");
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("KLAUS Dateien (*.klaus)", "*.klaus");
         fileChooser.getExtensionFilters().add(extFilter);
-        File file;
+        File file = null;
         try {
             file = fileChooser.showOpenDialog(stage);
         } catch (Exception e) {
             return null;
         }
         Object decoded = null;
-        try {
-            FileInputStream fis = new FileInputStream(file);
-            XMLDecoder decoder = new XMLDecoder(fis);
-            decoded = decoder.readObject();
-            decoder.close();
-            fis.close();
-            return decoded;
-        } catch (Exception ex) {
-            Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", ex);
-            return null;
+        if (file != null) {
+            try {
+                FileInputStream fis = new FileInputStream(file);
+                XMLDecoder decoder = new XMLDecoder(fis);
+                decoded = decoder.readObject();
+                decoder.close();
+                fis.close();
+                return decoded;
+            } catch (Exception ex) {
+                Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", ex);
+                return null;
+            }
         }
-
+        return null;
     }
 }

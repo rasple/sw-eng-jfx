@@ -14,6 +14,10 @@ public class Produktumgebung implements Serializable {
         this.text = text;
     }
 
+    public Produktumgebung(Produktumgebung produktumgebung) {
+        this.text = produktumgebung.text;
+    }
+
     public String getText() {
         return text;
     }
