@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.logging.Logger;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -23,7 +23,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
     private Optimieren_I optimieren;
 
 
-    private FunctionPoints fp;
+    private FunctionPoints functionPoints;
     private Zielbestimmung zielbestimmung;
     private Produktumgebung produktumgebung;
     private Produkteinsatz produkteinsatz;
@@ -40,7 +40,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
         anfNew.setUserfaktoren(new Faktoren(anfOld.userfaktoren));
         anfNew.setSollfaktoren(new Faktoren(anfOld.sollfaktoren));
         anfNew.setOptimieren(anfOld.optimieren);
-        anfNew.setFp(new FunctionPoints(new Konfiguration(), new DefaultOptimierung()));
+        anfNew.setFunctionPoints(new FunctionPoints(new Konfiguration(), new DefaultOptimierung()));
         anfNew.setZielbestimmung(new Zielbestimmung(anfOld.zielbestimmung));
         anfNew.setProduktumgebung(new Produktumgebung(anfOld.produktumgebung));
         anfNew.setProdukteinsatz(new Produkteinsatz(anfOld.produkteinsatz));
@@ -70,7 +70,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
         produktumgebung = new Produktumgebung();
         produkteinsatz = new Produkteinsatz();
         faktoren = new Faktoren();
-        fp= new FunctionPoints(new Konfiguration(), new DefaultOptimierung()); // Default immer der eigene Algo
+        functionPoints = new FunctionPoints(new Konfiguration(), new DefaultOptimierung()); // Default immer der eigene Algo
         config= new Konfiguration();
         nachkalfabrik= new ArrayList<>();
         nachkalfabrik.add(new DefaultFabrik());
@@ -120,8 +120,8 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
             }
         }
         System.out.println(unbewerteFP);
-        this.fp.setIstfp(this.faktoren.calcbewertetefp(unbewerteFP));
-        return fp.getCalcMannmonate();
+        this.functionPoints.setIstfp(this.faktoren.calcbewertetefp(unbewerteFP));
+        return functionPoints.getCalcMannmonate();
 
     }
     //Um die Methode ausführen zu können, muss der user eingeben wie lange das Projekt wirklich gedauert hat und davor die
@@ -134,13 +134,13 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
             case -3: throw new SelbstoptiException("Produktfunktionen nicht vorhanden",-3);
             case -4: throw new SelbstoptiException("Produktdaten nicht vorhanden",-4);
         }
-        this.sollfaktoren=fp.selbstoptimierung(mannmonate, faktoren.getFaktoren());
+        this.sollfaktoren = functionPoints.selbstoptimierung(mannmonate, faktoren.getFaktoren());
         return this.sollfaktoren;
     }
     //Diese Methode soll aufgerufen werden, wenn der User einer anderen
     //ALgo für die selbstoptimierte Nachkalkulation haben will. Es kann ein Algo aus der Liste ausgewählt werden
     public void setFpOpti(int pos){
-        fp.setOpti(this.nachkalfabrik.get(pos).create());
+        functionPoints.setOpti(this.nachkalfabrik.get(pos).create());
     }
     public List<Produktfunktion> getProduktfunktionen() {
         return produktfunktionen;
@@ -197,12 +197,12 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
         this.sollfaktoren = sollfaktoren;
     }
 
-    public FunctionPoints getFp() {
-        return fp;
+    public FunctionPoints getFunctionPoints() {
+        return functionPoints;
     }
 
-    public void setFp(FunctionPoints functionPoints) {
-        this.fp = functionPoints;
+    public void setFunctionPoints(FunctionPoints functionPoints) {
+        this.functionPoints = functionPoints;
     }
 
     public static void setAnforderungsanalyse(Anforderungsanalyse anforderungsanalyse) {
@@ -225,7 +225,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
                 ", userfaktoren=" + userfaktoren +
                 ", sollfaktoren=" + sollfaktoren +
                 ", optimieren=" + optimieren +
-                ", fp=" + fp +
+                ", functionPoints=" + functionPoints +
                 ", zielbestimmung=" + zielbestimmung +
                 ", produktumgebung=" + produktumgebung +
                 ", produkteinsatz=" + produkteinsatz +
