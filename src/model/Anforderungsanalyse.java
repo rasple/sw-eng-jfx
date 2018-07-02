@@ -20,6 +20,7 @@ public class Anforderungsanalyse implements Serializable {
     private Produkteinsatz produkteinsatz;
     private Faktoren faktoren;
     private Konfiguration_I config;
+    private List<Fabrik_I> nachkalfabrik; //Liste für Fabriken für die Algo der Nachkalkulation
 
     private Anforderungsanalyse() {
         produktfunktionen = new ArrayList<Produktfunktion>();
@@ -30,6 +31,8 @@ public class Anforderungsanalyse implements Serializable {
         faktoren = new Faktoren();
         fp= new FunctionPoints(new Konfiguration(), new DefaultOptimierung()); // Default immer der eigene Algo
         config= new Konfiguration();
+        nachkalfabrik= new ArrayList<>();
+        nachkalfabrik.add(new DefaultFabrik());
     }
 
 
@@ -82,15 +85,21 @@ public class Anforderungsanalyse implements Serializable {
     }
     //Um die Methode ausführen zu können, muss der user eingeben wie lange das Projekt wirklich gedauert hat und davor die
     // Aufwandsabschätzung durchgeführt haben
-    public Faktoren selbstoptimierung(double mannmonate){
-        this.aufwandsabschaetzung();
-        this.sollfaktoren=fp.selbstoptimierung(mannmonate, userfaktoren.getFaktoren());
+    public Faktoren selbstoptimierung(double mannmonate) throws SelbstoptiException{
+        Double result=this.aufwandsabschaetzung();
+        switch (result.intValue()){
+            case -1: throw new SelbstoptiException("Produktfunktionen nicht vollständig", -1);
+            case -2: throw new SelbstoptiException("Produktdaten nicht vollständig",-2);
+            case -3: throw new SelbstoptiException("Produktfunktionen nicht vorhanden",-3);
+            case -4: throw new SelbstoptiException("Produktdaten nicht vorhanden",-4);
+        }
+        this.sollfaktoren=fp.selbstoptimierung(mannmonate, faktoren.getFaktoren());
         return this.sollfaktoren;
     }
     //Diese Methode soll aufgerufen werden, wenn der User einer anderen
-    //ALgo für die selbstoptimierte Nachkalkulation haben will
-    public void setFpOpti(Fabrik_I fabrik){
-        fp.setOpti(fabrik.create());
+    //ALgo für die selbstoptimierte Nachkalkulation haben will. Es kann ein Algo aus der Liste ausgewählt werden
+    public void setFpOpti(int pos){
+        fp.setOpti(this.nachkalfabrik.get(pos).create());
     }
     public List<Produktfunktion> getProduktfunktionen() {
         return produktfunktionen;
