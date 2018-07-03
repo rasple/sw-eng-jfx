@@ -10,7 +10,7 @@ public class DefaultOptimierung implements Optimieren_I {
 	@Override
 	
 	public Faktoren optimieren(double istfp, double sollfp, double[] factors) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub <- professionalism.avi
 		final double unbewertetefp= Faktoren.calcunbewertefp(istfp, factors);
 		int pos=0, maxpos= factors.length;
 		double dif=istfp-sollfp, currentfp;
