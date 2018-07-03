@@ -8,4 +8,7 @@ public class SelbstoptiException extends Exception {
         this.reason= reason;
     }
 
+    public int getReason() {
+        return reason;
+    }
 }

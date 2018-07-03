@@ -2,13 +2,9 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextFormatter;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
 import model.Anforderungsanalyse;
 import model.Faktoren;
 import model.SelbstoptiException;
@@ -51,6 +47,13 @@ public class OptiController implements Initializable {
             Faktoren sollfaktoren = Anforderungsanalyse.getInstance().selbstoptimierung(mannmonate);
             textbox.setText(sollfaktoren.Userausgabe());
         } catch (SelbstoptiException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Fehler");
+            alert.setHeaderText("Ein Fehler ist aufgetreten");
+            alert.setContentText(e.getLocalizedMessage());
+            alert.showAndWait();
+            Stage stage = (Stage) ok.getScene().getWindow();
+            stage.close();
 
         }
     }

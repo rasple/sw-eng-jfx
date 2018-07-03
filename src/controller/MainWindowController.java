@@ -2,6 +2,7 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.LoadException;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -181,10 +182,14 @@ public class MainWindowController {
         optiWindow.initModality(Modality.APPLICATION_MODAL);
         try {
             optiWindow.getIcons().add(new Image("/res/dhbw.png"));
-            Parent root = FXMLLoader.load(getClass().getResource("/view/Opti.fxml"));
-            optiWindow.setScene(new Scene(root));
-            optiWindow.setTitle("Produktdaten");
-            optiWindow.show();
+
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/view/Opti.fxml"));
+                optiWindow.setScene(new Scene(root));
+                optiWindow.setTitle("Produktdaten");
+                optiWindow.show();
+            } catch (LoadException ex) {
+            }
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
         }
