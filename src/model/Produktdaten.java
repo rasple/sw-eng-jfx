@@ -26,13 +26,28 @@ public class Produktdaten implements Serializable {
         this.setDet(det);
         this.setType(type);
     }
+
+    /**
+     * Berechnet die Functionpoints gemäß der übergebenen Matrix
+     * @param fpmatrix Komplexitätsmatrix
+     * @return Functionpoints
+     */
     public int calcFP(HashMap<String, int[][]> fpmatrix){
         return fpmatrix.get(this.type)[this.calcPosRet()][this.calcPosDet()];
     }
+
+    /**
+     *
+     * @return true wenn alle Felder einen sinnvollen Wert besitzen
+     */
     public boolean isValid(){
         return this.ret>0 && this.det>0 && !this.type.isEmpty();
     }
 
+    /**
+     *
+     * @return Zeile in der Komplexitätsmatrix
+     */
     private int calcPosRet(){
         if(this.ret<2){
             return 0;
@@ -44,6 +59,11 @@ public class Produktdaten implements Serializable {
             return 2;
         }
     }
+
+    /**
+     *
+     * @return Spalte in der Komplexitätsmatrix
+     */
     private int calcPosDet(){
         if(this.det<20){
             return 0;
