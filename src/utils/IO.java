@@ -1,6 +1,7 @@
 package utils;
 
 import com.sun.javafx.collections.ObservableListWrapper;
+import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Anforderungsanalyse;
@@ -46,8 +47,18 @@ public class IO {
                 encoder.close();
                 fos.close();
             }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText("Erfolgreich!");
+            alert.setContentText("Daten wurden erfolgreich gespeichert!");
+            alert.showAndWait();
         } catch (Exception e) {
             Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", e);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Fehler");
+            alert.setHeaderText("Fehler!");
+            alert.setContentText("Daten konnten nicht importiert werden");
+            alert.showAndWait();
         }
 
     }
@@ -71,9 +82,20 @@ public class IO {
                 decoded = decoder.readObject();
                 decoder.close();
                 fis.close();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText("Erfolgreich");
+                alert.setContentText("Daten wurden erfolgreich gelesen!");
+                alert.showAndWait();
                 return decoded;
             } catch (Exception ex) {
                 Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", ex);
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Fehler");
+                alert.setHeaderText("Fehler!");
+                alert.setContentText("Daten konnten nicht importiert werden");
+
+                alert.showAndWait();
                 return null;
             }
         }
