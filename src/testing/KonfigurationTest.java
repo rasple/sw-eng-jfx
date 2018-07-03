@@ -37,7 +37,7 @@ public class KonfigurationTest {
         assertEquals(HashMap.class, HMDaten.getClass());
     }
 
-    @Ignore
+    @Ignore("Bugged calculation mechanics")
     public void evaluateCalcMannMonate(){
 
         Konfiguration_I config = new Konfiguration();
@@ -46,6 +46,8 @@ public class KonfigurationTest {
         for (double value : testValues) {
             assert(config.calcmannmonate(value)>=0);
         }
+
+        assert(config.calcmannmonate(-1)==0);
         
     }
 
@@ -58,6 +60,8 @@ public class KonfigurationTest {
         for (double value : testValues) {
             assert(config.calcfp(value)>=0);
         }
+
+        assert(config.calcfp(-1)==0);
 
     }
 

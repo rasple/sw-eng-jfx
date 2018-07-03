@@ -18,6 +18,8 @@ public class OptimierenTest {
         double[][] testFactors;
 
         Optimieren_I opti = new DefaultOptimierung();
+
+        //Faktoren factors = opti.optimieren(testIstFp, testSollFp, testFactors);
     }
 
     @Test
@@ -28,6 +30,8 @@ public class OptimierenTest {
         double[][] testFactors;
 
         Optimieren_I opti = new DefaultOptimierung();
+
+        //Faktoren factors = opti.optimieren(testIstFp, testSollFp, testFactors);
     }
 
     @Test
@@ -38,6 +42,8 @@ public class OptimierenTest {
         double[][] testFactors;
 
         Optimieren_I opti = new DefaultOptimierung();
+
+        //Faktoren factors = opti.optimieren(testIstFp, testSollFp, testFactors);
     }
 
 }
