@@ -71,7 +71,7 @@ public class Konfiguration implements Konfiguration_I, Serializable {
 		} else if (fp > 2200 && fp <= 2500) {
 			mannmonate = -130 + (3 * fp / 20);
 		} else if (fp > 2500 && fp <= 2600) {
-			mannmonate = -205 + (2 * fp / 50);
+			mannmonate = -205 + (9 * fp / 50);
 		} else if (fp > 2600 && fp <= 2700) {
 			mannmonate = -283 + (fp * 21 / 100);
 		} else if (fp > 2700 && fp <= 2800) {
