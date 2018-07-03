@@ -49,7 +49,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
         return anfNew;
     }
 
-    // Wichtig für Serialisierung von Singleton
+    // Wichtig für Serialisierung von Singleton fürs Speichern
     public Anforderungsanalyse getCopyOfCurrentAnforderungsanalyse() {
         try {
             return (Anforderungsanalyse) anforderungsanalyse.clone();
