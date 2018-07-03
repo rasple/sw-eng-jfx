@@ -19,7 +19,19 @@ public class KonfigurationTest {
        assertEquals(3, HMFunktion.size());
        assertNotNull(HMFunktion.hashCode());
        assertEquals(java.util.HashMap.class, HMFunktion.getClass());
+    }
 
+    @Test
+    public void evaluateHashMapDaten(){
+
+        Konfiguration konfiguration = new Konfiguration();
+
+        HashMap<?,?> HMDaten = konfiguration.getHashMapDaten();
+
+        assertFalse(HMDaten.isEmpty());
+        assertEquals(2, HMDaten.size());
+        assertNotNull(HMDaten.hashCode());
+        assertEquals(HashMap.class, HMDaten.getClass());
     }
 
 }
