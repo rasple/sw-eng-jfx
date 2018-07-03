@@ -14,7 +14,7 @@ public class Faktoren implements Serializable {
 	private double wiederverwendbarkeit;
 	private double datenbestandskonvertierung;
 	private double anpassbarkeit;
-	private double[] faktoren;
+	private double[] faktoren; //<-welcher heini ist auf die idee gekommen, das zeug gleich wie die klasse zu nennen?
 	private double faktor;
 	
 	public Faktoren(){
