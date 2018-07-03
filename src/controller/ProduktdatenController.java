@@ -17,6 +17,7 @@ import org.apache.commons.lang3.StringUtils;
 import utils.Convert;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
@@ -69,7 +70,7 @@ public class ProduktdatenController implements Initializable {
         produktdaten = produktdaten.stream().filter(i -> !StringUtils.isEmpty(i.getId()))
                 .filter(i -> !StringUtils.isEmpty(i.getType()))
                 .collect(Collectors.collectingAndThen(toList(), l -> FXCollections.observableArrayList(l)));
-        Anforderungsanalyse.getInstance().setProduktdaten(produktdaten);
+        Anforderungsanalyse.getInstance().setProduktdaten(new ArrayList<Produktdaten>(produktdaten));
         for (Produktdaten p : produktdaten) {
             System.out.println(Convert.toJSON(p));
         }

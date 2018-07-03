@@ -17,6 +17,7 @@ import org.apache.commons.lang3.StringUtils;
 import utils.Convert;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
@@ -72,7 +73,7 @@ public class ProduktfunktionenController implements Initializable {
                 .filter(i -> !StringUtils.isEmpty(i.getType()))
                 .collect(Collectors.collectingAndThen(toList(), l -> FXCollections.observableArrayList(l)));
 
-        Anforderungsanalyse.getInstance().setProduktfunktionen(produktfunktionen);
+        Anforderungsanalyse.getInstance().setProduktfunktionen(new ArrayList<>(produktfunktionen));
         for (Produktfunktion p : produktfunktionen) {
             System.out.println(Convert.toJSON(p));
         }
