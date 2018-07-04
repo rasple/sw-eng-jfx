@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 
 // Singleton
-public class Anforderungsanalyse implements Serializable, Cloneable {
+public class Anforderungsanalyse implements Serializable, Cloneable, Anforderungsanalyse_I {
 
     // Kein Interface arghh. Dein Ernst
     private static Anforderungsanalyse anforderungsanalyse;
