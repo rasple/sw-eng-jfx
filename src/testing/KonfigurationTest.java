@@ -42,9 +42,10 @@ public class KonfigurationTest {
 
         Konfiguration_I config = new Konfiguration();
         int[] testValues = new int[]{0, 50, 1000, 1400, 1700, 2000, 2200, 2500, 2600, 2700, 2800, 2900, 3000};
+        int [] expectedValues = new int[]{0, 0, 76, 112, 142, 175, 201, 245, 263, 284, 287, 341, 341};
 
-        for (double value : testValues) {
-            assert(config.calcmannmonate(value)>=0);
+        for (int index=0; index < testValues.length; index++) {
+            assertEquals(expectedValues[index], config.calcmannmonate(testValues[index]), 0);
         }
 
         assert(config.calcmannmonate(-1)==0);
@@ -56,9 +57,10 @@ public class KonfigurationTest {
 
         Konfiguration_I config = new Konfiguration();
         int[] testValues = new int[]{0, 50, 1000, 1400, 1700, 2000, 2200, 2500, 2600, 2700, 2800, 2900, 3000};
+        int [] expectedValues = new int[]{0, 0, 12048, 15554, 17280, 18405, 15995, 15780, 70125, 11932, 12628, 7090, 0};
 
-        for (double value : testValues) {
-            assert(config.calcfp(value)>=0);
+        for (int index=0; index < testValues.length; index++) {
+            assertEquals(expectedValues[index], config.calcfp(testValues[index]), 0);
         }
 
         assert(config.calcfp(-1)==0);
