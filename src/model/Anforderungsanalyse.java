@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 
 // Singleton
-public class Anforderungsanalyse implements Serializable, Cloneable {
+public class Anforderungsanalyse implements Serializable, Cloneable, Anforderungsanalyse_I {
 
     // Kein Interface arghh. Dein Ernst
     private static Anforderungsanalyse anforderungsanalyse;
@@ -101,7 +101,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
         }
         while (iteratorFkt.hasNext()) {
             currentFkt = iteratorFkt.next();
-            if (currentFkt.isvalid()) {
+            if (currentFkt.isValid()) {
                 unbewerteFP += currentFkt.calcFp(config.getHashMapFunktion());
             }
             else{
@@ -113,7 +113,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable {
         while(iteratorda.hasNext()){
             currentDa = iteratorda.next();
             if (currentDa.isValid()) {
-                unbewerteFP += currentDa.calcFP(config.getHashMapDaten());
+                unbewerteFP += currentDa.calcFp(config.getHashMapDaten());
             }
             else{
                 return -2;
