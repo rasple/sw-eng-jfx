@@ -3,8 +3,7 @@ package testing;
 import static org.junit.Assert.*;
 
 import model.*;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +55,7 @@ public class AnforderungsanalyseTest {
 
         try {
             anforderungsanalyse.selbstoptimierung(0);
-            fail("No Exception thrown");
+            throw new AssertionError("No Exception thrown");
         } catch(Exception e) {
             assertEquals(e.getClass(), model.SelbstoptiException.class);
             assertEquals("Produktfunktionen nicht vorhanden", e.getMessage());
@@ -69,7 +68,7 @@ public class AnforderungsanalyseTest {
 
         try {
             anforderungsanalyse.selbstoptimierung(0);
-            fail("No Exception thrown");
+            throw new AssertionError("No Exception thrown");
         } catch(Exception e) {
             assertEquals(e.getClass(), model.SelbstoptiException.class);
             assertEquals("Produktdaten nicht vorhanden", e.getMessage());
@@ -82,7 +81,7 @@ public class AnforderungsanalyseTest {
 
         try {
             anforderungsanalyse.selbstoptimierung(0);
-            fail("No Exception thrown");
+            throw new AssertionError("No Exception thrown");
         } catch(Exception e) {
             assertEquals(e.getClass(), model.SelbstoptiException.class);
             assertEquals("Produktfunktionen nicht vollständig", e.getMessage());
@@ -97,7 +96,7 @@ public class AnforderungsanalyseTest {
 
         try {
             anforderungsanalyse.selbstoptimierung(0);
-            fail("No Exception thrown");
+            throw new AssertionError("No Exception thrown");
         } catch(Exception e) {
             assertEquals(e.getClass(), model.SelbstoptiException.class);
             assertEquals("Produktdaten nicht vollständig", e.getMessage());
@@ -118,7 +117,7 @@ public class AnforderungsanalyseTest {
                 assertEquals(0, faktor, 0);
             }
         } catch(Exception e) {
-            fail("Unexpected Exception thrown");
+            throw new AssertionError("Unexpected Exception thrown");
         }
 
     }
