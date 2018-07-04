@@ -27,14 +27,14 @@ public class DefaultOptimierung implements Optimieren_I {
 		//hier kannst du bei dem testen ein wenig rumspielen, was am besten ist
 		while(Math.abs(dif)>0.2 && pos<maxpos){
 			if(groesser){
-				factors[pos]=+0.1;
+				factors[pos]+=0.1;
 				if(factors[pos]>=5){
 					factors[pos]=5;
 					pos++;
 				}
 			}
 			else{
-				factors[pos]=-0.1;
+				factors[pos]-=0.1;
 				if(factors[pos]<=0){
 					factors[pos]=0;
 					pos++;

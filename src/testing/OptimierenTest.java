@@ -70,6 +70,7 @@ public class OptimierenTest {
 
 
         for(int index = 0; index < 5; index++){
+
             Faktoren factors = opti.optimieren(testIstFp[index], testSollFp[index], testFactors[index]);
 
             double[] fact0rs = factors.getFaktoren();
