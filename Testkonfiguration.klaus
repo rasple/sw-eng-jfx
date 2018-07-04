@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_172" class="java.beans.XMLDecoder">
+ <object class="model.Anforderungsanalyse" id="Anforderungsanalyse0">
+  <void property="faktoren">
+   <void property="anpassbarkeit">
+    <double>4.524</double>
+   </void>
+   <void property="ausnahmeregelung">
+    <double>2.831</double>
+   </void>
+   <void property="datenbestandskonvertierung">
+    <double>4.143</double>
+   </void>
+   <void property="dezentraleDaten">
+    <double>0.732</double>
+   </void>
+   <void property="kontrollverfahren">
+    <double>2.559</double>
+   </void>
+   <void property="logik">
+    <double>3.193</double>
+   </void>
+   <void property="rechenoperationen">
+    <double>1.846</double>
+   </void>
+   <void property="transaktionsrate">
+    <double>1.252</double>
+   </void>
+   <void property="verfechtung">
+    <double>0.5</double>
+   </void>
+   <void property="wiederverwendbarkeit">
+    <double>3.747</double>
+   </void>
+  </void>
+  <void property="produktdaten">
+   <void method="add">
+    <object class="model.Produktdaten">
+     <void property="desc">
+      <string>Beschreibung 1</string>
+     </void>
+     <void property="det">
+      <int>232</int>
+     </void>
+     <void property="id">
+      <string>1</string>
+     </void>
+     <void property="ret">
+      <int>1</int>
+     </void>
+     <void property="type">
+      <string>EIF</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.Produktdaten">
+     <void property="desc">
+      <string>Beschreibung 2</string>
+     </void>
+     <void property="det">
+      <int>3298</int>
+     </void>
+     <void property="id">
+      <string>2</string>
+     </void>
+     <void property="ret">
+      <int>12</int>
+     </void>
+     <void property="type">
+      <string>ILF</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.Produktdaten">
+     <void property="desc">
+      <string>Beschreibung 3</string>
+     </void>
+     <void property="det">
+      <int>112</int>
+     </void>
+     <void property="id">
+      <string>3</string>
+     </void>
+     <void property="ret">
+      <int>232</int>
+     </void>
+     <void property="type">
+      <string>EIF</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.Produktdaten">
+     <void property="desc">
+      <string>Beschreibung 4</string>
+     </void>
+     <void property="det">
+      <int>32423</int>
+     </void>
+     <void property="id">
+      <string>4</string>
+     </void>
+     <void property="ret">
+      <int>23</int>
+     </void>
+     <void property="type">
+      <string>ILF</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.Produktdaten">
+     <void property="desc">
+      <string>Beschreibung 5</string>
+     </void>
+     <void property="det">
+      <int>123</int>
+     </void>
+     <void property="id">
+      <string>5</string>
+     </void>
+     <void property="ret">
+      <int>23</int>
+     </void>
+     <void property="type">
+      <string>EIF</string>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="produkteinsatz">
+   <void property="text">
+    <string>Hallo ich bin ein Produkteinsatz und hab Joghurt im Rucksack, bitte nicht schubsen</string>
+   </void>
+  </void>
+  <void property="produktfunktionen">
+   <void method="add">
+    <object class="model.Produktfunktion">
+     <void property="desc">
+      <string>Beschreibung 2</string>
+     </void>
+     <void property="det">
+      <int>23</int>
+     </void>
+     <void property="ftr">
+      <int>1</int>
+     </void>
+     <void property="id">
+      <string>2</string>
+     </void>
+     <void property="type">
+      <string>EI</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.Produktfunktion">
+     <void property="desc">
+      <string>Beschreibung 3</string>
+     </void>
+     <void property="det">
+      <int>3</int>
+     </void>
+     <void property="ftr">
+      <int>23</int>
+     </void>
+     <void property="id">
+      <string>3</string>
+     </void>
+     <void property="type">
+      <string>EO</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.Produktfunktion">
+     <void property="desc">
+      <string>Beschreibung 4</string>
+     </void>
+     <void property="det">
+      <int>32</int>
+     </void>
+     <void property="ftr">
+      <int>2</int>
+     </void>
+     <void property="id">
+      <string>4</string>
+     </void>
+     <void property="type">
+      <string>EQ</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.Produktfunktion">
+     <void property="desc">
+      <string>Beschreibung 5</string>
+     </void>
+     <void property="det">
+      <int>12</int>
+     </void>
+     <void property="ftr">
+      <int>23</int>
+     </void>
+     <void property="id">
+      <string>5</string>
+     </void>
+     <void property="type">
+      <string>EI</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="model.Produktfunktion">
+     <void property="desc">
+      <string>Beschreibung 1</string>
+     </void>
+     <void property="det">
+      <int>2</int>
+     </void>
+     <void property="ftr">
+      <int>4</int>
+     </void>
+     <void property="id">
+      <string>1</string>
+     </void>
+     <void property="type">
+      <string>EO</string>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="produktumgebung">
+   <void property="text">
+    <string>Hallo ich bin eine Produktumgebung und hab Joghurt im Rucksack, bitte nicht schubsen</string>
+   </void>
+  </void>
+  <void property="zielbestimmung">
+   <void property="text">
+    <string>Hallo ich bin eine Zielbestimmung und hab Joghurt im Rucksack, bitte nicht schubsen</string>
+   </void>
+  </void>
+ </object>
+</java>
