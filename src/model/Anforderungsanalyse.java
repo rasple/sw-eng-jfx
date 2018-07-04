@@ -40,7 +40,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         anfNew.setUserfaktoren(new Faktoren(anfOld.userfaktoren));
         anfNew.setSollFaktoren(new Faktoren(anfOld.sollFaktoren));
         anfNew.setOptimieren(anfOld.optimieren);
-        anfNew.setFunctionPoints(new FunctionPoints(new Konfiguration(), new DefaultOptimierung()));
+        anfNew.setFunctionPoints(new FunctionPoints(new Konfiguration(), new DefaultFabrik().create()));
         anfNew.setZielbestimmung(new Zielbestimmung(anfOld.zielbestimmung));
         anfNew.setProduktumgebung(new Produktumgebung(anfOld.produktumgebung));
         anfNew.setProdukteinsatz(new Produkteinsatz(anfOld.produkteinsatz));
@@ -70,7 +70,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         produktumgebung = new Produktumgebung();
         produkteinsatz = new Produkteinsatz();
         faktoren = new Faktoren();
-        functionPoints = new FunctionPoints(new Konfiguration(), new DefaultOptimierung()); // Default immer der eigene Algo
+        functionPoints = new FunctionPoints(new Konfiguration(), new DefaultFabrik().create()); // Default immer der eigene Algo
         config= new Konfiguration();
         nachkalfabrik= new ArrayList<>();
         nachkalfabrik.add(new DefaultFabrik());
