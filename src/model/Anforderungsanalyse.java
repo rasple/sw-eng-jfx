@@ -31,7 +31,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
 
 
     private Konfiguration_I config;
-    private List<Fabrik_I> nachkalfabrik; //Liste für Fabriken für die Algo der Nachkalkulation
+    private List<Fabrik_I> nachkalfabrik; //Liste für Fabriken für die Algorithmen der Nachkalkulation
 
     public Anforderungsanalyse clone(Anforderungsanalyse anfOld) {
         Anforderungsanalyse anfNew = new Anforderungsanalyse();
