@@ -8,9 +8,13 @@ public class DefaultOptimierung implements Optimieren_I {
 
 	
 	@Override
-	
+	/**
+	 * Bei dem Algorithmus wird nacheinander ein Faktor vergößert oder verkleinert.
+	 * Ist das Limit erreicht wird der nächste Faktor verändert
+	 * @return optimerte Faktoren
+	 */
 	public Faktoren optimieren(double istfp, double sollfp, double[] factors) {
-		// TODO Auto-generated method stub <- professionalism.avi
+
 		final double unbewertetefp= Faktoren.calcunbewertefp(istfp, factors);
 		int pos=0, maxpos= factors.length;
 		double dif=istfp-sollfp, currentfp;
