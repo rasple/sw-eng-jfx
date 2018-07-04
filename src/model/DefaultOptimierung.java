@@ -5,7 +5,11 @@ package model;
  *
  */
 public class DefaultOptimierung implements Optimieren_I {
+	private String beschreibung;
 
+	public DefaultOptimierung(){
+		this.beschreibung="Default Optimierung";
+	}
 	
 	@Override
 	/**
@@ -49,6 +53,11 @@ public class DefaultOptimierung implements Optimieren_I {
 		}
 		return new Faktoren(factors);
 	}
-	
-	
+
+	@Override
+	public String getBeschreibung() {
+		return this.beschreibung;
+	}
+
+
 }
