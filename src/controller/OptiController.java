@@ -41,7 +41,7 @@ public class OptiController implements Initializable {
         dialog.setContentText("Zeit in Mannmonaten");
 
         Optional<String> result = dialog.showAndWait();
-        // Hier kannt du deine Fehlermeldung machen
+
         double mannmonate = Double.valueOf(result.get());
         try {
             Faktoren sollfaktoren = Anforderungsanalyse.getInstance().selbstoptimierung(mannmonate);
