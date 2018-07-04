@@ -5,6 +5,8 @@ Dieses Projekt dient der Erstellung von Anforderungsanalysen und Aufwandsabschä
 
 [Spezifikation](https://github.com/rasple/sw-eng-jfx/tree/master/spezifikation.pdf)
 
+This project is currently only available in german language.
+
 # Anforderungen (Grob)
 ## Produktfunktionen
 * Beim Anlegen festlegen ob Eingabe, Ausgabe oder Abfrage
@@ -21,9 +23,4 @@ Dieses Projekt dient der Erstellung von Anforderungsanalysen und Aufwandsabschä
 * In den Einstellung kann verändert werden welcher Algo verwendet werden soll
 * Muss modular als eigenes Jar-File austauschbar sein
 
-So macht man Quellcode: (Nicht die Sprache vergessen)
-```Java
-// Hello World
-System.out.println("Hello World");
-```
  
