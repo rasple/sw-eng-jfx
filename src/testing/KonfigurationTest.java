@@ -37,7 +37,7 @@ public class KonfigurationTest {
         assertEquals(HashMap.class, HMDaten.getClass());
     }
 
-    @Ignore("Bugged calculation mechanics")
+    @Test
     public void evaluateCalcMannMonate(){
 
         Konfiguration_I config = new Konfiguration();
