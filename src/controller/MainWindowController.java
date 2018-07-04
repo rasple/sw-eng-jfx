@@ -186,7 +186,7 @@ public class MainWindowController {
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/view/Opti.fxml"));
                 optiWindow.setScene(new Scene(root));
-                optiWindow.setTitle("Produktdaten");
+                optiWindow.setTitle("Selbstoptimierende Nachkalkulation");
                 optiWindow.show();
             } catch (LoadException ex) {
             }

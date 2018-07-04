@@ -186,25 +186,25 @@ public class Faktoren implements Serializable {
 
 	public String Userausgabe(){
 		StringBuilder sb= new StringBuilder();
-		sb.append("Verfechtung:");
+		sb.append("Verfechtung: ");
 		sb.append(this.verfechtung);
-		sb.append("\nDezentrale Daten:");
+		sb.append("\nDezentrale Daten: ");
 		sb.append(this.dezentraleDaten);
-		sb.append("\nTransaktionsrate:");
+		sb.append("\nTransaktionsrate: ");
 		sb.append(this.transaktionsrate);
-		sb.append("\nRechenoperationen:");
+		sb.append("\nRechenoperationen: ");
 		sb.append(this.rechenoperationen);
-		sb.append("\nKontrollverfahren:");
+		sb.append("\nKontrollverfahren: ");
 		sb.append(this.kontrollverfahren);
-		sb.append("\nAusnahmeregelung:");
+		sb.append("\nAusnahmeregelung: ");
 		sb.append(this.ausnahmeregelung);
-		sb.append("\nLogik");
+		sb.append("\nLogik: ");
 		sb.append(this.logik);
-		sb.append("\nWiederverwendbarkeit");
+		sb.append("\nWiederverwendbarkeit: ");
 		sb.append(this.wiederverwendbarkeit);
-		sb.append("\nDatenbestandskonvertierung");
+		sb.append("\nDatenbestandskonvertierung: ");
 		sb.append(this.datenbestandskonvertierung);
-		sb.append("\nAnpassbarkeit");
+		sb.append("\nAnpassbarkeit: ");
 		sb.append(this.anpassbarkeit);
 		return sb.toString();
 	}
