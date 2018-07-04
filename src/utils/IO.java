@@ -15,14 +15,23 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class IO {
-    public static void save(Object obj, Stage stage) {
+    public static File save(Object obj, Stage stage) {
+        File file = null;
         try {
-
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Speichere Datei");
             FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("KLAUS Dateien (*.klaus)", "*.klaus");
             fileChooser.getExtensionFilters().add(extFilter);
-            File file = fileChooser.showSaveDialog(stage);
+            file = fileChooser.showSaveDialog(stage);
+        } catch (Exception ex) {
+            return null;
+        }
+        fSave(obj, stage, file);
+        return file;
+    }
+
+    public static void fSave(Object obj, Stage stage, File file) {
+        try {
 
             FileOutputStream fos = new FileOutputStream(file);
             XMLEncoder encoder = new XMLEncoder(fos);
@@ -60,7 +69,10 @@ public class IO {
             alert.setContentText("Daten konnten nicht importiert werden");
             alert.showAndWait();
         }
+    }
 
+    public static Object load(Stage stage, File file) {
+        return fLoad(stage, file);
     }
 
     public static Object load(Stage stage) {
@@ -74,6 +86,11 @@ public class IO {
         } catch (Exception e) {
             return null;
         }
+        return fLoad(stage, file);
+    }
+
+
+    public static Object fLoad(Stage stage, File file) {
         Object decoded = null;
         if (file != null) {
             try {
