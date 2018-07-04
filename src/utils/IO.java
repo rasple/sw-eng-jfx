@@ -26,11 +26,11 @@ public class IO {
         } catch (Exception ex) {
             return null;
         }
-        fSave(obj, stage, file);
+        fSave(obj, file);
         return file;
     }
 
-    public static void fSave(Object obj, Stage stage, File file) {
+    public static void fSave(Object obj, File file) {
         try {
 
             FileOutputStream fos = new FileOutputStream(file);
@@ -56,23 +56,27 @@ public class IO {
                 encoder.close();
                 fos.close();
             }
+            /*
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
             alert.setHeaderText("Erfolgreich!");
             alert.setContentText("Daten wurden erfolgreich gespeichert!");
             alert.showAndWait();
+            */
         } catch (Exception e) {
             Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", e);
+            /*
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Fehler");
             alert.setHeaderText("Fehler!");
             alert.setContentText("Daten konnten nicht importiert werden");
             alert.showAndWait();
+            */
         }
     }
 
     public static Object load(Stage stage, File file) {
-        return fLoad(stage, file);
+        return fLoad(file);
     }
 
     public static Object load(Stage stage) {
@@ -86,11 +90,11 @@ public class IO {
         } catch (Exception e) {
             return null;
         }
-        return fLoad(stage, file);
+        return fLoad(file);
     }
 
 
-    public static Object fLoad(Stage stage, File file) {
+    public static Object fLoad(File file) {
         Object decoded = null;
         if (file != null) {
             try {
@@ -99,20 +103,24 @@ public class IO {
                 decoded = decoder.readObject();
                 decoder.close();
                 fis.close();
+                /*
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information");
                 alert.setHeaderText("Erfolgreich");
                 alert.setContentText("Daten wurden erfolgreich gelesen!");
                 alert.showAndWait();
+                */
                 return decoded;
             } catch (Exception ex) {
                 Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", ex);
+                /*
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Fehler");
                 alert.setHeaderText("Fehler!");
                 alert.setContentText("Daten konnten nicht importiert werden");
 
                 alert.showAndWait();
+                */
                 return null;
             }
         }

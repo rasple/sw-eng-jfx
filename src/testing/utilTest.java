@@ -2,32 +2,50 @@ package testing;
 
 import static org.junit.Assert.*;
 
+import org.json.JSONObject;
 import org.junit.Ignore;
 import org.junit.Test;
 import utils.*;
 import org.junit.rules.TemporaryFolder;
 import model.Anforderungsanalyse;
 
+import java.io.File;
+
 public class utilTest {
 
     @Test
     public void IOTest(){
 
-        Anforderungsanalyse aly = new Anforderungsanalyse();
-        //empty for now
+        Anforderungsanalyse originalAnforderungsanalyse = new Anforderungsanalyse();
+        File file = new File("./temp.klaus");
+        IO.fSave(originalAnforderungsanalyse, file);
+
+        Anforderungsanalyse loadedAnforderungsanalyse = (Anforderungsanalyse) IO.fLoad(file);
+        file.delete();
+
+        double[] originalFaktoren = originalAnforderungsanalyse.getFaktoren().getFaktoren();
+        double[] loadedFaktoren = loadedAnforderungsanalyse.getFaktoren().getFaktoren();
+
+        for(int index=0; index < originalFaktoren.length; index++){
+
+            assertEquals(originalFaktoren[index], loadedFaktoren[index], 0);
+        }
 
     }
 
+    /*
     @Test
     public void ConvertTest(){
 
         Anforderungsanalyse original = new Anforderungsanalyse();
         String conversion = Convert.ObjectToXML(original);
-        Anforderungsanalyse toCompare = (Anforderungsanalyse) Convert.XMLToObject(conversion);
+        JSONObject actual = (JSONObject) Convert.XMLToObject(conversion);
 
-        assertEquals(original.getClass(), toCompare.getClass());
-        assertEquals(original.getFaktoren(), toCompare.getFaktoren());
+        JSONObject expected = new JSONObject(Convert.toJSON(original));
+
+        assertNotEquals(expected.toString(), actual.toString());
 
     }
+    */
 
 }
