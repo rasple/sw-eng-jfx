@@ -18,15 +18,91 @@ public class ProduktfunktionTest {
     @Test
     public void calcFpTest(){
 
-        Konfiguration config = new Konfiguration();
-        Produktfunktion produktfunktion = new Produktfunktion("Test", "test", 0, 0, "EI");
+        Konfiguration_I config = new Konfiguration();
+        Produktfunktion produktfunktion = new Produktfunktion("Test", "test", 0, 1, "EI");
         assertEquals(3, produktfunktion.calcFp(config.getHashMapFunktion()));
-
-        produktfunktion.setType("EO");
+        produktfunktion.setDet(6);
+        assertEquals(3, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(18);
         assertEquals(4, produktfunktion.calcFp(config.getHashMapFunktion()));
 
-        produktfunktion.setType("EQ");
+        produktfunktion.setFtr(2);
+        produktfunktion.setDet(2);
         assertEquals(3, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(10);
+        assertEquals(4, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(16);
+        assertEquals(6, produktfunktion.calcFp(config.getHashMapFunktion()));
+
+        produktfunktion.setFtr(3);
+        produktfunktion.setDet(3);
+        assertEquals(4, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(12);
+        assertEquals(6, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(23);
+        assertEquals(6, produktfunktion.calcFp(config.getHashMapFunktion()));
+
+        produktfunktion.setType("EO");
+        produktfunktion.setDet(1);
+        produktfunktion.setFtr(4);
+        assertEquals(4, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(1);
+        produktfunktion.setFtr(15);
+        assertEquals(4, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(1);
+        produktfunktion.setFtr(20);
+        assertEquals(5, produktfunktion.calcFp(config.getHashMapFunktion()));
+
+        produktfunktion.setDet(2);
+        produktfunktion.setFtr(3);
+        assertEquals(4, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(3);
+        produktfunktion.setFtr(6);
+        assertEquals(5, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(2);
+        produktfunktion.setFtr(25);
+        assertEquals(7, produktfunktion.calcFp(config.getHashMapFunktion()));
+
+        produktfunktion.setDet(4);
+        produktfunktion.setFtr(2);
+        assertEquals(5, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(10);
+        produktfunktion.setFtr(19);
+        assertEquals(7, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(5);
+        produktfunktion.setFtr(25);
+        assertEquals(7, produktfunktion.calcFp(config.getHashMapFunktion()));
+
+        produktfunktion.setType("EQ");
+        produktfunktion.setDet(0);
+        produktfunktion.setFtr(1);
+        assertEquals(3, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(1);
+        produktfunktion.setFtr(19);
+        assertEquals(3, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(1);
+        produktfunktion.setFtr(20);
+        assertEquals(4, produktfunktion.calcFp(config.getHashMapFunktion()));
+
+        produktfunktion.setDet(2);
+        produktfunktion.setFtr(5);
+        assertEquals(3, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(3);
+        produktfunktion.setFtr(6);
+        assertEquals(5, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(2);
+        produktfunktion.setFtr(25);
+        assertEquals(6, produktfunktion.calcFp(config.getHashMapFunktion()));
+
+        produktfunktion.setDet(4);
+        produktfunktion.setFtr(2);
+        assertEquals(4, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(10);
+        produktfunktion.setFtr(19);
+        assertEquals(6, produktfunktion.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setDet(5);
+        produktfunktion.setFtr(25);
+        assertEquals(6, produktfunktion.calcFp(config.getHashMapFunktion()));
 
     }
 
