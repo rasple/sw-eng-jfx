@@ -76,6 +76,7 @@ public class Produktfunktion implements Serializable, Produktfunktion_I {
     private int calcFTRpos(){
         if(this.ftr<2){
             return 0;
+
         }
         else if(this.ftr<4){
             return 1;
