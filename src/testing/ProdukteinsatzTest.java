@@ -7,7 +7,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 public class ProdukteinsatzTest {
-    
+
     @Test
     public void produkteinsatzTest(){
 
