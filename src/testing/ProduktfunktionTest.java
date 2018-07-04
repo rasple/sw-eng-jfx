@@ -1,21 +1,33 @@
 package testing;
 
+
 import static org.junit.Assert.*;
 
 import model.Konfiguration;
-import model.Konfiguration_I;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import model.Produktfunktion_I;
 import model.Produktfunktion;
+import model.Konfiguration_I;
+
+import java.util.HashMap;
+
 public class ProduktfunktionTest {
-Konfiguration_I config = new Konfiguration();
-   //Und das jetzt für den jeden Typen und jede mögliche Positioen, gleich nochmals für die Datentypen
+
     @Test
-    public void testEI(){
-        Produktfunktion funktioneEI = new Produktfunktion("test", "1", 1,1,"EI");
-        assertEquals(3, funktioneEI.calcFp(config.getHashMapFunktion()));
+    public void calcFpTest(){
+
+        Konfiguration config = new Konfiguration();
+        Produktfunktion produktfunktion = new Produktfunktion();
+        assertEquals(3, produktfunktion.calcFp(config.getHashMapDaten()));
+        //assertEquals(3, produktdaten.calcFp(config.getHashMapFunktion()));
+
+       // produktdaten.setType("EO");
+       // assertEquals(4, produktdaten.calcFp(config.getHashMapFunktion()));
+
+      //  produktdaten.setType("EQ");
+       // assertEquals(3, produktdaten.calcFp(config.getHashMapFunktion()));
 
     }
-
 }

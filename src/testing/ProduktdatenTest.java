@@ -18,21 +18,18 @@ public class ProduktdatenTest {
     public void calcFpTest(){
 
         Konfiguration config = new Konfiguration();
-        Produktdaten produktdaten = new Produktdaten("Test", "test", 1, 1, "EI");
-        assertEquals(3, produktdaten.calcFp(config.getHashMapFunktion()));
+        Produktdaten produktdaten = new Produktdaten("Test", "test", 1, 1, "ILF");
+        assertEquals(7, produktdaten.calcFp(config.getHashMapDaten()));
 
-        produktdaten.setType("EO");
-        assertEquals(4, produktdaten.calcFp(config.getHashMapFunktion()));
-
-        produktdaten.setType("EQ");
-        assertEquals(3, produktdaten.calcFp(config.getHashMapFunktion()));
+        produktdaten.setType("EIF");
+        assertEquals(5, produktdaten.calcFp(config.getHashMapDaten()));
 
     }
 
     @Test
     public void isValidTest(){
 
-        Produktdaten produktdaten = new Produktdaten("Test", "test", 1, 1, "EI");
+        Produktdaten produktdaten = new Produktdaten("Test", "test", 1, 1, "ILF");
         assertTrue(produktdaten.isValid());
 
         produktdaten = new Produktdaten();
@@ -44,7 +41,7 @@ public class ProduktdatenTest {
         assertFalse(produktdaten.isValid());
 
         produktdaten = new Produktdaten();
-        produktdaten.setType("EO");
+        produktdaten.setType("EIF");
         produktdaten.setRet(-1);
         produktdaten.setDet(0);
         assertFalse(produktdaten.isValid());
