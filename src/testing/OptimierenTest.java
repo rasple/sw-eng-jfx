@@ -7,6 +7,7 @@ import org.junit.Test;
 import model.Optimieren_I;
 import model.DefaultOptimierung;
 import model.Faktoren;
+import static org.hamcrest.CoreMatchers.*;
 
 public class OptimierenTest {
 
@@ -25,11 +26,11 @@ public class OptimierenTest {
 
             double[] fact0rs = factors.getFaktoren();
 
-            for(double factor : fact0rs){
+            for(Object factor : fact0rs){
 
-                assertEquals(factor, double.class);
-                assert(factor >= 0);
-                assert(factor <= 5);
+                assertThat(factor, instanceOf(double.class));
+                assert((double) factor >= 0);
+                assert((double) factor <= 5);
             }
         }
     }
@@ -49,11 +50,11 @@ public class OptimierenTest {
 
             double[] fact0rs = factors.getFaktoren();
 
-            for(double factor : fact0rs){
+            for(Object factor : fact0rs){
 
-                assertEquals(factor, double.class);
-                assert(factor >= 0);
-                assert(factor <= 5);
+                assertThat(factor, instanceOf(double.class));
+                assert((double) factor >= 0);
+                assert((double) factor <= 5);
             }
         }
     }
@@ -73,11 +74,11 @@ public class OptimierenTest {
 
             double[] fact0rs = factors.getFaktoren();
 
-            for(double factor : fact0rs){
+            for(Object factor : fact0rs){
 
-                assertEquals(factor, double.class);
-                assert(factor >= 0);
-                assert(factor <= 5);
+                assertThat(factor, instanceOf(double.class));
+                assert((double) factor >= 0);
+                assert((double) factor <= 5);
             }
         }
     }
