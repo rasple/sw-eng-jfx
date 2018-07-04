@@ -19,15 +19,37 @@ public class ProduktfunktionTest {
     public void calcFpTest(){
 
         Konfiguration config = new Konfiguration();
-        Produktfunktion produktfunktion = new Produktfunktion();
-        assertEquals(3, produktfunktion.calcFp(config.getHashMapDaten()));
-        //assertEquals(3, produktdaten.calcFp(config.getHashMapFunktion()));
+        Produktfunktion produktfunktion = new Produktfunktion("Test", "test", 0, 0, "EI");
+        assertEquals(3, produktfunktion.calcFp(config.getHashMapFunktion()));
 
-       // produktdaten.setType("EO");
-       // assertEquals(4, produktdaten.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setType("EO");
+        assertEquals(4, produktfunktion.calcFp(config.getHashMapFunktion()));
 
-      //  produktdaten.setType("EQ");
-       // assertEquals(3, produktdaten.calcFp(config.getHashMapFunktion()));
+        produktfunktion.setType("EQ");
+        assertEquals(3, produktfunktion.calcFp(config.getHashMapFunktion()));
 
     }
+
+    @Test
+    public void isValidTest(){
+
+        Produktfunktion produktdaten = new Produktfunktion("Test", "test", 0, 1, "EO");
+        assertTrue(produktdaten.isValid());
+
+        produktdaten = new Produktfunktion();
+        assertFalse(produktdaten.isValid());
+
+        produktdaten = new Produktfunktion();
+        produktdaten.setFtr(0);
+        produktdaten.setDet(1);
+        assertFalse(produktdaten.isValid());
+
+        produktdaten = new Produktfunktion();
+        produktdaten.setType("EIF");
+        produktdaten.setFtr(-1);
+        produktdaten.setDet(0);
+        assertFalse(produktdaten.isValid());
+
+    }
+
 }
