@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.HashMap;
 
-public class Produktfunktion implements Serializable {
+public class Produktfunktion implements Serializable, Produktfunktion_I {
     private String id;
     private String desc;
     private int ftr;
@@ -32,7 +32,7 @@ public class Produktfunktion implements Serializable {
      * Prüft ob alle relevanten Informaionen gesetzt sind
      * @return true wenn ein Typ ausgewählt ist und DET größer null ist
      */
-    public boolean isvalid(){
+    public boolean isValid(){
         return !(this.type.isEmpty()) && (this.det>0) && (this.ftr>-1);
     }
 

@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.HashMap;
 
-public class Produktdaten implements Serializable {
+public class Produktdaten implements Serializable, Produktdaten_I {
 
     private String id;
     private String desc;
@@ -32,7 +32,7 @@ public class Produktdaten implements Serializable {
      * @param fpmatrix Komplexitätsmatrix
      * @return Functionpoints
      */
-    public int calcFP(HashMap<String, int[][]> fpmatrix){
+    public int calcFp(HashMap<String, int[][]> fpmatrix){
         return fpmatrix.get(this.type)[this.calcPosRet()][this.calcPosDet()];
     }
 
