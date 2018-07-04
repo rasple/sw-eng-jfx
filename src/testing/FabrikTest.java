@@ -16,8 +16,7 @@ public class FabrikTest {
     public void createTest(){
 
         Fabrik_I fab = new DefaultFabrik();
-        Optimieren_I opti = fab.create();
-        assertThat(opti, instanceOf(DefaultOptimierung.class));
+        assertThat(fab.create(), instanceOf(Optimieren_I.class));
     }
 
 }
