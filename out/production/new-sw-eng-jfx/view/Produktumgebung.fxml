@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.ProduktumgebungController">
+    <children>
+        <TitledPane animated="false" collapsible="false" prefHeight="416.0" prefWidth="539.0" text="Produktumgebung">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="382.0" prefWidth="537.0">
+                    <children>
+                        <TextArea fx:id="text" layoutX="6.0" layoutY="5.0" prefHeight="349.0" prefWidth="524.0"/>
+                        <ButtonBar layoutX="7.0" layoutY="350.0" prefHeight="44.0" prefWidth="520.0">
+                            <buttons>
+                                <Button mnemonicParsing="false" onMouseClicked="#onClickSave" text="OK"/>
+                                <Button mnemonicParsing="false" onMouseClicked="#onClickCancel" text="Abbrechen"/>
+                            </buttons>
+                        </ButtonBar>
+                    </children>
+                </AnchorPane>
+            </content>
+        </TitledPane>
+    </children>
+</AnchorPane>

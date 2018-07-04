@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox pickOnBounds="false" prefHeight="763.0" prefWidth="424.0" xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/8" fx:controller="controller.MainWindowController">
+   <children>
+      <HBox prefHeight="76.0" prefWidth="422.0">
+         <children>
+            <AnchorPane prefHeight="106.0" prefWidth="424.0">
+               <children>
+                   <Label layoutX="111.0" layoutY="58.0" prefHeight="16.0" prefWidth="301.0" text="Kann Legitime Anforderungsanalysen Und Sonstiges">
+                       <font>
+                           <Font size="11.0" />
+                       </font>
+                   </Label>
+                   <ImageView fitHeight="80.0" fitWidth="93.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                         <Image url="@../res/dhbw.png" />
+                     </image>
+                  </ImageView>
+                   <Label fx:id="klaus" layoutX="107.0" layoutY="3.0" prefHeight="69.0" prefWidth="246.0" text="K.L.A.U.S.">
+                     <font>
+                         <Font size="41.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+       <TabPane prefHeight="581.0" prefWidth="445.0">
+         <tabs>
+            <Tab closable="false" text="Aufwandsabschätzung">
+               <content>
+                  <VBox prefHeight="451.0" prefWidth="411.0">
+                     <children>
+                         <AnchorPane prefHeight="98.0" prefWidth="389.0">
+                             <children>
+                                 <Label layoutX="18.0" layoutY="18.0" prefHeight="26.0" prefWidth="206.0" text="Produktfunktionen">
+                                     <font>
+                                         <Font size="18.0" />
+                                     </font>
+                                 </Label>
+                                 <ButtonBar layoutX="17.0" layoutY="46.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                     <buttons>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickResetProduktfunktionen" prefHeight="28.0" prefWidth="98.0" text="Löschen" />
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickEditProduktfunktionen" prefHeight="28.0" prefWidth="98.0" text="Ändern" />
+                                     </buttons>
+                                 </ButtonBar>
+                                 <Button layoutX="204.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#onClickImportProduktfunktion" prefHeight="28.0" prefWidth="98.0" text="Importieren" />
+                                 <Button layoutX="310.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#onClickExportProduktfunktion" prefHeight="28.0" prefWidth="94.0" text="Exportieren" />
+                             </children>
+                         </AnchorPane>
+                         <Separator prefHeight="26.0" prefWidth="205.0" />
+                         <AnchorPane>
+                             <children>
+                                 <ButtonBar layoutX="18.0" layoutY="28.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                     <buttons>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickResetProduktdaten" prefHeight="28.0" prefWidth="98.0" text="Löschen" />
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickEditProduktdaten" prefHeight="28.0" prefWidth="98.0" text="Ändern" />
+                                     </buttons>
+                                 </ButtonBar>
+                                 <Button layoutX="309.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#onClickExportProduktdaten" prefHeight="28.0" prefWidth="94.0" text="Exportieren" />
+                                 <Button layoutX="204.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#onClickImportProduktdaten" prefHeight="28.0" prefWidth="98.0" text="Importieren" />
+                                 <Label layoutX="20.0" layoutY="1.0" prefHeight="26.0" prefWidth="206.0" text="Produktdaten">
+                                     <font>
+                                         <Font size="18.0" />
+                                     </font>
+                                 </Label>
+                             </children>
+                         </AnchorPane>
+                         <Separator prefHeight="26.0" prefWidth="205.0" />
+                         <AnchorPane prefHeight="57.0" prefWidth="389.0">
+                             <children>
+                                 <Button layoutX="309.0" layoutY="44.0" mnemonicParsing="false" onMouseClicked="#onClickExportProduktumgebung" prefHeight="28.0" prefWidth="94.0" text="Exportieren" />
+                                 <Button layoutX="204.0" layoutY="44.0" mnemonicParsing="false" onMouseClicked="#onClickImportProduktumgebung" prefHeight="28.0" prefWidth="98.0" text="Importieren" />
+                                 <Label layoutX="18.0" layoutY="11.0" prefHeight="26.0" prefWidth="207.0" text="Produktumgebung">
+                                     <font>
+                                         <Font size="18.0" />
+                                     </font>
+                                 </Label>
+                                 <ButtonBar layoutX="18.0" layoutY="38.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                     <buttons>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickResetProduktumgebung" prefHeight="28.0" prefWidth="98.0" text="Löschen" />
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickEditProduktumgebung" prefHeight="28.0" prefWidth="98.0" text="Ändern" />
+                                     </buttons>
+                                 </ButtonBar>
+                             </children>
+                         </AnchorPane>
+                         <Separator prefHeight="26.0" prefWidth="205.0" />
+                         <AnchorPane prefHeight="74.0" prefWidth="389.0">
+                             <children>
+                                 <Button layoutX="310.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#onClickExportProdukteinsatz" prefHeight="28.0" prefWidth="94.0" text="Exportieren" />
+                                 <Button layoutX="206.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#onClickImportProdukteinsatz" prefHeight="28.0" prefWidth="98.0" text="Importieren" />
+                                 <Label layoutX="22.0" layoutY="2.0" prefHeight="26.0" prefWidth="207.0" text="Produkteinsatz">
+                                     <font>
+                                         <Font size="18.0" />
+                                     </font>
+                                 </Label>
+                                 <ButtonBar layoutX="20.0" layoutY="27.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                     <buttons>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickResetProdukteinsatz" prefHeight="28.0" prefWidth="98.0" text="Löschen" />
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickEditProdukteinsatz" prefHeight="28.0" prefWidth="98.0" text="Ändern" />
+                                     </buttons>
+                                 </ButtonBar>
+                             </children>
+                         </AnchorPane>
+                         <Separator prefHeight="26.0" prefWidth="205.0" />
+                         <AnchorPane prefHeight="76.0" prefWidth="389.0">
+                             <children>
+                                 <Button layoutX="310.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#onClickExportZielbestimmung" prefHeight="28.0" prefWidth="94.0" text="Exportieren" />
+                                 <Button layoutX="206.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#onClickImportZielbestimmung" prefHeight="28.0" prefWidth="98.0" text="Importieren" />
+                                 <Label layoutX="22.0" layoutY="5.0" prefHeight="26.0" prefWidth="205.0" text="Zielbestimmung">
+                                     <font>
+                                         <Font size="18.0" />
+                                     </font>
+                                 </Label>
+                                 <ButtonBar layoutX="20.0" layoutY="33.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                     <buttons>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickResetZielbestimmung" prefHeight="28.0" prefWidth="98.0" text="Löschen" />
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickEditZielbestimmung" prefHeight="28.0" prefWidth="98.0" text="Ändern" />
+                                     </buttons>
+                                 </ButtonBar>
+                             </children>
+                         </AnchorPane>
+                         <Separator prefHeight="26.0" prefWidth="205.0" />
+                         <AnchorPane prefHeight="80.0" prefWidth="389.0">
+                             <children>
+                                 <Button layoutX="310.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#onClickExportSchaetzfaktoren" prefHeight="28.0" prefWidth="94.0" text="Exportieren" />
+                                 <Button layoutX="206.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#onClickImportSchaetzfaktoren" prefHeight="28.0" prefWidth="98.0" text="Importieren" />
+                                 <Label layoutX="21.0" layoutY="1.0" prefHeight="26.0" prefWidth="205.0" text="Schätzfaktoren">
+                                     <font>
+                                         <Font size="18.0" />
+                                     </font>
+                                 </Label>
+                                 <ButtonBar layoutX="20.0" layoutY="26.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                     <buttons>
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickResetSchaetzfaktoren" prefHeight="28.0" prefWidth="98.0" text="Löschen" />
+                                         <Button mnemonicParsing="false" onMouseClicked="#onClickEditSchaetzfaktoren" prefHeight="28.0" prefWidth="98.0" text="Ändern" />
+                                     </buttons>
+                                 </ButtonBar>
+                             </children>
+                         </AnchorPane>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+             <Tab closable="false" text="Impressum">
+                 <content>
+                     <AnchorPane>
+                         <children>
+                             <Label layoutX="8.0" prefHeight="59.0" prefWidth="263.0"
+                                    text="User Interface und User Experience: &#10;Mat. Nr. 4588745" wrapText="true">
+                                 <font>
+                                     <Font size="13.0" />
+                                 </font>
+                             </Label>
+                             <Label layoutX="8.0" layoutY="60.0" prefHeight="48.0" prefWidth="343.0"
+                                    text="Aufwandsabschätzung und Selbstopimierung: &#10;Mat. Nr. 2384618"
+                                    wrapText="true">
+                                 <font>
+                                     <Font size="13.0" />
+                                 </font>
+                             </Label>
+                             <Label layoutX="8.0" layoutY="113.0" prefHeight="41.0" prefWidth="216.0"
+                                    text="Testing und Quality control: &#10;Mat. Nr. 6638616&#10;" wrapText="true">
+                                 <font>
+                                     <Font size="13.0" />
+                                 </font>
+                             </Label>
+                             <Label alignment="TOP_CENTER" layoutX="84.0" layoutY="365.0" prefHeight="48.0"
+                                    prefWidth="271.0"
+                                    text="This Program is licensed under the &#10;GNU GENERAL PUBLIC LICENSE Version 3&#10;"
+                                    textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                     <Font size="13.0" />
+                                 </font>
+                             </Label>
+                             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="104.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                     <Image url="@../res/GPLv3.png" />
+                                 </image>
+                             </ImageView>
+                             <Hyperlink layoutX="92.0" layoutY="514.0" onMouseClicked="#onClickGithub"
+                                        text="Complete sources are available on Github"/>
+                             <Separator layoutY="55.0" prefHeight="3.0" prefWidth="425.0" />
+                             <Separator layoutX="4.0" layoutY="108.0" prefHeight="3.0" prefWidth="419.0" />
+                             <Separator layoutX="1.0" layoutY="160.0" prefHeight="3.0" prefWidth="425.0" />
+                         </children>
+                     </AnchorPane>
+                 </content>
+             </Tab>
+         </tabs>
+      </TabPane>
+       <Separator prefWidth="200.0" />
+       <HBox prefHeight="48.0" prefWidth="389.0">
+           <children>
+               <ButtonBar prefHeight="48.0" prefWidth="406.0">
+                   <buttons>
+                       <Button mnemonicParsing="false" onMouseClicked="#onClickOpti" prefHeight="30.0" prefWidth="208.0" text="Selbst. Nachkalkulation" textAlignment="CENTER" wrapText="true" />
+                       <Button mnemonicParsing="false" onMouseClicked="#onClickAufwabsch" prefHeight="30.0" prefWidth="98.0" text="Aufwandsabschätzung" textAlignment="CENTER" wrapText="true" />
+                   </buttons>
+               </ButtonBar>
+           </children>
+       </HBox>
+       <HBox prefHeight="33.0" prefWidth="389.0">
+         <children>
+             <ButtonBar prefHeight="33.0" prefWidth="406.0">
+               <buttons>
+                   <Button mnemonicParsing="false" onMouseClicked="#onClickExport" prefHeight="30.0" prefWidth="189.0" text="Exportieren" />
+                   <Button mnemonicParsing="false" onMouseClicked="#onClickImport" prefHeight="30.0" prefWidth="98.0" text="Importieren" />
+               </buttons>
+            </ButtonBar>
+         </children>
+      </HBox>
+   </children>
+</VBox>
