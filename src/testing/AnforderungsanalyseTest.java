@@ -98,16 +98,19 @@ public class AnforderungsanalyseTest {
 
         try{
             Faktoren sollfaktoren =anforderungsanalyse.selbstoptimierung(8.5);
+
             for(int index=0; index<10; index++)
             {
                 assertEquals(expectedfactors1[index],sollfaktoren.getFaktoren()[index], 0.1 );
             }
 
             sollfaktoren= anforderungsanalyse.selbstoptimierung(7.5);
+
             for(int index=0; index<10; index++)
             {
                 assertEquals(expectedfactors2[index],sollfaktoren.getFaktoren()[index], 0.1 );
             }
+
         } catch (SelbstoptiException e){
             //can not happen
             throw new AssertionError("'cannot happen' my ass");
@@ -175,10 +178,8 @@ public class AnforderungsanalyseTest {
         produktdatens.add(produktdaten);
         anforderungsanalyse.setProduktdaten(produktdatens);
 
-        double[] faktoren;
-
         try{
-            faktoren = anforderungsanalyse.selbstoptimierung(0).getFaktoren();
+            double[] faktoren = anforderungsanalyse.selbstoptimierung(0).getFaktoren();
             for(double faktor : faktoren){
                 assertEquals(0, faktor, 0);
             }
