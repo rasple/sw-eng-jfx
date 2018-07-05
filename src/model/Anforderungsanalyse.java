@@ -88,12 +88,15 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         Produktfunktion_I currentFkt;
         Produktdaten_I currentDa;
         ListIterator<Produktfunktion_I> iteratorFkt = this.produktfunktionen.listIterator();
+
         if(this.produktfunktionen.isEmpty()){
             return -3;
         }
+
         if(this.produktdaten.isEmpty()){
             return -4;
         }
+
         while (iteratorFkt.hasNext()) {
             currentFkt = iteratorFkt.next();
             if (currentFkt.isValid()) {
@@ -104,16 +107,17 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
             }
 
         }
+
         ListIterator<Produktdaten_I>iteratorda=this.produktdaten.listIterator();
         while(iteratorda.hasNext()){
             currentDa = iteratorda.next();
             if (currentDa.isValid()) {
                 unbewerteFP += currentDa.calcFp(config.getHashMapDaten());
-            }
-            else{
+            } else {
                 return -2;
             }
         }
+
         this.functionPoints.setIstfp(this.faktoren.calcbewertetefp(unbewerteFP));
         return functionPoints.getCalcMannmonate();
     }
@@ -128,6 +132,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
             case -3: throw new SelbstoptiException("Produktfunktionen nicht vorhanden",-3);
             case -4: throw new SelbstoptiException("Produktdaten nicht vorhanden",-4);
         }
+
         this.sollFaktoren = functionPoints.selbstoptimierung(mannmonate, faktoren.getFaktoren());
         return this.sollFaktoren;
     }
@@ -139,7 +144,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public List<Produktfunktion_I> getProduktfunktionen() {
-        return produktfunktionen;
+        return this.produktfunktionen;
     }
 
     public void setProduktfunktionen(List<Produktfunktion_I> produktfunktionen) {
@@ -147,7 +152,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public List<Produktdaten_I> getProduktdaten() {
-        return produktdaten;
+        return this.produktdaten;
     }
 
     public void setProduktdaten(List<Produktdaten_I> produktdaten) {
@@ -155,7 +160,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public Produkteinsatz getProdukteinsatz() {
-        return produkteinsatz;
+        return this.produkteinsatz;
     }
 
     public void setProdukteinsatz(Produkteinsatz produkteinsatz) {
@@ -163,7 +168,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public Produktumgebung getProduktumgebung() {
-        return produktumgebung;
+        return this.produktumgebung;
     }
 
     public void setProduktumgebung(Produktumgebung produktumgebung) {
@@ -171,7 +176,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public Zielbestimmung getZielbestimmung() {
-        return zielbestimmung;
+        return this.zielbestimmung;
     }
 
     public void setZielbestimmung(Zielbestimmung zielbestimmung) {
@@ -179,7 +184,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public Faktoren getFaktoren() {
-        return faktoren;
+        return this.faktoren;
     }
 
     public void setFaktoren(Faktoren faktoren) {
@@ -187,11 +192,11 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public Faktoren getSollFaktoren() {
-        return sollFaktoren;
+        return this.sollFaktoren;
     }
 
     public Faktoren getUserfaktoren() {
-        return userfaktoren;
+        return this.userfaktoren;
     }
 
     public void setSollFaktoren(Faktoren sollFaktoren) {
@@ -199,7 +204,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public FunctionPoints getFunctionPoints() {
-        return functionPoints;
+        return this.functionPoints;
     }
 
     public void setFunctionPoints(FunctionPoints functionPoints) {
@@ -211,7 +216,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public Konfiguration_I getConfig() {
-        return config;
+        return this.config;
     }
 
     public void setConfig(Konfiguration_I config) {
