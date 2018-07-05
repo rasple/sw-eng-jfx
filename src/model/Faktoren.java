@@ -204,7 +204,7 @@ public class Faktoren implements Serializable, Faktoren_I {
 		for( double factor :this.faktoren){
 			sumfactors+=factor;
 		}
-		return sumfactors/100 +0.7;
+		return (sumfactors/100) +0.7;
 	}
 
 	@Override

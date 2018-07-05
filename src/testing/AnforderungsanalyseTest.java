@@ -61,7 +61,7 @@ public class AnforderungsanalyseTest {
         assertEquals(0.7, anforderungsanalyse.aufwandsabschaetzung(), 0);
     }
     @Test
-    public void aufwandsabschaetzunglongtest() {
+    public void aufwandsabschaetzungValueTest() {
         Anforderungsanalyse anforderungsanalyse = new Anforderungsanalyse();
         List<Produktfunktion> produktfunktionen = new ArrayList<Produktfunktion>();
         produktfunktionen.add(new Produktfunktion("test1", "1", 2, 16, "EI")); //6 fp
@@ -105,6 +105,7 @@ public class AnforderungsanalyseTest {
             }
         } catch (SelbstoptiException e){
         //can not happen
+            throw new AssertionError("'cannot happen' my ass");
         }
     }
     @Test
