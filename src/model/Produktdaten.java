@@ -73,6 +73,7 @@ public class Produktdaten implements Serializable, Produktdaten_I {
         }
         else return 2;
     }
+
     public String getId() {
         return id;
     }

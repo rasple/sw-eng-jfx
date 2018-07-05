@@ -82,7 +82,7 @@ public class IO {
     public static Object load(Stage stage) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Öffne Datei");
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("KLAUS Dateien (*.klaus)", "*.klaus");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("K.L.A.U.S. Dateien (*.klaus)", "*.klaus");
         fileChooser.getExtensionFilters().add(extFilter);
         File file = null;
         try {

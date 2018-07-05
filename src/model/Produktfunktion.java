@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 
 public class Produktfunktion implements Serializable, Produktfunktion_I {
+
     private String id;
     private String desc;
     private int ftr;
@@ -28,10 +29,12 @@ public class Produktfunktion implements Serializable, Produktfunktion_I {
     public int calcFp(HashMap<String, int[][]> fpmatrix){
         return fpmatrix.get(this.type)[this.calcPos()[0]][this.calcPos()[1]];
     }
+
     /**
      * Prüft ob alle relevanten Informaionen gesetzt sind
      * @return true wenn ein Typ ausgewählt ist und DET größer null ist
      */
+
     public boolean isValid(){
         return !(this.type.isEmpty()) && (this.det>0) && (this.ftr>-1);
     }
@@ -40,6 +43,7 @@ public class Produktfunktion implements Serializable, Produktfunktion_I {
      * Wird nur dann ausgeführt wenn isvalid true liefert
      * @return Array an Stelle 0 die FTR Position an Stelle 1 die DET Position der Functionspointsmatrix
      */
+
     public int[] calcPos(){
         int[] pos = new int[2];
         if(this.type.equals("EI")){
@@ -53,6 +57,7 @@ public class Produktfunktion implements Serializable, Produktfunktion_I {
             return pos;
         }
     }
+
     private int calcFTRposEI(){
         if(this.ftr<2){
             return 0;
@@ -64,6 +69,7 @@ public class Produktfunktion implements Serializable, Produktfunktion_I {
             return 2;
         }
     }
+
     private int calcDETposEI(){
         if(this.det<5){
             return 0;
@@ -73,6 +79,7 @@ public class Produktfunktion implements Serializable, Produktfunktion_I {
         }
         else return 2;
     }
+
     private int calcFTRpos(){
         if(this.ftr<2){
             return 0;
@@ -85,6 +92,7 @@ public class Produktfunktion implements Serializable, Produktfunktion_I {
             return 2;
         }
     }
+
     private int calcDETpos(){
         if(this.det<6){
             return 0;
@@ -98,6 +106,7 @@ public class Produktfunktion implements Serializable, Produktfunktion_I {
     public int getFtr() {
         return ftr;
     }
+
     public void setFtr(int ftr) {
         this.ftr = ftr;
     }

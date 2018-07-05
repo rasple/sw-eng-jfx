@@ -97,15 +97,17 @@ public class Faktoren implements Serializable, Faktoren_I {
 		this.setBemerkung("");
 
 	}
+
     public double getVerfechtung() {
-		return verfechtung;
+		return this.verfechtung;
 	}
+
 	public void setVerfechtung(double verfechtung) {
 		this.verfechtung = verfechtung;
 	}
 
     public double getDezentraleDaten() {
-        return dezentraleDaten;
+        return this.dezentraleDaten;
     }
 
     public void setDezentraleDaten(double dezentraleDaten) {
@@ -113,7 +115,7 @@ public class Faktoren implements Serializable, Faktoren_I {
     }
 
     public double getTransaktionsrate() {
-        return transaktionsrate;
+        return this.transaktionsrate;
     }
 
     public void setTransaktionsrate(double transaktionsrate) {
@@ -121,47 +123,65 @@ public class Faktoren implements Serializable, Faktoren_I {
     }
 
     public double getRechenoperationen() {
-        return rechenoperationen;
+        return this.rechenoperationen;
     }
 
     public void setRechenoperationen(double rechenoperationen) {
         this.rechenoperationen = rechenoperationen;
 	}
+
 	public double getKontrollverfahren() {
-		return kontrollverfahren;
+		return this.kontrollverfahren;
 	}
+
 	public void setKontrollverfahren(double kontrollverfahren) {
 		this.kontrollverfahren = kontrollverfahren;
 	}
+
 	public double getAusnahmeregelung() {
-		return ausnahmeregelung;
+		return this.ausnahmeregelung;
 	}
+
 	public void setAusnahmeregelung(double ausnahmeregelung) {
 		this.ausnahmeregelung = ausnahmeregelung;
 	}
 	public double getLogik() {
-		return logik;
+		return this.logik;
 	}
 	public void setLogik(double logik) {
 		this.logik = logik;
 	}
+
 	public double getWiederverwendbarkeit() {
-		return wiederverwendbarkeit;
+		return this.wiederverwendbarkeit;
 	}
+
 	public void setWiederverwendbarkeit(double wiederverwendbarkeit) {
 		this.wiederverwendbarkeit = wiederverwendbarkeit;
 	}
+
 	public double getDatenbestandskonvertierung() {
-		return datenbestandskonvertierung;
+		return this.datenbestandskonvertierung;
 	}
+
 	public void setDatenbestandskonvertierung(double datenbestandskonvertierung) {
 		this.datenbestandskonvertierung = datenbestandskonvertierung;
 	}
+
 	public double getAnpassbarkeit() {
-		return anpassbarkeit;
+		return this.anpassbarkeit;
 	}
+
 	public void setAnpassbarkeit(double anpassbarkeit) {
 		this.anpassbarkeit = anpassbarkeit;
+	}
+
+	public void setBemerkung(String bemerkung) {
+		this.bemerkung = bemerkung;
+	}
+
+	public String getBemerkung() {
+		return this.bemerkung;
 	}
 
 	public double[] getFaktoren() {
@@ -169,24 +189,27 @@ public class Faktoren implements Serializable, Faktoren_I {
         this.faktoren[1] = this.dezentraleDaten;
         this.faktoren[2] = this.transaktionsrate;
         this.faktoren[3] = this.rechenoperationen;
-		this.faktoren[4]=this.kontrollverfahren;
-		this.faktoren[5]=this.ausnahmeregelung;
-		this.faktoren[6]=this.logik;
-		this.faktoren[7]=this.wiederverwendbarkeit;
-		this.faktoren[8]=this.datenbestandskonvertierung;
-		this.faktoren[9]=this.anpassbarkeit;
-		return faktoren;
+		this.faktoren[4] = this.kontrollverfahren;
+		this.faktoren[5] = this.ausnahmeregelung;
+		this.faktoren[6] = this.logik;
+		this.faktoren[7] = this.wiederverwendbarkeit;
+		this.faktoren[8] = this.datenbestandskonvertierung;
+		this.faktoren[9] = this.anpassbarkeit;
+		return this.faktoren;
 	}
+
 	public static double calcunbewertefp(double bewertetefp, double[] factors){
 		double fac= Faktoren.calcfac(factors);
 		double unbewertetefp=  bewertetefp/ fac;
 		return unbewertetefp;
 	}
+
 	public static double calcbewertefp(double unbewertefp, double []factors){
 		double fac = Faktoren.calcfac(factors);
 		return unbewertefp*fac;
 		
 	}
+
 	public static double calcfac(double[] factors){
 		double sumfactors=0;
 		double fac;
@@ -196,15 +219,18 @@ public class Faktoren implements Serializable, Faktoren_I {
 		fac= (sumfactors/100) +0.7;
 		return fac;
 	}
+
 	public double calcunbewertetefp(double bewertetefp){
 		this.faktor= this.calcfac();
 		double unbewertetefp=  bewertetefp/ this.faktor;
 		return unbewertetefp;
 	}
+
 	public double calcbewertetefp(double unbewertetefp){
 		this.faktor= this.calcfac();
 		return unbewertetefp* this.faktor;
 	}
+
 	public double calcfac(){
 		double sumfactors=0;
 		for( double factor :this.faktoren){
@@ -258,6 +284,7 @@ public class Faktoren implements Serializable, Faktoren_I {
 		sb.append(this.bemerkung);
 		return sb.toString();
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == this) {
@@ -276,8 +303,5 @@ public class Faktoren implements Serializable, Faktoren_I {
 		}
 		return false;
 	}
-
-	public void setBemerkung(String bemerkung) {this.bemerkung = bemerkung;}
-	public String getBemerkung() {return this.bemerkung;}
 
 }

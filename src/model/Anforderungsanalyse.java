@@ -10,30 +10,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-
 // Singleton
 public class Anforderungsanalyse implements Serializable, Cloneable, Anforderungsanalyse_I {
-
 
     private static Anforderungsanalyse anforderungsanalyse;
     private List<Produktfunktion_I> produktfunktionen;
     private List<Produktdaten_I> produktdaten;
     private Faktoren userfaktoren;
-
-
     private Faktoren sollFaktoren;
-
-
-
     private FunctionPoints functionPoints;
     private Zielbestimmung zielbestimmung;
     private Produktumgebung produktumgebung;
     private Produkteinsatz produkteinsatz;
     private Faktoren faktoren;
-
-
     private Konfiguration_I config;
     private List<Optimieren_I> nachkal; //Liste für die Algorithmen der Nachkalkulation
+
 
     public static Anforderungsanalyse clone(Anforderungsanalyse anfOld) {
         Anforderungsanalyse anfNew = new Anforderungsanalyse();
@@ -65,7 +57,8 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         anforderungsanalyse = null;
     }
 
-    //Wird nur für Testzwecke gebraucht
+    // Der Defaultkonstruktor muss an dieser Stelle public sein, da sonst das Serialisieren beim Speichern nicht funktioniert
+    // Wie bei einem Singleton üblich, wäre er sonst natürlich privat
     public Anforderungsanalyse() {
         produktfunktionen = new ArrayList<Produktfunktion_I>();
         produktdaten = new ArrayList<Produktdaten_I>();
@@ -80,13 +73,13 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
 
-
     public static Anforderungsanalyse getInstance() {
         if (anforderungsanalyse == null) {
             anforderungsanalyse = new Anforderungsanalyse();
         }
         return anforderungsanalyse;
     }
+
     /**
      *
      * @return -1 Produktfunktion ist invalid, -2 Produktdaten invalid, -3 Produktfunktionen nicht vorhanden, -4 Produktdaten nicht vorhanden
@@ -96,12 +89,15 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         Produktfunktion_I currentFkt;
         Produktdaten_I currentDa;
         ListIterator<Produktfunktion_I> iteratorFkt = this.produktfunktionen.listIterator();
+
         if(this.produktfunktionen.isEmpty()){
             return -3;
         }
+
         if(this.produktdaten.isEmpty()){
             return -4;
         }
+
         while (iteratorFkt.hasNext()) {
             currentFkt = iteratorFkt.next();
             if (currentFkt.isValid()) {
@@ -112,19 +108,21 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
             }
 
         }
+
         ListIterator<Produktdaten_I>iteratorda=this.produktdaten.listIterator();
         while(iteratorda.hasNext()){
             currentDa = iteratorda.next();
             if (currentDa.isValid()) {
                 unbewerteFP += currentDa.calcFp(config.getHashMapDaten());
-            }
-            else{
+            } else {
                 return -2;
             }
         }
+
         this.functionPoints.setIstfp(this.faktoren.calcbewertetefp(unbewerteFP));
         return functionPoints.getCalcMannmonate();
     }
+
     //Um die Methode ausführen zu können, muss der user eingeben wie lange das Projekt wirklich gedauert hat und davor die
     // Aufwandsabschätzung durchgeführt haben
     public Faktoren selbstoptimierung(double mannmonate) throws SelbstoptiException{
@@ -135,9 +133,11 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
             case -3: throw new SelbstoptiException("Produktfunktionen nicht vorhanden",-3);
             case -4: throw new SelbstoptiException("Produktdaten nicht vorhanden",-4);
         }
+
         this.sollFaktoren = functionPoints.selbstoptimierung(mannmonate, faktoren.getFaktoren());
         return this.sollFaktoren;
     }
+
     //Diese Methode soll aufgerufen werden, wenn der User einer anderen
     //ALgo für die selbstoptimierte Nachkalkulation haben will. Es kann ein Algo aus der Liste ausgewählt werden
     public void setFpOpti(int position) {
@@ -145,7 +145,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public List<Produktfunktion_I> getProduktfunktionen() {
-        return produktfunktionen;
+        return this.produktfunktionen;
     }
 
     public void setProduktfunktionen(List<Produktfunktion_I> produktfunktionen) {
@@ -153,7 +153,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public List<Produktdaten_I> getProduktdaten() {
-        return produktdaten;
+        return this.produktdaten;
     }
 
     public void setProduktdaten(List<Produktdaten_I> produktdaten) {
@@ -161,7 +161,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public Produkteinsatz getProdukteinsatz() {
-        return produkteinsatz;
+        return this.produkteinsatz;
     }
 
     public void setProdukteinsatz(Produkteinsatz produkteinsatz) {
@@ -169,7 +169,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public Produktumgebung getProduktumgebung() {
-        return produktumgebung;
+        return this.produktumgebung;
     }
 
     public void setProduktumgebung(Produktumgebung produktumgebung) {
@@ -177,7 +177,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public Zielbestimmung getZielbestimmung() {
-        return zielbestimmung;
+        return this.zielbestimmung;
     }
 
     public void setZielbestimmung(Zielbestimmung zielbestimmung) {
@@ -185,7 +185,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public Faktoren getFaktoren() {
-        return faktoren;
+        return this.faktoren;
     }
 
     public void setFaktoren(Faktoren faktoren) {
@@ -193,17 +193,19 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public Faktoren getSollFaktoren() {
-        return sollFaktoren;
+        return this.sollFaktoren;
     }
 
-    public Faktoren getUserfaktoren() {return userfaktoren;}
+    public Faktoren getUserfaktoren() {
+        return this.userfaktoren;
+    }
 
     public void setSollFaktoren(Faktoren sollFaktoren) {
         this.sollFaktoren = sollFaktoren;
     }
 
     public FunctionPoints getFunctionPoints() {
-        return functionPoints;
+        return this.functionPoints;
     }
 
     public void setFunctionPoints(FunctionPoints functionPoints) {
@@ -215,7 +217,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public Konfiguration_I getConfig() {
-        return config;
+        return this.config;
     }
 
     public void setConfig(Konfiguration_I config) {
@@ -242,9 +244,13 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         this.userfaktoren = userfaktoren;
     }
 
-    public void setNachkal(List<Optimieren_I> nachkal){this.nachkal=nachkal;}
+    public void setNachkal(List<Optimieren_I> nachkal){
+        this.nachkal=nachkal;
+    }
 
-    public List<Optimieren_I> getNachkal() {return this.nachkal;}
+    public List<Optimieren_I> getNachkal() {
+        return this.nachkal;
+    }
 
     @Override
     public boolean equals(Object obj) {
