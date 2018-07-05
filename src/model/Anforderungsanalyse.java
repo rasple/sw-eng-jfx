@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 // Singleton
 public class Anforderungsanalyse implements Serializable, Cloneable, Anforderungsanalyse_I {
 
+
     private static Anforderungsanalyse anforderungsanalyse;
     private List<Produktfunktion> produktfunktionen;
     private List<Produktdaten> produktdaten;
@@ -193,6 +194,8 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         return sollFaktoren;
     }
 
+    public Faktoren getUserfaktoren() {return userfaktoren;}
+
     public void setSollFaktoren(Faktoren sollFaktoren) {
         this.sollFaktoren = sollFaktoren;
     }
@@ -238,6 +241,8 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public void setNachkal(List<Optimieren_I> nachkal){this.nachkal=nachkal;}
+
+    public List<Optimieren_I> getNachkal() {return this.nachkal;}
 
 
 }

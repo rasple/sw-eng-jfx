@@ -6,7 +6,7 @@ public class FunctionPoints implements Serializable {
 	private double istfp;
 	private double sollfp;
 	private double calcmannmonate;
-	private double istmanmonate;
+	private double istmannmonate;
 	private Konfiguration_I config;
 	private Optimieren_I opti;
 
@@ -49,7 +49,7 @@ public class FunctionPoints implements Serializable {
 
 
 	public void setIstMannmonate(double mannmonate) {
-		this.istmanmonate= mannmonate;
+		this.istmannmonate = mannmonate;
 		this.sollfp= this.config.calcfp(mannmonate);
 
 	}
@@ -60,9 +60,10 @@ public class FunctionPoints implements Serializable {
 				"istfp=" + istfp +
 				", sollfp=" + sollfp +
 				", calcmannmonate=" + calcmannmonate +
-				", istmanmonate=" + istmanmonate +
+				", istmannmonate=" + istmannmonate +
 				", config=" + config +
 				", opti=" + opti +
 				'}';
 	}
+
 }
