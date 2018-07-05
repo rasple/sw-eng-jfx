@@ -221,4 +221,23 @@ public class Faktoren implements Serializable {
 		sb.append(this.anpassbarkeit);
 		return sb.toString();
 	}
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		}
+		if (obj != null && obj instanceof Faktoren) {
+			Faktoren other = (Faktoren) obj;
+
+			for(int index=0; index < this.getFaktoren().length; index++){
+
+				if(this.getFaktoren()[index] != other.getFaktoren()[index]) {return false;}
+			}
+
+			return true;
+
+		}
+		return false;
+	}
+
 }
