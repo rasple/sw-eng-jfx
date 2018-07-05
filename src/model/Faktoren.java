@@ -1,5 +1,7 @@
 package model;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -16,6 +18,7 @@ public class Faktoren implements Serializable {
 	private double anpassbarkeit;
 	private double[] faktoren; //<-welcher heini ist auf die idee gekommen, das zeug gleich wie die klasse zu nennen?
 	private double faktor;
+	private String bemerkung;
 	
 	public Faktoren(){
 		this.faktoren= new double[10];
@@ -66,7 +69,28 @@ public class Faktoren implements Serializable {
         }
 
 	}
+	public Faktoren(double[] faktoren, String bemerkung){
+		int pos=0;
+		this.faktoren= new double[10];
+		for(double faktor: faktoren){
+			this.faktoren[pos]=faktor;
+			pos++;
+		}
+		this.bemerkung=bemerkung;
+		if(faktoren.length==10){
+			this.verfechtung = faktoren[0];
+			this.dezentraleDaten = faktoren[1];
+			this.transaktionsrate = faktoren[2];
+			this.rechenoperationen = faktoren[3];
+			this.kontrollverfahren = faktoren[4];
+			this.ausnahmeregelung = faktoren[5];
+			this.logik = faktoren[6];
+			this.wiederverwendbarkeit = faktoren[7];
+			this.datenbestandskonvertierung = faktoren[8];
+			this.anpassbarkeit = faktoren[9];
+		}
 
+	}
     public double getVerfechtung() {
 		return verfechtung;
 	}
@@ -158,12 +182,12 @@ public class Faktoren implements Serializable {
 		
 	}
 	public static double calcfac(double[] factors){
-		int sumfactors=0;
+		double sumfactors=0;
 		double fac;
 		for( double factor :factors){
 			sumfactors+=factor;
 		}
-		fac= sumfactors/100 +0.7;
+		fac= (sumfactors/100) +0.7;
 		return fac;
 	}
 	public double calcbewertetefp(double unbewertetefp){
@@ -219,6 +243,7 @@ public class Faktoren implements Serializable {
 		sb.append(this.datenbestandskonvertierung);
 		sb.append("\nAnpassbarkeit: ");
 		sb.append(this.anpassbarkeit);
+		sb.append("\n"+this.bemerkung);
 		return sb.toString();
 	}
 }

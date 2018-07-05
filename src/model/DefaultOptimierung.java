@@ -15,10 +15,12 @@ public class DefaultOptimierung implements Optimieren_I {
 	/**
 	 * Bei dem Algorithmus wird nacheinander ein Faktor vergößert oder verkleinert.
 	 * Ist das Limit erreicht wird der nächste Faktor verändert
+	 * @param istfp bewerteFunctionPoints der aktuellen Projektes, sollfp aus den Mannmonaten, die das tatsächlich gedauert hat, berechnet
+	 *  factors Bewertungsfaktoren der bisherigen Functionpointsanalyse
 	 * @return optimerte Faktoren
 	 */
 	public Faktoren optimieren(double istfp, double sollfp, double[] factors) {
-
+		String bemerkung="";
 		final double unbewertetefp= Faktoren.calcunbewertefp(istfp, factors);
 		int pos=0, maxpos= factors.length;
 		double dif=istfp-sollfp, currentfp;
@@ -51,7 +53,14 @@ public class DefaultOptimierung implements Optimieren_I {
 			currentfp= Faktoren.calcbewertefp(unbewertetefp, factors);
 			dif= currentfp-sollfp;
 		}
-		return new Faktoren(factors);
+
+		//Sollte der Unterschied zwischen neuen berechnter Zeit und realer Zeit immer noch zu groß sein
+		//wird das dem User mitgeteilt
+		if(Math.abs(dif)>0.3){
+			bemerkung="Differenz ist zu groß." +
+					"\nSie müssen die FunctionPoints verändern!";
+		}
+		return new Faktoren(factors, bemerkung);
 	}
 
 	@Override

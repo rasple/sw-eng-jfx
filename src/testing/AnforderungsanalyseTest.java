@@ -61,8 +61,51 @@ public class AnforderungsanalyseTest {
         assertEquals(0.7, anforderungsanalyse.aufwandsabschaetzung(), 0);
     }
     @Test
-    public void aufwandsabschaetzunglongtest(){
+    public void aufwandsabschaetzunglongtest() {
+        Anforderungsanalyse anforderungsanalyse = new Anforderungsanalyse();
+        List<Produktfunktion> produktfunktionen = new ArrayList<Produktfunktion>();
+        produktfunktionen.add(new Produktfunktion("test1", "1", 2, 16, "EI")); //6 fp
+        produktfunktionen.add(new Produktfunktion("test2", "2", 0, 5, "EI")); //3 fp
+        produktfunktionen.add(new Produktfunktion("test3", "3", 3, 3, "EI")); //4 fp
 
+        produktfunktionen.add(new Produktfunktion("test4", "4", 2, 20, "EO")); //7 fp
+        produktfunktionen.add(new Produktfunktion("test5", "5", 1, 5, "EO")); //4 fp
+        produktfunktionen.add(new Produktfunktion("test6", "6", 4, 3, "EO")); //5 fp
+
+        produktfunktionen.add(new Produktfunktion("test7", "7", 2, 20, "EQ")); //6 fp
+        produktfunktionen.add(new Produktfunktion("test8", "8", 0, 15, "EQ")); //3 fp
+        produktfunktionen.add(new Produktfunktion("test9", "9", 5, 4, "EQ")); //4 fp
+        anforderungsanalyse.setProduktfunktionen(produktfunktionen);
+
+        List<Produktdaten> produktdaten = new ArrayList<>();
+        produktdaten.add(new Produktdaten("test1", "1", 1, 1, "ILF")); //7fp
+        produktdaten.add(new Produktdaten("test2", "2", 3, 30, "ILF")); //10fp
+        produktdaten.add(new Produktdaten("test3", "3", 6, 51, "ILF")); //15fp
+
+        produktdaten.add(new Produktdaten("test1", "1", 1, 1, "EIF")); //5fp
+        produktdaten.add(new Produktdaten("test2", "2", 3, 30, "EIF")); //7fp
+        produktdaten.add(new Produktdaten("test3", "3", 6, 51, "EIF")); //10fp //96 total
+        anforderungsanalyse.setProduktdaten(produktdaten);
+        double[] factor = new double[]{0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5}; //bewertete 93,6
+        anforderungsanalyse.setFaktoren(new Faktoren(factor));
+        assertEquals(7.716, anforderungsanalyse.aufwandsabschaetzung(), 0.2);
+
+        double[] expectedfactors1= new double[]{5.0,5.0,5.0,5.0,2.7,3.0,3.5,4.0,4.5,5.0};
+        double[] expectedfactors2= new double[]{0,0,0,0,0,0,0,3.2,4.5,5};
+        try{
+        Faktoren sollfaktoren =anforderungsanalyse.selbstoptimierung(8.5);
+        for(int i=0; i<10;i++)
+        {
+            assertEquals(expectedfactors1[i],sollfaktoren.getFaktoren()[i], 0.1 );
+        }
+        sollfaktoren= anforderungsanalyse.selbstoptimierung(7.5);
+            for(int i=0; i<10;i++)
+            {
+                assertEquals(expectedfactors2[i],sollfaktoren.getFaktoren()[i], 0.1 );
+            }
+        } catch (SelbstoptiException e){
+        //can not happen
+        }
     }
     @Test
     public void selbstoptimierungTest(){

@@ -1,7 +1,9 @@
 package model;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.logging.Level;
@@ -119,7 +121,6 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
                 return -2;
             }
         }
-        System.out.println(unbewerteFP);
         this.functionPoints.setIstfp(this.faktoren.calcbewertetefp(unbewerteFP));
         return functionPoints.getCalcMannmonate();
     }
