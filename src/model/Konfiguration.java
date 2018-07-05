@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Konfiguration implements Konfiguration_I, Serializable {
 
@@ -148,11 +149,26 @@ public class Konfiguration implements Konfiguration_I, Serializable {
 		if (obj != null && obj instanceof Konfiguration) {
 			Konfiguration other = (Konfiguration) obj;
 
-			if(!Arrays.deepEquals(this.kompILF, other.kompILF)) {System.out.println("kompilf"); return false;}
-			if(!Arrays.deepEquals(this.kompEIF, other.kompEIF)) {System.out.println("kompelf"); return false;}
-			if(!Arrays.deepEquals(this.kompEI, other.kompEI)) {System.out.println("kompei"); return false;}
-			if(!Arrays.deepEquals(this.kompEO, other.kompEO)) {System.out.println("kompeo"); return false;}
-			if(!Arrays.deepEquals(this.kompEQ, other.kompEQ)) {System.out.println("kompeq"); return false;}
+			if(!Arrays.deepEquals(this.kompILF, other.kompILF)) {return false;}
+			if(!Arrays.deepEquals(this.kompEIF, other.kompEIF)) {return false;}
+			if(!Arrays.deepEquals(this.kompEI, other.kompEI)) {return false;}
+			if(!Arrays.deepEquals(this.kompEO, other.kompEO)) {return false;}
+			if(!Arrays.deepEquals(this.kompEQ, other.kompEQ)) {return false;}
+
+			if(!this.HashMapFunktion.keySet().equals(other.HashMapFunktion.keySet())) {return false;}
+			if(!this.HashMapDaten.keySet().equals(other.HashMapDaten.keySet())) {return false;}
+
+			for(Map.Entry<String, int[][]> entry : this.HashMapFunktion.entrySet()){
+				if(!other.HashMapFunktion.containsKey(entry.getKey())){
+					if(!entry.equals(other.HashMapDaten.get(entry.getKey()))) {return false;}
+				}
+			}
+
+			for(Map.Entry<String, int[][]> entry : this.HashMapDaten.entrySet()){
+				if(!other.HashMapDaten.containsKey(entry.getKey())){
+					if(!entry.equals(other.HashMapDaten.get(entry.getKey()))) {return false;}
+				}
+			}
 
 
 			return true;
