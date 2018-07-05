@@ -11,6 +11,22 @@ import java.util.List;
 public class AnforderungsanalyseTest {
 
     @Test
+    public void getCopyOfCurrentAnforderungsanalyseTest(){
+
+        Anforderungsanalyse original = Anforderungsanalyse.getInstance();
+        Anforderungsanalyse copy = original.getCopyOfCurrentAnforderungsanalyse();
+        assertEquals(original.toString(), copy.toString());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void resetAnforderungsanalyseTest(){
+
+        Anforderungsanalyse anforderungsanalyse = new Anforderungsanalyse();
+        anforderungsanalyse.resetAnforderungsanalyse();
+        anforderungsanalyse.getCopyOfCurrentAnforderungsanalyse();
+    }
+
+    @Test
     public void aufwandsabschaetzungTest(){
 
         Anforderungsanalyse anforderungsanalyse = new Anforderungsanalyse();
