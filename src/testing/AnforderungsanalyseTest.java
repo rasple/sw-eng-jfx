@@ -29,7 +29,9 @@ public class AnforderungsanalyseTest {
     @Test
     public void aufwandsabschaetzungTest(){
 
-        Anforderungsanalyse anforderungsanalyse = new Anforderungsanalyse();
+        Anforderungsanalyse anforderungsanalyse = Anforderungsanalyse.getInstance();
+        anforderungsanalyse.resetAnforderungsanalyse();
+        anforderungsanalyse = Anforderungsanalyse.getInstance();
         assertEquals( -3, anforderungsanalyse.aufwandsabschaetzung(), 0);
 
         Produktfunktion produktfunktion = new Produktfunktion();
@@ -192,7 +194,9 @@ public class AnforderungsanalyseTest {
     @Test
     public void cloneTest(){
 
-        Anforderungsanalyse anforderungsanalyse = new Anforderungsanalyse();
+        Anforderungsanalyse anforderungsanalyse = Anforderungsanalyse.getInstance();
+        anforderungsanalyse.resetAnforderungsanalyse();
+        anforderungsanalyse = Anforderungsanalyse.getInstance();
         Faktoren faktoren = new Faktoren();
         anforderungsanalyse.setFaktoren(faktoren);
         anforderungsanalyse.setUserfaktoren(faktoren);
