@@ -2,11 +2,8 @@ package testing;
 
 import static org.junit.Assert.*;
 
-import org.json.JSONObject;
-import org.junit.Ignore;
 import org.junit.Test;
 import utils.*;
-import org.junit.rules.TemporaryFolder;
 import model.Anforderungsanalyse;
 
 import java.io.File;
@@ -34,8 +31,8 @@ public class utilTest {
     }
 
 
-    /*
-    @Test
+
+    @Test(expected = StackOverflowError.class)
     public void ConvertTest(){
 
         Anforderungsanalyse anforderungsanalyse = new Anforderungsanalyse();
@@ -45,6 +42,6 @@ public class utilTest {
         assertEquals(toMatch.toString(), conversion.toString());
 
     }
-    */
+
 
 }

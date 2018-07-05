@@ -7,9 +7,6 @@ import org.junit.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
-
-import static org.hamcrest.CoreMatchers.*;
 
 public class AnforderungsanalyseTest {
 

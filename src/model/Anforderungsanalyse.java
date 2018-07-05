@@ -20,7 +20,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
 
 
     private Faktoren sollFaktoren;
-    private Optimieren_I optimieren;
+
 
 
     private FunctionPoints functionPoints;
@@ -31,7 +31,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
 
 
     private Konfiguration_I config;
-    private List<Fabrik_I> nachkalfabrik; //Liste für Fabriken für die Algorithmen der Nachkalkulation
+    private List<Optimieren_I> nachkal; //Liste für die Algorithmen der Nachkalkulation
 
     public Anforderungsanalyse clone(Anforderungsanalyse anfOld) {
         Anforderungsanalyse anfNew = new Anforderungsanalyse();
@@ -39,13 +39,13 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         anfNew.setProduktdaten(new ArrayList<Produktdaten>(anfOld.produktdaten));
         anfNew.setUserfaktoren(new Faktoren(anfOld.userfaktoren));
         anfNew.setSollFaktoren(new Faktoren(anfOld.sollFaktoren));
-        anfNew.setOptimieren(anfOld.optimieren);
         anfNew.setFunctionPoints(new FunctionPoints(new Konfiguration(), new DefaultFabrik().create()));
         anfNew.setZielbestimmung(new Zielbestimmung(anfOld.zielbestimmung));
         anfNew.setProduktumgebung(new Produktumgebung(anfOld.produktumgebung));
         anfNew.setProdukteinsatz(new Produkteinsatz(anfOld.produkteinsatz));
         anfNew.setFaktoren(new Faktoren(anfOld.faktoren));
         anfNew.setConfig(new Konfiguration());
+        anfNew.setNachkal(new ArrayList<Optimieren_I>(anfOld.nachkal));
         return anfNew;
     }
 
@@ -72,8 +72,8 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         faktoren = new Faktoren();
         functionPoints = new FunctionPoints(new Konfiguration(), new DefaultFabrik().create()); // Default immer der eigene Algo
         config= new Konfiguration();
-        nachkalfabrik= new ArrayList<>();
-        nachkalfabrik.add(new DefaultFabrik());
+        nachkal=new ArrayList<>();
+        nachkal.add(new DefaultFabrik().create()); //An dieser Stelle können weiter Algorithmen hinzugefügt werden
     }
 
 
@@ -138,9 +138,8 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
     //Diese Methode soll aufgerufen werden, wenn der User einer anderen
     //ALgo für die selbstoptimierte Nachkalkulation haben will. Es kann ein Algo aus der Liste ausgewählt werden
-
     public void setFpOpti(int position) {
-        functionPoints.setOpti(this.nachkalfabrik.get(position).create());
+        functionPoints.setOpti(this.nachkal.get(position));
     }
 
     public List<Produktfunktion> getProduktfunktionen() {
@@ -226,7 +225,6 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
                 ", produktdaten=" + produktdaten +
                 ", userfaktoren=" + userfaktoren +
                 ", sollFaktoren=" + sollFaktoren +
-                ", optimieren=" + optimieren +
                 ", functionPoints=" + functionPoints +
                 ", zielbestimmung=" + zielbestimmung +
                 ", produktumgebung=" + produktumgebung +
@@ -240,7 +238,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         this.userfaktoren = userfaktoren;
     }
 
-    public void setOptimieren(Optimieren_I optimieren) {
-        this.optimieren = optimieren;
-    }
+    public void setNachkal(List<Optimieren_I> nachkal){this.nachkal=nachkal;}
+
+
 }
