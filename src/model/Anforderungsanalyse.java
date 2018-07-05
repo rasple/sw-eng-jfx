@@ -16,7 +16,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     private List<Produktdaten_I> produktdaten;
     private Faktoren userfaktoren;
     private Faktoren sollFaktoren;
-    private FunctionPoints functionPoints;
+    private FunctionPoints_I functionPoints;
     private Zielbestimmung zielbestimmung;
     private Produktumgebung produktumgebung;
     private Produkteinsatz produkteinsatz;
@@ -79,9 +79,11 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     /**
-     *
+     *Berechnet nach der Functionpointmethode die Dauer des Projektes
      * @return -1 Produktfunktion ist invalid, -2 Produktdaten invalid, -3 Produktfunktionen nicht vorhanden, -4 Produktdaten nicht vorhanden
+     * sonst Mannmonate
      */
+
     public double aufwandsabschaetzung(){
         int unbewerteFP = 0;
         Produktfunktion_I currentFkt;
@@ -123,6 +125,14 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
 
     //Um die Methode ausführen zu können, muss der user eingeben wie lange das Projekt wirklich gedauert hat und davor die
     // Aufwandsabschätzung durchgeführt haben
+
+    /**
+     * Verändert nach der Methode, die functionPoints zuvor übergeben wurde, die Faktoren ,sodass die
+     * berchnete Zeit mit der tatsächlichen Zeit maximal übereinstimmr
+     * @param mannmonate, die das Projekt wirklich gedauert hat
+     * @return optimierte Faktoren
+     * @throws SelbstoptiException, wenn die Anforderungsanalyse nicht vollständig ist
+     */
     public Faktoren selbstoptimierung(double mannmonate) throws SelbstoptiException{
         Double result=this.aufwandsabschaetzung();
         switch (result.intValue()){
@@ -206,7 +216,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         this.sollFaktoren = sollFaktoren;
     }
 
-    public FunctionPoints getFunctionPoints() {
+    public FunctionPoints_I getFunctionPoints() {
         return this.functionPoints;
     }
 
