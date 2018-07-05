@@ -10,30 +10,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-
 // Singleton
 public class Anforderungsanalyse implements Serializable, Cloneable, Anforderungsanalyse_I {
-
 
     private static Anforderungsanalyse anforderungsanalyse;
     private List<Produktfunktion> produktfunktionen;
     private List<Produktdaten> produktdaten;
     private Faktoren userfaktoren;
-
-
     private Faktoren sollFaktoren;
-
-
-
     private FunctionPoints functionPoints;
     private Zielbestimmung zielbestimmung;
     private Produktumgebung produktumgebung;
     private Produkteinsatz produkteinsatz;
     private Faktoren faktoren;
-
-
     private Konfiguration_I config;
     private List<Optimieren_I> nachkal; //Liste für die Algorithmen der Nachkalkulation
+
 
     public static Anforderungsanalyse clone(Anforderungsanalyse anfOld) {
         Anforderungsanalyse anfNew = new Anforderungsanalyse();
@@ -79,13 +71,13 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
 
-
     public static Anforderungsanalyse getInstance() {
         if (anforderungsanalyse == null) {
             anforderungsanalyse = new Anforderungsanalyse();
         }
         return anforderungsanalyse;
     }
+
     /**
      *
      * @return -1 Produktfunktion ist invalid, -2 Produktdaten invalid, -3 Produktfunktionen nicht vorhanden, -4 Produktdaten nicht vorhanden
@@ -124,6 +116,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         this.functionPoints.setIstfp(this.faktoren.calcbewertetefp(unbewerteFP));
         return functionPoints.getCalcMannmonate();
     }
+
     //Um die Methode ausführen zu können, muss der user eingeben wie lange das Projekt wirklich gedauert hat und davor die
     // Aufwandsabschätzung durchgeführt haben
     public Faktoren selbstoptimierung(double mannmonate) throws SelbstoptiException{
@@ -137,6 +130,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         this.sollFaktoren = functionPoints.selbstoptimierung(mannmonate, faktoren.getFaktoren());
         return this.sollFaktoren;
     }
+
     //Diese Methode soll aufgerufen werden, wenn der User einer anderen
     //ALgo für die selbstoptimierte Nachkalkulation haben will. Es kann ein Algo aus der Liste ausgewählt werden
     public void setFpOpti(int position) {
@@ -195,7 +189,9 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         return sollFaktoren;
     }
 
-    public Faktoren getUserfaktoren() {return userfaktoren;}
+    public Faktoren getUserfaktoren() {
+        return userfaktoren;
+    }
 
     public void setSollFaktoren(Faktoren sollFaktoren) {
         this.sollFaktoren = sollFaktoren;
@@ -241,9 +237,13 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         this.userfaktoren = userfaktoren;
     }
 
-    public void setNachkal(List<Optimieren_I> nachkal){this.nachkal=nachkal;}
+    public void setNachkal(List<Optimieren_I> nachkal){
+        this.nachkal=nachkal;
+    }
 
-    public List<Optimieren_I> getNachkal() {return this.nachkal;}
+    public List<Optimieren_I> getNachkal() {
+        return this.nachkal;
+    }
 
     @Override
     public boolean equals(Object obj) {

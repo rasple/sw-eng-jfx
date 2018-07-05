@@ -1,4 +1,5 @@
 package model;
+
 /**
  * Diese Klasse wird verwendet, wenn der User keine eigene Klasse für die Nachkalkulation verwendet
  *

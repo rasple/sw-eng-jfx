@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 
 public class FunctionPoints implements Serializable, FunctionPoints_I {
+
 	private double istfp;
 	private double sollfp;
 	private double calcmannmonate;
@@ -15,23 +16,27 @@ public class FunctionPoints implements Serializable, FunctionPoints_I {
 		this.sollfp=0;
 		this.config= new Konfiguration();
 	}
+
 	public FunctionPoints(Konfiguration_I config, Optimieren_I opti){
 		this.istfp=0;
 		this.sollfp=0;
 		this.config= config;
 		this.opti=opti;
 	}
+
 	public Faktoren selbstoptimierung(double mannmonate, double[] userfaktoren){
 		this.sollfp=config.calcfp(mannmonate);
 		return opti.optimieren(this.istfp, this.sollfp, userfaktoren);
 	}
-	public void setOpti(Optimieren_I opti){this.opti=opti;}
 
-
+	public void setOpti(Optimieren_I opti){
+		this.opti=opti;
+	}
 
 	public double getCalcMannmonate() {
 		return this.calcmannmonate;
 	}
+
 	public double getIstfp() {
 		return istfp;
 	}
@@ -44,9 +49,6 @@ public class FunctionPoints implements Serializable, FunctionPoints_I {
 	public double getSollfp() {
 		return sollfp;
 	}
-
-
-
 
 	public void setIstMannmonate(double mannmonate) {
 		this.istmannmonate = mannmonate;
@@ -82,7 +84,7 @@ public class FunctionPoints implements Serializable, FunctionPoints_I {
 			if(!this.opti.equals(other.opti)) {return false;}
 
 
-		return true;
+			return true;
 
 		}
 		return false;

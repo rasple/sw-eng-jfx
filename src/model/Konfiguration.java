@@ -14,6 +14,7 @@ public class Konfiguration implements Konfiguration_I, Serializable {
 	private int[][] kompEQ;
 	private HashMap<String, int[][]> HashMapFunktion;
 	private HashMap<String, int[][]> HashMapDaten;
+
 	/**
 	 * Initialisierung der Komplexitätsmatrizen. Es werden an den entsprechenden Stellen gleich die Werte
 	 * der FunctionPoints gespeichert;
@@ -43,18 +44,21 @@ public class Konfiguration implements Konfiguration_I, Serializable {
 		this.HashMapDaten.put("ILF", this.kompILF);
 		this.HashMapDaten.put("EIF", this.kompEIF);
 	}
+
 	public HashMap<String, int[][]> getHashMapFunktion(){
 		return this.HashMapFunktion;
 	}
+
 	public HashMap<String, int[][]> getHashMapDaten(){
 		return this.HashMapDaten;
 	}
-/**
- * Rechnet die Functionpoints nach der IBM-MM Tabelle in Mannmonate um
- * Zwischen den Stützstellen wird linear interpoliert
- * @param fp, bewertete Function Points
- * @return Mannmonate passend zu den Functionpoints
- */
+
+	/**
+	 * Rechnet die Functionpoints nach der IBM-MM Tabelle in Mannmonate um
+	 * Zwischen den Stützstellen wird linear interpoliert
+	 * @param fp, bewertete Function Points
+	 * @return Mannmonate passend zu den Functionpoints
+ 	*/
 	public double calcmannmonate(double fp) {
 		double mannmonate=-1;
 		if(fp<0){
@@ -88,12 +92,13 @@ public class Konfiguration implements Konfiguration_I, Serializable {
 		}
 		return mannmonate;
 	}
-/**
- * Rechnet die Mannmonate nach der IBM-MM Tabelle in Functionpoints um
- * Zwischen den Stützstellen wird linear interpoliert
- * @param mannmonate
- * @return Funtionspoints
- */
+
+	/**
+	 * Rechnet die Mannmonate nach der IBM-MM Tabelle in Functionpoints um
+	 * Zwischen den Stützstellen wird linear interpoliert
+	 * @param mannmonate
+	 * @return Funtionspoints
+	 */
 	public double calcfp(double mannmonate) {
 		double fp = 0;
 		if(mannmonate<0){
