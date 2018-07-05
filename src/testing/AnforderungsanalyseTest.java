@@ -21,7 +21,7 @@ public class AnforderungsanalyseTest {
     @Test(expected = NullPointerException.class)
     public void resetAnforderungsanalyseTest(){
 
-        Anforderungsanalyse anforderungsanalyse = new Anforderungsanalyse();
+        Anforderungsanalyse anforderungsanalyse = Anforderungsanalyse.getInstance();
         anforderungsanalyse.resetAnforderungsanalyse();
         anforderungsanalyse.getCopyOfCurrentAnforderungsanalyse();
     }
@@ -64,7 +64,7 @@ public class AnforderungsanalyseTest {
     @Test
     public void aufwandsabschaetzungValueTest() {
 
-        Anforderungsanalyse anforderungsanalyse = new Anforderungsanalyse();
+        Anforderungsanalyse anforderungsanalyse = Anforderungsanalyse.getInstance();
         List<Produktfunktion_I> produktfunktionen = new ArrayList<Produktfunktion_I>();
 
         produktfunktionen.add(new Produktfunktion("test1", "1", 2, 16, "EI")); //6 fp
@@ -117,7 +117,7 @@ public class AnforderungsanalyseTest {
     @Test
     public void selbstoptimierungTest(){
 
-        Anforderungsanalyse anforderungsanalyse = new Anforderungsanalyse();
+        Anforderungsanalyse anforderungsanalyse = Anforderungsanalyse.getInstance();
 
         try {
             anforderungsanalyse.selbstoptimierung(0);
@@ -191,7 +191,7 @@ public class AnforderungsanalyseTest {
     @Test
     public void cloneTest(){
 
-        Anforderungsanalyse anforderungsanalyse = Anforderungsanalyse.getInstance();
+        Anforderungsanalyse anforderungsanalyse = new Anforderungsanalyse();
         Faktoren faktoren = new Faktoren();
         anforderungsanalyse.setFaktoren(faktoren);
         anforderungsanalyse.setUserfaktoren(faktoren);
