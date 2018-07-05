@@ -131,4 +131,5 @@ public class Konfiguration implements Konfiguration_I, Serializable {
 				", HashMapDaten=" + HashMapDaten +
 				'}';
 	}
+
 }
