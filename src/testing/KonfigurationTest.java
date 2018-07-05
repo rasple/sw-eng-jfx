@@ -40,9 +40,8 @@ public class KonfigurationTest {
     public void evaluateCalcMannMonate(){
 
         Konfiguration_I config = new Konfiguration();
-        int[] testValues = new int[]{0, 50, 1000, 1400, 1700, 2000, 2200, 2500, 2600, 2700, 2800, 2900, 3000};
-        int [] expectedValues = new int[]{0, 0, 76, 112, 142, 175, 201, 245, 263, 284, 287, 341, 341};
-
+        int[] testValues = new int[]{-1, 20,50, 1000, 1400, 1700, 2000, 2200, 2500, 2600, 2700, 2800, 2900, 3000};
+        int [] expectedValues = new int[]{0,2, 5, 76, 112, 142, 175, 201, 245, 263, 284, 287, 341, 341};
         for (int index=0; index < testValues.length; index++) {
             assertEquals(expectedValues[index], config.calcmannmonate(testValues[index]), 0);
         }
@@ -55,12 +54,12 @@ public class KonfigurationTest {
     public void evaluateCalcFP(){
 
         Konfiguration_I config = new Konfiguration();
-        int[] testValues = new int[]{0, 50, 1000, 1400, 1700, 2000, 2200, 2500, 2600, 2700, 2800, 2900, 3000};
-        int [] expectedValues = new int[]{0, 0, 12048, 15554, 17280, 18405, 15995, 15780, 70125, 11932, 12628, 7090, 0};
-
+        int[] expectedValues = new int[]{0,20, 50, 1000, 1400, 1700, 2000, 2200, 2500, 2600, 2700, 2800, 2900, 2900};
+        int [] testValues= new int[]{-1, 2,5, 76, 112, 142, 175, 201, 245, 263, 284, 287, 341, 345};
         for (int index=0; index < testValues.length; index++) {
             assertEquals(expectedValues[index], config.calcfp(testValues[index]), 0);
         }
+
 
         assert(config.calcfp(-1)==0);
 

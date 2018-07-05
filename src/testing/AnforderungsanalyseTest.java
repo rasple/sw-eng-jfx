@@ -60,7 +60,10 @@ public class AnforderungsanalyseTest {
         anforderungsanalyse.setProduktdaten(produktdatens);
         assertEquals(0, anforderungsanalyse.aufwandsabschaetzung(), 0);
     }
+    @Test
+    public void aufwandsabschaetzunglongtest(){
 
+    }
     @Test
     public void selbstoptimierungTest(){
 
