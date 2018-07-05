@@ -32,4 +32,19 @@ public class Zielbestimmung implements Serializable {
                 "text='" + text + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj != null && obj instanceof Zielbestimmung) {
+            Zielbestimmung other = (Zielbestimmung) obj;
+
+            if(!this.text.equals(other.text)) {return false;}
+
+            return true;
+        }
+        return false;
+    }
 }

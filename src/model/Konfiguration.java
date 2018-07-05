@@ -132,4 +132,25 @@ public class Konfiguration implements Konfiguration_I, Serializable {
 				'}';
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		}
+		if (obj != null && obj instanceof Konfiguration) {
+			Konfiguration other = (Konfiguration) obj;
+
+			if(!Arrays.deepEquals(this.kompILF, other.kompILF)) {System.out.println("kompilf"); return false;}
+			if(!Arrays.deepEquals(this.kompEIF, other.kompEIF)) {System.out.println("kompelf"); return false;}
+			if(!Arrays.deepEquals(this.kompEI, other.kompEI)) {System.out.println("kompei"); return false;}
+			if(!Arrays.deepEquals(this.kompEO, other.kompEO)) {System.out.println("kompeo"); return false;}
+			if(!Arrays.deepEquals(this.kompEQ, other.kompEQ)) {System.out.println("kompeq"); return false;}
+			
+
+			return true;
+
+		}
+		return false;
+	}
+
 }
