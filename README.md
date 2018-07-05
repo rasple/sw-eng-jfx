@@ -5,7 +5,7 @@ Dieses Projekt dient der Erstellung von Anforderungsanalysen und Aufwandsabschä
 
 [Spezifikation](https://github.com/rasple/sw-eng-jfx/tree/master/spezifikation.pdf)
 
-This project is currently only available in german language.
+This project is currently only available in German language.
 
 # Anforderungen (Grob)
 ## Produktfunktionen
