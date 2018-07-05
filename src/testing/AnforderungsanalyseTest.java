@@ -60,6 +60,12 @@ public class AnforderungsanalyseTest {
         anforderungsanalyse.setProduktdaten(produktdatens);
         assertEquals(0.7, anforderungsanalyse.aufwandsabschaetzung(), 0);
     }
+
+    /**
+     * Es wird eine umfangreiche Anforderungsanalyse erstellt. Anschließend wird die Aufwandsabschätzung getestet
+     * anschließend wird die selbstoptimierte Nachkalkulation. Es werden beide Fälle (Projekt hat länger oder kürzer gedauert)
+     * getestet. Um die Gleichheit der Faktoren zutesten, muss jedes Element des Array auf Gleichheit geprüft werden.
+     */
     @Test
     public void aufwandsabschaetzungValueTest() {
         Anforderungsanalyse anforderungsanalyse = new Anforderungsanalyse();
@@ -105,7 +111,7 @@ public class AnforderungsanalyseTest {
             }
         } catch (SelbstoptiException e){
         //can not happen
-            throw new AssertionError("'cannot happen' my ass");
+
         }
     }
     @Test
