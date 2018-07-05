@@ -33,7 +33,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     private Konfiguration_I config;
     private List<Optimieren_I> nachkal; //Liste für die Algorithmen der Nachkalkulation
 
-    public Anforderungsanalyse clone(Anforderungsanalyse anfOld) {
+    public static Anforderungsanalyse clone(Anforderungsanalyse anfOld) {
         Anforderungsanalyse anfNew = new Anforderungsanalyse();
         anfNew.setProduktfunktionen(new ArrayList<Produktfunktion>(anfOld.produktfunktionen));
         anfNew.setProduktdaten(new ArrayList<Produktdaten>(anfOld.produktdaten));
@@ -244,5 +244,30 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
 
     public List<Optimieren_I> getNachkal() {return this.nachkal;}
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj != null && obj instanceof Anforderungsanalyse) {
+            Anforderungsanalyse other = (Anforderungsanalyse) obj;
+
+            if(!this.produktfunktionen.equals(other.produktfunktionen)) {return false;}
+            if(!this.produktdaten.equals(other.produktdaten)) {return false;}
+            if(!this.userfaktoren.equals(other.userfaktoren)) {return false;}
+            if(!this.sollFaktoren.equals(other.sollFaktoren)) {return false;}
+            if(!this.functionPoints.equals(other.functionPoints)) {return false;}
+            if(!this.zielbestimmung.equals(other.zielbestimmung)) {return false;}
+            if(!this.produktumgebung.equals(other.produktumgebung)) {return false;}
+            if(!this.produkteinsatz.equals(other.produkteinsatz)) {return false;}
+            if(!this.faktoren.equals(other.faktoren)) {return false;}
+            if(!this.config.equals(other.config)) {return false;}
+            if(!this.nachkal.equals(other.nachkal)) {return false;}
+
+
+            return true;
+        }
+        return false;
+    }
 
 }

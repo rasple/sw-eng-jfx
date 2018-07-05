@@ -20,6 +20,10 @@ public class ZielbestimmungTest {
         Zielbestimmung z2 = new Zielbestimmung(zielbestimmung);
         assertEquals(zielbestimmung.getText(), z2.getText());
 
+        String text = "String to test";
+        zielbestimmung = new Zielbestimmung(text);
+        assertEquals(text, zielbestimmung.getText());
+
     }
 
 }

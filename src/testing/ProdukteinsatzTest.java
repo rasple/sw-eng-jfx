@@ -19,5 +19,9 @@ public class ProdukteinsatzTest {
 
         Produkteinsatz p2 = new Produkteinsatz(produkteinsatz);
         assertEquals(produkteinsatz.getText(), p2.getText());
+
+        String text = "String to test";
+        produkteinsatz = new Produkteinsatz(text);
+        assertEquals(text, produkteinsatz.getText());
     }
 }

@@ -138,4 +138,16 @@ public class AnforderungsanalyseTest {
 
     }
 
+    @Test
+    public void cloneTest(){
+
+        Anforderungsanalyse anforderungsanalyse = Anforderungsanalyse.getInstance();
+        Faktoren faktoren = new Faktoren();
+        anforderungsanalyse.setFaktoren(faktoren);
+        anforderungsanalyse.setUserfaktoren(faktoren);
+        anforderungsanalyse.setSollFaktoren(faktoren);
+        Anforderungsanalyse a2 = Anforderungsanalyse.clone(anforderungsanalyse);
+        assertTrue(a2.equals(anforderungsanalyse));
+    }
+
 }

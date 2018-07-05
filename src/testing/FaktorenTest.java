@@ -28,6 +28,9 @@ public class FaktorenTest {
             assertNotEquals(0, faktor);
         }
 
+        Faktoren faktoren2 = new Faktoren(faktoren);
+        assertTrue(faktoren2.equals(faktoren));
+
     }
 
     @Test
@@ -75,6 +78,14 @@ public class FaktorenTest {
 
             assertEquals(expected[index], result, 0.0001);
         }
+    }
+
+    @Test
+    public void userAusgabeTest(){
+
+        Faktoren faktoren = new Faktoren();
+        String expected = "Verfechtung: 0.0\nDezentrale Daten: 0.0\nTransaktionsrate: 0.0\nRechenoperationen: 0.0\nKontrollverfahren: 0.0\nAusnahmeregelung: 0.0\nLogik: 0.0\nWiederverwendbarkeit: 0.0\nDatenbestandskonvertierung: 0.0\nAnpassbarkeit: 0.0";
+        assertEquals(expected, faktoren.Userausgabe());
     }
 
 }
