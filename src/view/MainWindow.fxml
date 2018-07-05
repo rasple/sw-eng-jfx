@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
-<VBox pickOnBounds="false" prefHeight="763.0" prefWidth="424.0" xmlns:fx="http://javafx.com/fxml/1"
-      xmlns="http://javafx.com/javafx/8" fx:controller="controller.MainWindowController">
+<VBox pickOnBounds="false" prefHeight="763.0" prefWidth="424.0" xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainWindowController">
    <children>
       <HBox prefHeight="76.0" prefWidth="422.0">
          <children>
@@ -174,7 +171,7 @@
                                      <Font size="13.0" />
                                  </font>
                              </Label>
-                             <Label alignment="TOP_CENTER" layoutX="84.0" layoutY="365.0" prefHeight="48.0"
+                             <Label alignment="TOP_CENTER" layoutX="81.0" layoutY="365.0" prefHeight="48.0"
                                     prefWidth="271.0"
                                     text="This Program is licensed under the &#10;GNU GENERAL PUBLIC LICENSE Version 3&#10;"
                                     textAlignment="CENTER" wrapText="true">
@@ -187,7 +184,7 @@
                                      <Image url="@../res/GPLv3.png" />
                                  </image>
                              </ImageView>
-                             <Hyperlink layoutX="92.0" layoutY="514.0" onMouseClicked="#onClickGithub"
+                             <Hyperlink layoutX="73.0" layoutY="514.0" onMouseClicked="#onClickGithub"
                                         text="Complete sources are available on Github"/>
                              <Separator layoutY="55.0" prefHeight="3.0" prefWidth="425.0" />
                              <Separator layoutX="4.0" layoutY="108.0" prefHeight="3.0" prefWidth="419.0" />

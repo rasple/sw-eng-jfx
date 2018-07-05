@@ -6,10 +6,13 @@ package model;
  *
  */
 public class DefaultOptimierung implements Optimieren_I {
+	private String name;
 	private String beschreibung;
+
 
 	public DefaultOptimierung(){
 		this.beschreibung="Default Optimierung";
+		this.name = "Default Optimierung";
 	}
 	
 	@Override
@@ -69,6 +72,15 @@ public class DefaultOptimierung implements Optimieren_I {
 		return this.beschreibung;
 	}
 
+	@Override
+	public String getName() {
+		return this.toString();
+	}
+
+	@Override
+	public String toString() {
+		return this.name;
+	}
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == this) {

@@ -1,9 +1,7 @@
 package model;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.logging.Level;
@@ -143,6 +141,12 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     public void setFpOpti(int position) {
         functionPoints.setOpti(this.nachkal.get(position));
     }
+
+    public List<Optimieren_I> getFpOpti() {
+        return nachkal;
+    }
+
+    ;
 
     public List<Produktfunktion_I> getProduktfunktionen() {
         return this.produktfunktionen;

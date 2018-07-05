@@ -127,7 +127,7 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("/view/Produktfunktionen.fxml"));
             produktfunktionenWindow.setScene(new Scene(root));
             produktfunktionenWindow.setTitle("Produktfunktionen");
-            produktfunktionenWindow.show();
+            produktfunktionenWindow.showAndWait();
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
         }
@@ -155,7 +155,7 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("/view/Produktdaten.fxml"));
             produktfunktionenWindow.setScene(new Scene(root));
             produktfunktionenWindow.setTitle("Produktdaten");
-            produktfunktionenWindow.show();
+            produktfunktionenWindow.showAndWait();
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
         }
@@ -178,16 +178,34 @@ public class MainWindowController {
 
 
     public void onClickOpti(MouseEvent event) {
+        Stage algorithmPickDialog = new Stage();
+        algorithmPickDialog.initModality(Modality.APPLICATION_MODAL);
+        try {
+            algorithmPickDialog.getIcons().add(new Image("/res/dhbw.png"));
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/view/AlgorithmPickDialog.fxml"));
+                algorithmPickDialog.setScene(new Scene(root));
+                algorithmPickDialog.setTitle("Selbstoptimierende Nachkalkulation");
+                algorithmPickDialog.showAndWait();
+            } catch (LoadException ex) {
+                Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
+                return;
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
+            return;
+        }
+
+
         Stage optiWindow = new Stage();
         optiWindow.initModality(Modality.APPLICATION_MODAL);
         try {
             optiWindow.getIcons().add(new Image("/res/dhbw.png"));
-
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/view/Opti.fxml"));
                 optiWindow.setScene(new Scene(root));
                 optiWindow.setTitle("Selbstoptimierende Nachkalkulation");
-                optiWindow.show();
+                optiWindow.showAndWait();
             } catch (LoadException ex) {
             }
         } catch (IOException ex) {
@@ -250,7 +268,7 @@ public class MainWindowController {
             aufwabschWindow.setScene(new Scene(root));
             aufwabschWindow.setTitle("Aufwandsabschätzung");
 
-            aufwabschWindow.show();
+            aufwabschWindow.showAndWait();
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
         }
@@ -279,7 +297,7 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("/view/Produktumgebung.fxml"));
             produktumgebungWindow.setScene(new Scene(root));
             produktumgebungWindow.setTitle("Produktumgebung");
-            produktumgebungWindow.show();
+            produktumgebungWindow.showAndWait();
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
         }
@@ -307,7 +325,7 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("/view/Produkteinsatz.fxml"));
             produkteinsatzWindow.setScene(new Scene(root));
             produkteinsatzWindow.setTitle("Produkteinsatz");
-            produkteinsatzWindow.show();
+            produkteinsatzWindow.showAndWait();
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
         }
@@ -336,7 +354,7 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("/view/Zielbestimmung.fxml"));
             zielbestimmungWindow.setScene(new Scene(root));
             zielbestimmungWindow.setTitle("Zielbestimmung");
-            zielbestimmungWindow.show();
+            zielbestimmungWindow.showAndWait();
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
         }
@@ -365,7 +383,7 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("/view/Schaetzfaktoren.fxml"));
             schaetzfaktorenWindow.setScene(new Scene(root));
             schaetzfaktorenWindow.setTitle("Schätzfaktoren");
-            schaetzfaktorenWindow.show();
+            schaetzfaktorenWindow.showAndWait();
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
         }

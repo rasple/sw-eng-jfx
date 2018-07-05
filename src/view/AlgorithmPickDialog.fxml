@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<TitledPane animated="false" prefHeight="247.0" prefWidth="319.0" text="Algorithmus Auswählen"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AlgorithmPickDialogController">
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="122.0" prefWidth="305.0">
+            <children>
+                <ComboBox fx:id="algorithmBox" layoutX="14.0" layoutY="64.0" prefHeight="26.0" prefWidth="289.0"/>
+                <Button fx:id="ok" layoutX="114.0" layoutY="182.0" mnemonicParsing="false" onMouseClicked="#onClickOk"
+                        prefHeight="26.0" prefWidth="89.0" text="OK"/>
+                <Button fx:id="cancel" layoutX="214.0" layoutY="182.0" mnemonicParsing="false"
+                        onMouseClicked="#onClickCancel" text="Abbrechen"/>
+                <Label layoutX="15.0" layoutY="14.0" prefHeight="46.0" prefWidth="289.0"
+                       text="Bitte wählen Sie einen Algorithmus für die selbstoptimierende Nachkalkulation aus"
+                       wrapText="true"/>
+                <Label fx:id="textBox" alignment="TOP_LEFT" layoutX="16.0" layoutY="100.0" prefHeight="70.0"
+                       prefWidth="288.0" wrapText="true"/>
+            </children>
+        </AnchorPane>
+    </content>
+</TitledPane>
