@@ -31,4 +31,19 @@ public class Produkteinsatz implements Serializable {
                 "text='" + text + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj != null && obj instanceof Produkteinsatz) {
+            Produkteinsatz other = (Produkteinsatz) obj;
+
+            if(!this.text.equals(other.text)) {return false;}
+
+            return true;
+        }
+        return false;
+    }
 }

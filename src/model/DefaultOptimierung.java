@@ -59,5 +59,20 @@ public class DefaultOptimierung implements Optimieren_I {
 		return this.beschreibung;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		}
+		if (obj != null && obj instanceof DefaultOptimierung) {
+			DefaultOptimierung other = (DefaultOptimierung) obj;
+
+			if(!this.beschreibung.equals(other.beschreibung)) {return false;}
+
+			return true;
+
+		}
+		return false;
+	}
 
 }

@@ -19,17 +19,17 @@ public class utilTest {
 
         Anforderungsanalyse loaded = (Anforderungsanalyse) IO.fLoad(file);
         file.delete();
-/*
+
         assertEquals(original.getProduktfunktionen(), loaded.getProduktfunktionen());
         assertEquals(original.getProduktdaten(), loaded.getProduktdaten());
         assertEquals(original.getUserfaktoren(), loaded.getUserfaktoren());
         assertEquals(original.getSollFaktoren(), loaded.getSollFaktoren());
+
         assertTrue(original.getFunctionPoints().equals(loaded.getFunctionPoints()));
-        assertEquals(original.getZielbestimmung(), loaded.getZielbestimmung());
-        assertEquals(original.getProduktumgebung(), loaded.getProduktumgebung());
-        assertEquals(original.getProdukteinsatz(), loaded.getProdukteinsatz());
-        assertEquals(original.getConfig(), loaded.getConfig());
-        assertEquals(original.getNachkal(), loaded.getNachkal());
+        assertTrue(original.getZielbestimmung().equals(loaded.getZielbestimmung()));
+        assertTrue(original.getProduktumgebung().equals(loaded.getProduktumgebung()));
+        assertTrue(original.getProdukteinsatz().equals(loaded.getProdukteinsatz()));
+
 
         double[] originalFaktoren = original.getFaktoren().getFaktoren();
         double[] loadedFaktoren = loaded.getFaktoren().getFaktoren();
@@ -38,7 +38,11 @@ public class utilTest {
 
             assertEquals(originalFaktoren[index], loadedFaktoren[index], 0);
         }
-*/
+
+        assertTrue(original.getConfig().equals(loaded.getConfig()));
+
+        assertTrue(original.getNachkal().equals(loaded.getNachkal()));
+
     }
 
 

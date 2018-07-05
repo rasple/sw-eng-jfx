@@ -66,4 +66,26 @@ public class FunctionPoints implements Serializable {
 				'}';
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		}
+		if (obj != null && obj instanceof FunctionPoints) {
+			FunctionPoints other = (FunctionPoints) obj;
+
+			if(this.istfp != other.istfp) {return false;}
+			if(this.sollfp != other.sollfp) {return false;}
+			if(this.calcmannmonate != other.calcmannmonate) {return false;}
+			if(this.istmannmonate != other.istmannmonate) {return false;}
+			if(!this.config.equals(other.config)) {return false;}
+			if(!this.opti.equals(other.opti)) {return false;}
+
+
+		return true;
+
+		}
+		return false;
+	}
+
 }
