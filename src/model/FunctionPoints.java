@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class FunctionPoints implements Serializable {
+public class FunctionPoints implements Serializable, FunctionPoints_I {
 	private double istfp;
 	private double sollfp;
 	private double calcmannmonate;

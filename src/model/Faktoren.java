@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.Arrays;
 
-public class Faktoren implements Serializable {
+public class Faktoren implements Serializable, Faktoren_I {
 	private double verfechtung;
     private double dezentraleDaten;
     private double transaktionsrate;
@@ -152,7 +152,7 @@ public class Faktoren implements Serializable {
 		double unbewertetefp=  bewertetefp/ fac;
 		return unbewertetefp;
 	}
-	public static  double calcbewertefp(double unbewertefp, double []factors){
+	public static double calcbewertefp(double unbewertefp, double []factors){
 		double fac = Faktoren.calcfac(factors);
 		return unbewertefp*fac;
 		

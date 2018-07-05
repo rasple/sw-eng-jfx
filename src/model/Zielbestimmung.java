@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class Zielbestimmung implements Serializable {
+public class Zielbestimmung implements Serializable, Zielbestimmung_I {
 
     private String text;
 
