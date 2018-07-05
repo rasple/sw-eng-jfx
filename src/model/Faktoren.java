@@ -166,11 +166,16 @@ public class Faktoren implements Serializable, Faktoren_I {
 		fac= sumfactors/100 +0.7;
 		return fac;
 	}
+	public double calcunbewertetefp(double bewertetefp){
+		this.faktor= this.calcfac();
+		double unbewertetefp=  bewertetefp/ this.faktor;
+		return unbewertetefp;
+	}
 	public double calcbewertetefp(double unbewertetefp){
-		this.faktor= this.calcfacin();
+		this.faktor= this.calcfac();
 		return unbewertetefp* this.faktor;
 	}
-	private double calcfacin(){
+	public double calcfac(){
 		double sumfactors=0;
 		for( double factor :this.faktoren){
 			sumfactors+=factor;
