@@ -16,7 +16,7 @@ public class Faktoren implements Serializable, Faktoren_I {
 	private double wiederverwendbarkeit;
 	private double datenbestandskonvertierung;
 	private double anpassbarkeit;
-	private double[] faktoren; //<-welcher heini ist auf die idee gekommen, das zeug gleich wie die klasse zu nennen?
+	private double[] faktoren;
 	private double faktor;
 	private String bemerkung;
 	
@@ -32,6 +32,7 @@ public class Faktoren implements Serializable, Faktoren_I {
         this.wiederverwendbarkeit = 0.0;
         this.datenbestandskonvertierung = 0.0;
         this.anpassbarkeit = 0.0;
+        this.setBemerkung("");
 
 	}
 
@@ -47,6 +48,7 @@ public class Faktoren implements Serializable, Faktoren_I {
         this.wiederverwendbarkeit = faktoren.wiederverwendbarkeit;
         this.datenbestandskonvertierung = faktoren.datenbestandskonvertierung;
         this.anpassbarkeit = faktoren.anpassbarkeit;
+        this.setBemerkung("");
     }
 	public Faktoren(double[] faktoren){
 		int pos=0;
@@ -67,6 +69,8 @@ public class Faktoren implements Serializable, Faktoren_I {
             this.datenbestandskonvertierung = faktoren[8];
             this.anpassbarkeit = faktoren[9];
         }
+
+        this.setBemerkung("");
 
 	}
 	public Faktoren(double[] faktoren, String bemerkung){
@@ -89,6 +93,8 @@ public class Faktoren implements Serializable, Faktoren_I {
 			this.datenbestandskonvertierung = faktoren[8];
 			this.anpassbarkeit = faktoren[9];
 		}
+
+		this.setBemerkung("");
 
 	}
     public double getVerfechtung() {
@@ -248,7 +254,8 @@ public class Faktoren implements Serializable, Faktoren_I {
 		sb.append(this.datenbestandskonvertierung);
 		sb.append("\nAnpassbarkeit: ");
 		sb.append(this.anpassbarkeit);
-		sb.append("\n"+this.bemerkung);
+		sb.append("\nBemerkung: ");
+		sb.append(this.bemerkung);
 		return sb.toString();
 	}
 	@Override
@@ -269,5 +276,8 @@ public class Faktoren implements Serializable, Faktoren_I {
 		}
 		return false;
 	}
+
+	public void setBemerkung(String bemerkung) {this.bemerkung = bemerkung;}
+	public String getBemerkung() {return this.bemerkung;}
 
 }
