@@ -2,7 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<TitledPane animated="false" prefHeight="247.0" prefWidth="319.0" text="Algorithmus Auswählen"
+<TitledPane animated="false" collapsible="false" prefHeight="247.0" prefWidth="319.0" text="Algorithmus Auswählen"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AlgorithmPickDialogController">
     <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="122.0" prefWidth="305.0">
