@@ -58,7 +58,7 @@ public class AnforderungsanalyseTest {
         produktdaten.setRet(1);
         produktdatens.add(produktdaten);
         anforderungsanalyse.setProduktdaten(produktdatens);
-        assertEquals(0, anforderungsanalyse.aufwandsabschaetzung(), 0);
+        assertEquals(0.7, anforderungsanalyse.aufwandsabschaetzung(), 0);
     }
     @Test
     public void aufwandsabschaetzunglongtest(){
