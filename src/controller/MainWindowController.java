@@ -351,7 +351,7 @@ public class MainWindowController {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
-            // Anforderungsanalyse.getInstance().setFaktoren(new ArrayList<Faktoren>());
+            Anforderungsanalyse.getInstance().setFaktoren(new Faktoren());
         } else {
             return;
         }
