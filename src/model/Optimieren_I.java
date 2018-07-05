@@ -6,5 +6,5 @@ public interface Optimieren_I {
 
     String getName();
 
-    String toString();
+    //String toString(); <- unnötig, wird von Klasse Object geerbt
 }

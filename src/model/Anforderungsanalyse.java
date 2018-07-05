@@ -143,10 +143,8 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
     }
 
     public List<Optimieren_I> getFpOpti() {
-        return nachkal;
+        return this.nachkal;
     }
-
-    ;
 
     public List<Produktfunktion_I> getProduktfunktionen() {
         return this.produktfunktionen;
