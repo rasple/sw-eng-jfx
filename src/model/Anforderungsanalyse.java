@@ -57,8 +57,9 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         anforderungsanalyse = null;
     }
 
-
-    public Anforderungsanalyse() { //HS muss public sein
+    // Der Defaultkonstruktor muss an dieser Stelle public sein, da sonst das Serialisieren beim Speichern nicht funktioniert
+    // Wie bei einem Singleton üblich, wäre er sonst natürlich privat
+    public Anforderungsanalyse() {
         produktfunktionen = new ArrayList<Produktfunktion_I>();
         produktdaten = new ArrayList<Produktdaten_I>();
         zielbestimmung = new Zielbestimmung();
