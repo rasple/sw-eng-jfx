@@ -68,6 +68,7 @@ public class AnforderungsanalyseTest {
      */
     @Test
     public void aufwandsabschaetzungValueTest() {
+
         Anforderungsanalyse anforderungsanalyse = new Anforderungsanalyse();
         List<Produktfunktion_I> produktfunktionen = new ArrayList<Produktfunktion_I>();
         produktfunktionen.add(new Produktfunktion("test1", "1", 2, 16, "EI")); //6 fp
@@ -110,8 +111,7 @@ public class AnforderungsanalyseTest {
                 assertEquals(expectedfactors2[i],sollfaktoren.getFaktoren()[i], 0.1 );
             }
         } catch (SelbstoptiException e){
-        //can not happen
-
+            throw new AssertionError("Unexpected exception thrown"); //cannot happen
         }
     }
     @Test
