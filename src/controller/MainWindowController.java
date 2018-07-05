@@ -31,12 +31,12 @@ public class MainWindowController {
 
     @FXML
     void onClickExportProduktfunktion() {
-        IO.save(new ArrayList<Produktfunktion>(Anforderungsanalyse.getInstance().getProduktfunktionen()), (Stage) klaus.getScene().getWindow());
+        IO.save(new ArrayList<Produktfunktion_I>(Anforderungsanalyse.getInstance().getProduktfunktionen()), (Stage) klaus.getScene().getWindow());
     }
 
     @FXML
     void onClickImportProduktfunktion() {
-        List<Produktfunktion> produktfunktion = (List<Produktfunktion>) IO.load((Stage) klaus.getScene().getWindow());
+        List<Produktfunktion_I> produktfunktion = (List<Produktfunktion_I>) IO.load((Stage) klaus.getScene().getWindow());
         if (produktfunktion != null) {
             Anforderungsanalyse.getInstance().setProduktfunktionen(produktfunktion);
         }
@@ -44,12 +44,12 @@ public class MainWindowController {
 
     @FXML
     void onClickExportProduktdaten() {
-        IO.save(new ArrayList<Produktdaten>(Anforderungsanalyse.getInstance().getProduktdaten()), (Stage) klaus.getScene().getWindow());
+        IO.save(new ArrayList<Produktdaten_I>(Anforderungsanalyse.getInstance().getProduktdaten()), (Stage) klaus.getScene().getWindow());
     }
 
     @FXML
     void onClickImportProduktdaten() {
-        List<Produktdaten> produktdaten = (List<Produktdaten>) IO.load((Stage) klaus.getScene().getWindow());
+        List<Produktdaten_I> produktdaten = (List<Produktdaten_I>) IO.load((Stage) klaus.getScene().getWindow());
         if (produktdaten != null) {
             Anforderungsanalyse.getInstance().setProduktdaten(produktdaten);
         }
@@ -141,7 +141,7 @@ public class MainWindowController {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
-            Anforderungsanalyse.getInstance().setProduktfunktionen(new ArrayList<Produktfunktion>());
+            Anforderungsanalyse.getInstance().setProduktfunktionen(new ArrayList<Produktfunktion_I>());
         } else {
             return;
         }
@@ -169,7 +169,7 @@ public class MainWindowController {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
-            Anforderungsanalyse.getInstance().setProduktdaten(new ArrayList<Produktdaten>());
+            Anforderungsanalyse.getInstance().setProduktdaten(new ArrayList<Produktdaten_I>());
         } else {
             return;
         }

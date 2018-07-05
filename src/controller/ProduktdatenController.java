@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 import model.Anforderungsanalyse;
 import model.Produktdaten;
+import model.Produktdaten_I;
 import org.apache.commons.lang3.StringUtils;
 import utils.Convert;
 
@@ -34,22 +35,22 @@ public class ProduktdatenController implements Initializable {
     private Button cancel;
 
     @FXML
-    private TableView<Produktdaten> table;
+    private TableView<Produktdaten_I> table;
 
     @FXML
-    private TableColumn<Produktdaten, String> id;
+    private TableColumn<Produktdaten_I, String> id;
 
     @FXML
-    private TableColumn<Produktdaten, String> desc;
+    private TableColumn<Produktdaten_I, String> desc;
 
     @FXML
-    private TableColumn<Produktdaten, Integer> ret;
+    private TableColumn<Produktdaten_I, Integer> ret;
 
     @FXML
-    private TableColumn<Produktdaten, Integer> det;
+    private TableColumn<Produktdaten_I, Integer> det;
 
     @FXML
-    private TableColumn<Produktdaten, String> type;
+    private TableColumn<Produktdaten_I, String> type;
 
     @FXML
     private Button add;
@@ -57,7 +58,7 @@ public class ProduktdatenController implements Initializable {
     @FXML
     private Button remove;
 
-    private ObservableList<Produktdaten> produktdaten;
+    private ObservableList<Produktdaten_I> produktdaten;
 
     @FXML
     void onClickAbort(MouseEvent event) {
@@ -70,8 +71,8 @@ public class ProduktdatenController implements Initializable {
         produktdaten = produktdaten.stream().filter(i -> !StringUtils.isEmpty(i.getId()))
                 .filter(i -> !StringUtils.isEmpty(i.getType()))
                 .collect(Collectors.collectingAndThen(toList(), l -> FXCollections.observableArrayList(l)));
-        Anforderungsanalyse.getInstance().setProduktdaten(new ArrayList<Produktdaten>(produktdaten));
-        for (Produktdaten p : produktdaten) {
+        Anforderungsanalyse.getInstance().setProduktdaten(new ArrayList<Produktdaten_I>(produktdaten));
+        for (Produktdaten_I p : produktdaten) {
             System.out.println(Convert.toJSON(p));
         }
         Stage stage = (Stage) ok.getScene().getWindow();
@@ -118,7 +119,7 @@ public class ProduktdatenController implements Initializable {
 
         id.setCellFactory(TextFieldTableCell.forTableColumn());
         id.setOnEditCommit(
-                (TableColumn.CellEditEvent<Produktdaten, String> t) -> {
+                (TableColumn.CellEditEvent<Produktdaten_I, String> t) -> {
                     if (table.getItems().stream().anyMatch((i) -> i.getId().equals(t.getNewValue()))) {
                         (t.getTableView().getItems()
                                 .get(t.getTablePosition().getRow())
@@ -148,7 +149,7 @@ public class ProduktdatenController implements Initializable {
         );
 
         id.setCellValueFactory(
-                new PropertyValueFactory<Produktdaten, String>("id")
+                new PropertyValueFactory<Produktdaten_I, String>("id")
         );
         desc.setCellFactory(TextFieldTableCell.forTableColumn());
         desc.setOnEditCommit(
@@ -159,7 +160,7 @@ public class ProduktdatenController implements Initializable {
                 }
         );
         desc.setCellValueFactory(
-                new PropertyValueFactory<Produktdaten, String>("desc")
+                new PropertyValueFactory<Produktdaten_I, String>("desc")
         );
 
         ret.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
@@ -170,7 +171,7 @@ public class ProduktdatenController implements Initializable {
                 ).setRet(t.getNewValue())
         );
         ret.setCellValueFactory(
-                new PropertyValueFactory<Produktdaten, Integer>("ret")
+                new PropertyValueFactory<Produktdaten_I, Integer>("ret")
         );
         det.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         det.setOnEditCommit(
@@ -179,7 +180,7 @@ public class ProduktdatenController implements Initializable {
                 ).setDet(t.getNewValue())
         );
         det.setCellValueFactory(
-                new PropertyValueFactory<Produktdaten, Integer>("det")
+                new PropertyValueFactory<Produktdaten_I, Integer>("det")
         );
     }
 }

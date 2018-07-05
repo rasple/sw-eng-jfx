@@ -33,13 +33,13 @@ public class AnforderungsanalyseTest {
         assertEquals( -3, anforderungsanalyse.aufwandsabschaetzung(), 0);
 
         Produktfunktion produktfunktion = new Produktfunktion();
-        List<Produktfunktion> produktfunktionen = new ArrayList<Produktfunktion>();
+        List<Produktfunktion_I> produktfunktionen = new ArrayList<Produktfunktion_I>();
         produktfunktionen.add(produktfunktion);
         anforderungsanalyse.setProduktfunktionen(produktfunktionen);
         assertEquals( -4, anforderungsanalyse.aufwandsabschaetzung(), 0);
 
         Produktdaten produktdaten = new Produktdaten();
-        List<Produktdaten> produktdatens = new ArrayList<Produktdaten>();
+        List<Produktdaten_I> produktdatens = new ArrayList<Produktdaten_I>();
         produktdatens.add(produktdaten);
         anforderungsanalyse.setProduktdaten(produktdatens);
         assertEquals(-1, anforderungsanalyse.aufwandsabschaetzung(), 0);
@@ -63,7 +63,7 @@ public class AnforderungsanalyseTest {
     @Test
     public void aufwandsabschaetzungValueTest() {
         Anforderungsanalyse anforderungsanalyse = new Anforderungsanalyse();
-        List<Produktfunktion> produktfunktionen = new ArrayList<Produktfunktion>();
+        List<Produktfunktion_I> produktfunktionen = new ArrayList<Produktfunktion_I>();
         produktfunktionen.add(new Produktfunktion("test1", "1", 2, 16, "EI")); //6 fp
         produktfunktionen.add(new Produktfunktion("test2", "2", 0, 5, "EI")); //3 fp
         produktfunktionen.add(new Produktfunktion("test3", "3", 3, 3, "EI")); //4 fp
@@ -77,7 +77,7 @@ public class AnforderungsanalyseTest {
         produktfunktionen.add(new Produktfunktion("test9", "9", 5, 4, "EQ")); //4 fp
         anforderungsanalyse.setProduktfunktionen(produktfunktionen);
 
-        List<Produktdaten> produktdaten = new ArrayList<>();
+        List<Produktdaten_I> produktdaten = new ArrayList<>();
         produktdaten.add(new Produktdaten("test1", "1", 1, 1, "ILF")); //7fp
         produktdaten.add(new Produktdaten("test2", "2", 3, 30, "ILF")); //10fp
         produktdaten.add(new Produktdaten("test3", "3", 6, 51, "ILF")); //15fp
@@ -122,7 +122,7 @@ public class AnforderungsanalyseTest {
         }
 
         Produktfunktion produktfunktion = new Produktfunktion();
-        List<Produktfunktion> produktfunktionen = new ArrayList<Produktfunktion>();
+        List<Produktfunktion_I> produktfunktionen = new ArrayList<Produktfunktion_I>();
         produktfunktionen.add(produktfunktion);
         anforderungsanalyse.setProduktfunktionen(produktfunktionen);
 
@@ -135,7 +135,7 @@ public class AnforderungsanalyseTest {
         }
 
         Produktdaten produktdaten = new Produktdaten();
-        List<Produktdaten> produktdatens = new ArrayList<Produktdaten>();
+        List<Produktdaten_I> produktdatens = new ArrayList<Produktdaten_I>();
         produktdatens.add(produktdaten);
         anforderungsanalyse.setProduktdaten(produktdatens);
 

@@ -16,8 +16,8 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
 
 
     private static Anforderungsanalyse anforderungsanalyse;
-    private List<Produktfunktion> produktfunktionen;
-    private List<Produktdaten> produktdaten;
+    private List<Produktfunktion_I> produktfunktionen;
+    private List<Produktdaten_I> produktdaten;
     private Faktoren userfaktoren;
 
 
@@ -37,8 +37,8 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
 
     public static Anforderungsanalyse clone(Anforderungsanalyse anfOld) {
         Anforderungsanalyse anfNew = new Anforderungsanalyse();
-        anfNew.setProduktfunktionen(new ArrayList<Produktfunktion>(anfOld.produktfunktionen));
-        anfNew.setProduktdaten(new ArrayList<Produktdaten>(anfOld.produktdaten));
+        anfNew.setProduktfunktionen(new ArrayList<Produktfunktion_I>(anfOld.produktfunktionen));
+        anfNew.setProduktdaten(new ArrayList<Produktdaten_I>(anfOld.produktdaten));
         anfNew.setUserfaktoren(new Faktoren(anfOld.userfaktoren));
         anfNew.setSollFaktoren(new Faktoren(anfOld.sollFaktoren));
         anfNew.setFunctionPoints(new FunctionPoints(new Konfiguration(), new DefaultFabrik().create()));
@@ -65,9 +65,10 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         anforderungsanalyse = null;
     }
 
+    //Wird nur für Testzwecke gebraucht
     public Anforderungsanalyse() {
-        produktfunktionen = new ArrayList<Produktfunktion>();
-        produktdaten = new ArrayList<Produktdaten>();
+        produktfunktionen = new ArrayList<Produktfunktion_I>();
+        produktdaten = new ArrayList<Produktdaten_I>();
         zielbestimmung = new Zielbestimmung();
         produktumgebung = new Produktumgebung();
         produkteinsatz = new Produkteinsatz();
@@ -92,9 +93,9 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
      */
     public double aufwandsabschaetzung(){
         int unbewerteFP = 0;
-        Produktfunktion currentFkt;
-        Produktdaten currentDa;
-        ListIterator<Produktfunktion> iteratorFkt = this.produktfunktionen.listIterator();
+        Produktfunktion_I currentFkt;
+        Produktdaten_I currentDa;
+        ListIterator<Produktfunktion_I> iteratorFkt = this.produktfunktionen.listIterator();
         if(this.produktfunktionen.isEmpty()){
             return -3;
         }
@@ -111,7 +112,7 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
             }
 
         }
-        ListIterator<Produktdaten>iteratorda=this.produktdaten.listIterator();
+        ListIterator<Produktdaten_I>iteratorda=this.produktdaten.listIterator();
         while(iteratorda.hasNext()){
             currentDa = iteratorda.next();
             if (currentDa.isValid()) {
@@ -143,19 +144,19 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         functionPoints.setOpti(this.nachkal.get(position));
     }
 
-    public List<Produktfunktion> getProduktfunktionen() {
+    public List<Produktfunktion_I> getProduktfunktionen() {
         return produktfunktionen;
     }
 
-    public void setProduktfunktionen(List<Produktfunktion> produktfunktionen) {
+    public void setProduktfunktionen(List<Produktfunktion_I> produktfunktionen) {
         this.produktfunktionen = produktfunktionen;
     }
 
-    public List<Produktdaten> getProduktdaten() {
+    public List<Produktdaten_I> getProduktdaten() {
         return produktdaten;
     }
 
-    public void setProduktdaten(List<Produktdaten> produktdaten) {
+    public void setProduktdaten(List<Produktdaten_I> produktdaten) {
         this.produktdaten = produktdaten;
     }
 

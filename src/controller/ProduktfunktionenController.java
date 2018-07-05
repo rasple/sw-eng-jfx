@@ -15,7 +15,7 @@ import model.Anforderungsanalyse;
 import model.Produktfunktion;
 import org.apache.commons.lang3.StringUtils;
 import utils.Convert;
-
+import model.Produktfunktion_I;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -42,24 +42,24 @@ public class ProduktfunktionenController implements Initializable {
     private Button cancel;
 
     @FXML
-    private TableView<Produktfunktion> table;
+    private TableView<Produktfunktion_I> table;
 
     @FXML
-    private TableColumn<Produktfunktion, String> id;
+    private TableColumn<Produktfunktion_I, String> id;
 
     @FXML
-    private TableColumn<Produktfunktion, String> desc;
+    private TableColumn<Produktfunktion_I, String> desc;
 
     @FXML
-    private TableColumn<Produktfunktion, Integer> ftr;
+    private TableColumn<Produktfunktion_I, Integer> ftr;
 
     @FXML
-    private TableColumn<Produktfunktion, Integer> det;
+    private TableColumn<Produktfunktion_I, Integer> det;
 
     @FXML
-    public TableColumn<Produktfunktion, String> type;
+    public TableColumn<Produktfunktion_I, String> type;
 
-    private ObservableList<Produktfunktion> produktfunktionen;
+    private ObservableList<Produktfunktion_I> produktfunktionen;
 
     @FXML
     void onClickAbort(MouseEvent event) {
@@ -74,7 +74,7 @@ public class ProduktfunktionenController implements Initializable {
                 .collect(Collectors.collectingAndThen(toList(), l -> FXCollections.observableArrayList(l)));
 
         Anforderungsanalyse.getInstance().setProduktfunktionen(new ArrayList<>(produktfunktionen));
-        for (Produktfunktion p : produktfunktionen) {
+        for (Produktfunktion_I p : produktfunktionen) {
             System.out.println(Convert.toJSON(p));
         }
         Stage stage = (Stage) ok.getScene().getWindow();
@@ -125,7 +125,7 @@ public class ProduktfunktionenController implements Initializable {
 
         id.setCellFactory(TextFieldTableCell.forTableColumn());
         id.setOnEditCommit(
-                (TableColumn.CellEditEvent<Produktfunktion, String> t) -> {
+                (TableColumn.CellEditEvent<Produktfunktion_I, String> t) -> {
                     if (table.getItems().stream().anyMatch((i) -> i.getId().equals(t.getNewValue()))) {
                         (t.getTableView().getItems()
                                 .get(t.getTablePosition().getRow())
@@ -155,7 +155,7 @@ public class ProduktfunktionenController implements Initializable {
         );
 
         id.setCellValueFactory(
-                new PropertyValueFactory<Produktfunktion, String>("id")
+                new PropertyValueFactory<Produktfunktion_I, String>("id")
         );
         desc.setCellFactory(TextFieldTableCell.forTableColumn());
         desc.setOnEditCommit(
@@ -166,7 +166,7 @@ public class ProduktfunktionenController implements Initializable {
                 }
         );
         desc.setCellValueFactory(
-                new PropertyValueFactory<Produktfunktion, String>("desc")
+                new PropertyValueFactory<Produktfunktion_I, String>("desc")
         );
 
         ftr.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
@@ -177,7 +177,7 @@ public class ProduktfunktionenController implements Initializable {
                 ).setFtr(t.getNewValue())
         );
         ftr.setCellValueFactory(
-                new PropertyValueFactory<Produktfunktion, Integer>("ftr")
+                new PropertyValueFactory<Produktfunktion_I, Integer>("ftr")
         );
         det.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         det.setOnEditCommit(
@@ -186,7 +186,7 @@ public class ProduktfunktionenController implements Initializable {
                 ).setDet(t.getNewValue())
         );
         det.setCellValueFactory(
-                new PropertyValueFactory<Produktfunktion, Integer>("det")
+                new PropertyValueFactory<Produktfunktion_I, Integer>("det")
         );
 
 
