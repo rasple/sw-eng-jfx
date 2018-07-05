@@ -57,8 +57,8 @@ public class Anforderungsanalyse implements Serializable, Cloneable, Anforderung
         anforderungsanalyse = null;
     }
 
-    
-    private Anforderungsanalyse() {
+
+    public Anforderungsanalyse() { //HS muss public sein
         produktfunktionen = new ArrayList<Produktfunktion_I>();
         produktdaten = new ArrayList<Produktdaten_I>();
         zielbestimmung = new Zielbestimmung();
