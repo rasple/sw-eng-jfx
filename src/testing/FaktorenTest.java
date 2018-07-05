@@ -63,7 +63,7 @@ public class FaktorenTest {
     }
 
     @Test
-    public void calcfacTest(){
+    public void calcFacTest(){
 
         double[][] testFaktoren = new double[][]{{}, {8000}, {235798., 632.78677, 54465}, {-1545, 13.8798}, {0}};
 
