@@ -15,7 +15,13 @@ public class OptimierenTest {
 
         double[] testIstFp = new double[]{1, 5, 10, 50, 100};
         double[] testSollFp = new double[]{0, 3, 7.4, 2, 85};
-        double[][] testFactors = new double[][]{{9, 0},{1},{},{80, 0, 7.2},{3.5, 4}};
+        double[][] testFactors = new double[][]{
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {5, 5, 5, 5, 5, 5, 5, 5, 5, 5},
+                {0.498, 2.421, 3.67898, 3.44, 9.775, 1.24, 0.0154, 5, 4, 1},
+                {1, 2, 3, 4, 5, 4, 3, 2, 1, 0},
+                {4, 2, 7, 3, 9, 1, 0, 5, 0, 7}
+        };
 
         Optimieren_I opti = new DefaultOptimierung();
 

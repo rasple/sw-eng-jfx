@@ -19,5 +19,9 @@ public class ProduktumgebungTest {
 
         Produktumgebung p2 = new Produktumgebung(produktumgebung);
         assertEquals(produktumgebung.getText(), p2.getText());
+
+        String text = "String to test";
+        produktumgebung = new Produktumgebung(text);
+        assertEquals(text, produktumgebung.getText());
     }
 }

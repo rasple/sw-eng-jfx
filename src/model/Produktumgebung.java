@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class Produktumgebung implements Serializable {
+public class Produktumgebung implements Serializable, Produktumgebung_I {
 
     private String text;
 

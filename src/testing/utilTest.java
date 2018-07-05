@@ -29,18 +29,8 @@ public class utilTest {
         assertTrue(original.getZielbestimmung().equals(loaded.getZielbestimmung()));
         assertTrue(original.getProduktumgebung().equals(loaded.getProduktumgebung()));
         assertTrue(original.getProdukteinsatz().equals(loaded.getProdukteinsatz()));
-
-
-        double[] originalFaktoren = original.getFaktoren().getFaktoren();
-        double[] loadedFaktoren = loaded.getFaktoren().getFaktoren();
-
-        for(int index=0; index < originalFaktoren.length; index++){
-
-            assertEquals(originalFaktoren[index], loadedFaktoren[index], 0);
-        }
-
+        assertTrue(original.getFaktoren().equals(loaded.getFaktoren()));
         assertTrue(original.getConfig().equals(loaded.getConfig()));
-
         assertTrue(original.getNachkal().equals(loaded.getNachkal()));
 
     }
