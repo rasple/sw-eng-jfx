@@ -4,13 +4,7 @@ import static org.junit.Assert.*;
 
 import model.Konfiguration;
 import model.Produktdaten;
-import org.junit.Ignore;
 import org.junit.Test;
-
-import model.Produktdaten_I;
-import model.Konfiguration_I;
-
-import java.util.HashMap;
 
 public class ProduktdatenTest {
 

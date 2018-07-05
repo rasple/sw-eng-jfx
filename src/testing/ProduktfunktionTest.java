@@ -4,14 +4,10 @@ package testing;
 import static org.junit.Assert.*;
 
 import model.Konfiguration;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import model.Produktfunktion_I;
 import model.Produktfunktion;
 import model.Konfiguration_I;
-
-import java.util.HashMap;
 
 public class ProduktfunktionTest {
 

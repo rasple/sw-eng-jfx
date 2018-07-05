@@ -3,7 +3,6 @@ package testing;
 import static org.junit.Assert.*;
 
 import model.SelbstoptiException;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class SelbstoptiExceptionTest {
