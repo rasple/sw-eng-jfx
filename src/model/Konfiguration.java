@@ -55,8 +55,12 @@ public class Konfiguration implements Konfiguration_I, Serializable {
  * @return Mannmonate passend zu den Functionpoints
  */
 	public double calcmannmonate(double fp) {
-		double mannmonate = 0;
-		if (fp > 50 && fp <= 300) {
+		double mannmonate=-1;
+		if(fp<0){
+			mannmonate=0;
+		}else if(fp<50){
+			mannmonate=  fp/10;
+		} else if (fp >= 50 && fp <= 300) {
 			mannmonate = 2 + (3 * fp / 50);
 		} else if (fp > 300 && fp <= 1000) {
 			mannmonate = -4 + (fp * 2 / 25);
@@ -91,29 +95,33 @@ public class Konfiguration implements Konfiguration_I, Serializable {
  */
 	public double calcfp(double mannmonate) {
 		double fp = 0;
-		if (mannmonate > 50 && mannmonate <= 300) {
-			fp = (mannmonate - 2) * (50 / 3);
-		} else if (mannmonate > 300 && mannmonate <= 1000) {
-			fp = (mannmonate + 4) * (25 / 2);
-		} else if (mannmonate > 1000 && mannmonate <= 1400) {
-			fp = (mannmonate + 14) * (100 / 9);
-		} else if (mannmonate > 1400 && mannmonate <= 1700) {
+		if(mannmonate<0){
+			fp=0;
+		}else if(mannmonate<5){
+			fp=mannmonate*10;
+		} else if ( mannmonate <= 20) {
+			fp = (mannmonate - 2)/3 * (50 );
+		} else if (mannmonate <= 76) {
+			fp = (mannmonate + 4)/2 * (25);
+		} else if ( mannmonate <= 112) {
+			fp = (mannmonate + 14)/9 * (100);
+		} else if (mannmonate <= 142) {
 			fp = (mannmonate + 28) * (10);
-		} else if (mannmonate > 1700 && mannmonate <= 2000) {
-			fp = (mannmonate + 45) * (100 / 11);
-		} else if (mannmonate > 2000 && mannmonate <= 2200) {
-			fp = (mannmonate + 85) * (100 / 13);
-		} else if (mannmonate > 2200 && mannmonate <= 2500) {
-			fp = (mannmonate + 130) * (20 / 3);
-		} else if (mannmonate > 2500 && mannmonate <= 2600) {
-			fp = (mannmonate + 205) * (25);
-		} else if (mannmonate > 2600 && mannmonate <= 2700) {
-			fp = (mannmonate + 283) * (100 / 21);
-		} else if (mannmonate > 2700 && mannmonate <= 2800) {
-			fp = (mannmonate + 357) * (100 / 23);
-		} else if (mannmonate > 2800 && mannmonate <= 2900) {
-			fp = (mannmonate + 645) * (50 / 17);
-		} else if (fp >= 2900) {
+		} else if ( mannmonate <= 175) {
+			fp = (mannmonate + 45)/11 * (100);
+		} else if (mannmonate <= 201) {
+			fp = (mannmonate + 85)/13 * (100);
+		} else if ( mannmonate <= 245) {
+			fp = (mannmonate + 130)/3 * (20);
+		} else if (mannmonate <= 263) {
+			fp = (mannmonate + 205)/9 * (50);
+		} else if (mannmonate <= 284) {
+			fp = (mannmonate + 283)/21 * (100);
+		} else if (mannmonate <= 307) {
+			fp = (mannmonate + 357)/23 * (100);
+		} else if (mannmonate <= 341) {
+			fp = (mannmonate + 645)/17 * (50);
+		} else if (mannmonate > 341) {
 			fp = 2900;
 		}
 		return fp;
