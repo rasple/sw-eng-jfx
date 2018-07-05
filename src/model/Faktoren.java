@@ -52,16 +52,19 @@ public class Faktoren implements Serializable {
 			this.faktoren[pos]=faktor;
 			pos++;
 		}
-		this.verfechtung = faktoren[0];
-		this.dezentraleDaten = faktoren[1];
-		this.transaktionsrate = faktoren[2];
-		this.rechenoperationen = faktoren[3];
-		this.kontrollverfahren = faktoren[4];
-		this.ausnahmeregelung = faktoren[5];
-		this.logik = faktoren[6];
-		this.wiederverwendbarkeit = faktoren[7];
-		this.datenbestandskonvertierung = faktoren[8];
-		this.anpassbarkeit = faktoren[9];
+		if(faktoren.length==10){
+            this.verfechtung = faktoren[0];
+            this.dezentraleDaten = faktoren[1];
+            this.transaktionsrate = faktoren[2];
+            this.rechenoperationen = faktoren[3];
+            this.kontrollverfahren = faktoren[4];
+            this.ausnahmeregelung = faktoren[5];
+            this.logik = faktoren[6];
+            this.wiederverwendbarkeit = faktoren[7];
+            this.datenbestandskonvertierung = faktoren[8];
+            this.anpassbarkeit = faktoren[9];
+        }
+
 	}
 
     public double getVerfechtung() {
