@@ -234,7 +234,7 @@ public class MainWindowController {
             alert.showAndWait();
             return;
         } else {
-            ergebnis = "Das Projekt dauert nach der Functionpointmethode " + mannmonate + " Mannmonate";
+            ergebnis = "Das Projekt dauert nach der Functionpointmethode " + mannmonate + " Mannmonate.";
         }
 
         System.out.println(ergebnis);
