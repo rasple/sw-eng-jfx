@@ -70,7 +70,7 @@ public class IO {
             alert.setTitle("Fehler");
             alert.setHeaderText("Fehler!");
             alert.setContentText("Daten konnten nicht importiert werden");
-            alert.show();
+            alert.showAndWait();
 
         }
     }
@@ -110,7 +110,7 @@ public class IO {
                 alert.setHeaderText("Erfolgreich");
                 alert.setContentText("Daten wurden erfolgreich gelesen!");
                 alert.show();*/
-                
+
                 return decoded;
 
             } catch (Exception ex) {
@@ -120,7 +120,7 @@ public class IO {
                 alert.setTitle("Fehler");
                 alert.setHeaderText("Fehler!");
                 alert.setContentText("Daten konnten nicht importiert werden");
-                alert.show();
+                alert.showAndWait();
 
                 return null;
             }
