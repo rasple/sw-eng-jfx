@@ -91,16 +91,21 @@ public class ProduktdatenController implements Initializable {
 
     @FXML
     public void onClickRemove(MouseEvent mouseEvent) {
-        if (table.getSelectionModel().getSelectedIndex() != -1) {
-            produktdaten.remove(table.getSelectionModel().getSelectedIndex());
-        } else if (produktdaten.size() == 0) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Fehler!");
-            alert.setHeaderText("Produktdaten konnten nicht gelöscht werden");
-            alert.setContentText("Liste ist leer");
-            alert.showAndWait();
-        } else {
-            produktdaten.remove(produktdaten.size());
+
+        try {
+            if (table.getSelectionModel().getSelectedIndex() != -1) {
+                produktdaten.remove(table.getSelectionModel().getSelectedIndex());
+            } else if (produktdaten.size() == 0) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Fehler!");
+                alert.setHeaderText("Produktdaten konnten nicht gelöscht werden");
+                alert.setContentText("Liste ist leer");
+                alert.showAndWait();
+            } else {
+                produktdaten.remove(produktdaten.size());
+            }
+        } catch (Exception ex) {
+            
         }
     }
 
