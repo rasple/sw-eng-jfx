@@ -1,4 +1,4 @@
-# K.L.A.U.S
+# K.L.A.U.S.
  **K**ann **L**egitime **A**nforderungen **U**nd **S**onstiges
 
 Dieses Projekt dient der Erstellung von Anforderungsanalysen und Aufwandsabschätzungen für Softwareprojekte.
