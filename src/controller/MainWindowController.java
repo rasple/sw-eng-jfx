@@ -15,10 +15,7 @@ import javafx.stage.Stage;
 import model.*;
 import utils.IO;
 
-import java.awt.*;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -374,17 +371,17 @@ public class MainWindowController {
 
 
 
-    public void onClickGithub(MouseEvent event) {
+    /*public void onClickGithub(MouseEvent event) {
 
         try {
-            Desktop.getDesktop().browse(new URI("https://github.com/rasple/sw-eng-jfx"));
+            Desktop.getDesktop().browse(new URI("Geheim"));
         } catch (IOException e1) {
             e1.printStackTrace();
         } catch (URISyntaxException e1) {
             e1.printStackTrace();
         }
 
-    }
+    }*/
 
 
 }
