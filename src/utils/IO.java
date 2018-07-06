@@ -44,7 +44,7 @@ public class IO {
             });
 
             if (obj instanceof Anforderungsanalyse) {
-                // Wegen Singleton und so
+                // Wegen Singleton und so, ferstestu?
                 Anforderungsanalyse anforderungsanalyse = Anforderungsanalyse.getInstance().getCopyOfCurrentAnforderungsanalyse();
                 Anforderungsanalyse.getInstance().resetAnforderungsanalyse();
                 encoder.writeObject(anforderungsanalyse);
@@ -56,22 +56,22 @@ public class IO {
                 encoder.close();
                 fos.close();
             }
-            /*
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+            /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
             alert.setHeaderText("Erfolgreich!");
             alert.setContentText("Daten wurden erfolgreich gespeichert!");
-            alert.showAndWait();
-            */
+            alert.show();*/
+
         } catch (Exception e) {
+
             Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", e);
-            /*
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Fehler");
             alert.setHeaderText("Fehler!");
             alert.setContentText("Daten konnten nicht importiert werden");
-            alert.showAndWait();
-            */
+            alert.show();
+
         }
     }
 
@@ -98,29 +98,30 @@ public class IO {
         Object decoded = null;
         if (file != null) {
             try {
+
                 FileInputStream fis = new FileInputStream(file);
                 XMLDecoder decoder = new XMLDecoder(fis);
                 decoded = decoder.readObject();
                 decoder.close();
                 fis.close();
-                /*
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+                /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information");
                 alert.setHeaderText("Erfolgreich");
                 alert.setContentText("Daten wurden erfolgreich gelesen!");
-                alert.showAndWait();
-                */
+                alert.show();*/
+                
                 return decoded;
+
             } catch (Exception ex) {
+
                 Logger.getLogger(IO.class.getName()).log(Level.SEVERE, "", ex);
-                /*
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Fehler");
                 alert.setHeaderText("Fehler!");
                 alert.setContentText("Daten konnten nicht importiert werden");
+                alert.show();
 
-                alert.showAndWait();
-                */
                 return null;
             }
         }
