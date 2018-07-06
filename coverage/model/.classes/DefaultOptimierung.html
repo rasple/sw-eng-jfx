@@ -1,0 +1,183 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: DefaultOptimierung</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">model</a> ]
+</div>
+
+<h1>Coverage Summary for Class: DefaultOptimierung (model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DefaultOptimierung</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (4/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    92.1%
+  </span>
+  <span class="absValue">
+    (35/ 38)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package model;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;/**
+<i>4</i>&nbsp; * Diese Klasse wird verwendet, wenn der User keine eigene Klasse für die Nachkalkulation verwendet
+<i>5</i>&nbsp; *
+<i>6</i>&nbsp; *
+<i>7</i>&nbsp; */
+<i>8</i>&nbsp;public class DefaultOptimierung implements Optimieren_I {
+<i>9</i>&nbsp;	private String name;
+<i>10</i>&nbsp;	private String beschreibung;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;
+<b class="fc"><i>13</i>&nbsp;	public DefaultOptimierung(){</b>
+<b class="fc"><i>14</i>&nbsp;		this.beschreibung=&quot;Bei dem Algorithmus wird nacheinander ein Faktor vergößert oder verkleinert. Ist das Limit erreicht wird der nächste Faktor verändert.&quot;;</b>
+<b class="fc"><i>15</i>&nbsp;		this.name = &quot;Default Optimierung&quot;;</b>
+<b class="fc"><i>16</i>&nbsp;	}</b>
+<i>17</i>&nbsp;	
+<i>18</i>&nbsp;	@Override
+<i>19</i>&nbsp;	/**
+<i>20</i>&nbsp;	 * Bei dem Algorithmus wird nacheinander ein Faktor vergößert oder verkleinert.
+<i>21</i>&nbsp;	 * Ist das Limit erreicht wird der nächste Faktor verändert
+<i>22</i>&nbsp;	 * @param istfp bewerteFunctionPoints der aktuellen Projektes, sollfp aus den Mannmonaten, die das tatsächlich gedauert hat, berechnet
+<i>23</i>&nbsp;	 *  factors Bewertungsfaktoren der bisherigen Functionpointsanalyse
+<i>24</i>&nbsp;	 * @return optimerte Faktoren
+<i>25</i>&nbsp;	 */
+<i>26</i>&nbsp;	public Faktoren optimieren(double istfp, double sollfp, double[] factors) {
+<b class="fc"><i>27</i>&nbsp;		String bemerkung=&quot;&quot;;</b>
+<b class="fc"><i>28</i>&nbsp;		final double unbewertetefp= Faktoren.calcunbewertefp(istfp, factors);</b>
+<b class="fc"><i>29</i>&nbsp;		int pos=0, maxpos= factors.length;</b>
+<b class="fc"><i>30</i>&nbsp;		double dif=istfp-sollfp, currentfp;</b>
+<i>31</i>&nbsp;		boolean groesser;
+<b class="fc"><i>32</i>&nbsp;		if(sollfp&gt;istfp){</b>
+<b class="fc"><i>33</i>&nbsp;			groesser=true;</b>
+<i>34</i>&nbsp;		}
+<b class="fc"><i>35</i>&nbsp;		else if( sollfp==istfp){</b>
+<b class="fc"><i>36</i>&nbsp;			return new Faktoren(factors);</b>
+<i>37</i>&nbsp;		}
+<i>38</i>&nbsp;		else{
+<b class="fc"><i>39</i>&nbsp;			groesser=false;</b>
+<i>40</i>&nbsp;		}
+<i>41</i>&nbsp;		//hier kannst du bei dem testen ein wenig rumspielen, was am besten ist
+<b class="fc"><i>42</i>&nbsp;		while(Math.abs(dif)&gt;0.2 &amp;&amp; pos&lt;maxpos){</b>
+<b class="fc"><i>43</i>&nbsp;			if(groesser){</b>
+<b class="fc"><i>44</i>&nbsp;				factors[pos]+=0.1;</b>
+<b class="fc"><i>45</i>&nbsp;				if(factors[pos]&gt;=5){</b>
+<b class="fc"><i>46</i>&nbsp;					factors[pos]=5;</b>
+<b class="fc"><i>47</i>&nbsp;					pos++;</b>
+<i>48</i>&nbsp;				}
+<i>49</i>&nbsp;			}
+<i>50</i>&nbsp;			else{
+<b class="fc"><i>51</i>&nbsp;				factors[pos]-=0.1;</b>
+<b class="fc"><i>52</i>&nbsp;				if(factors[pos]&lt;=0){</b>
+<b class="fc"><i>53</i>&nbsp;					factors[pos]=0;</b>
+<b class="fc"><i>54</i>&nbsp;					pos++;</b>
+<i>55</i>&nbsp;				}
+<i>56</i>&nbsp;			}
+<b class="fc"><i>57</i>&nbsp;			currentfp= Faktoren.calcbewertefp(unbewertetefp, factors);</b>
+<b class="fc"><i>58</i>&nbsp;			dif= currentfp-sollfp;</b>
+<i>59</i>&nbsp;		}
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;		//Sollte der Unterschied zwischen neuen berechnter Zeit und realer Zeit immer noch zu groß sein
+<i>62</i>&nbsp;		//wird das dem User mitgeteilt
+<b class="fc"><i>63</i>&nbsp;		if(Math.abs(dif)&gt;0.3){</b>
+<b class="fc"><i>64</i>&nbsp;			bemerkung=&quot;Differenz ist zu groß.&quot; +</b>
+<i>65</i>&nbsp;					&quot;\nSie müssen die FunctionPoints verändern!&quot;;
+<i>66</i>&nbsp;		}
+<b class="fc"><i>67</i>&nbsp;		return new Faktoren(factors, bemerkung);</b>
+<i>68</i>&nbsp;	}
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;	@Override
+<i>71</i>&nbsp;	public String getBeschreibung() {
+<b class="nc"><i>72</i>&nbsp;		return this.beschreibung;</b>
+<i>73</i>&nbsp;	}
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;	@Override
+<i>76</i>&nbsp;	public String getName() {
+<b class="nc"><i>77</i>&nbsp;		return this.toString();</b>
+<i>78</i>&nbsp;	}
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;	@Override
+<i>81</i>&nbsp;	public String toString() {
+<b class="fc"><i>82</i>&nbsp;		return this.name;</b>
+<i>83</i>&nbsp;	}
+<i>84</i>&nbsp;	@Override
+<i>85</i>&nbsp;	public boolean equals(Object obj) {
+<b class="fc"><i>86</i>&nbsp;		if (obj == this) {</b>
+<b class="fc"><i>87</i>&nbsp;			return true;</b>
+<i>88</i>&nbsp;		}
+<b class="fc"><i>89</i>&nbsp;		if (obj != null &amp;&amp; obj instanceof DefaultOptimierung) {</b>
+<b class="fc"><i>90</i>&nbsp;			DefaultOptimierung other = (DefaultOptimierung) obj;</b>
+<i>91</i>&nbsp;
+<b class="fc"><i>92</i>&nbsp;			if(!this.beschreibung.equals(other.beschreibung)) {return false;}</b>
+<i>93</i>&nbsp;
+<b class="fc"><i>94</i>&nbsp;			return true;</b>
+<i>95</i>&nbsp;
+<i>96</i>&nbsp;		}
+<b class="nc"><i>97</i>&nbsp;		return false;</b>
+<i>98</i>&nbsp;	}
+<i>99</i>&nbsp;
+<i>100</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-07-06 10:48</div>
+</div>
+</body>
+</html>

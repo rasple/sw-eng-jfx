@@ -1,0 +1,390 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Faktoren</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">model</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Faktoren (model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Faktoren</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    72.2%
+  </span>
+  <span class="absValue">
+    (26/ 36)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    86%
+  </span>
+  <span class="absValue">
+    (141/ 164)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package model;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import org.apache.commons.lang3.StringUtils;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.io.Serializable;
+<i>6</i>&nbsp;import java.util.Arrays;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;public class Faktoren implements Serializable, Faktoren_I {
+<i>9</i>&nbsp;	private double verfechtung;
+<i>10</i>&nbsp;    private double dezentraleDaten;
+<i>11</i>&nbsp;    private double transaktionsrate;
+<i>12</i>&nbsp;    private double rechenoperationen;
+<i>13</i>&nbsp;	private double kontrollverfahren;
+<i>14</i>&nbsp;	private double ausnahmeregelung;
+<i>15</i>&nbsp;	private double logik;
+<i>16</i>&nbsp;	private double wiederverwendbarkeit;
+<i>17</i>&nbsp;	private double datenbestandskonvertierung;
+<i>18</i>&nbsp;	private double anpassbarkeit;
+<i>19</i>&nbsp;	private double[] faktoren;
+<i>20</i>&nbsp;	private double faktor;
+<i>21</i>&nbsp;	private String bemerkung;
+<i>22</i>&nbsp;	
+<b class="fc"><i>23</i>&nbsp;	public Faktoren(){</b>
+<b class="fc"><i>24</i>&nbsp;		this.faktoren= new double[10];</b>
+<b class="fc"><i>25</i>&nbsp;        this.verfechtung = 0.0;</b>
+<b class="fc"><i>26</i>&nbsp;        this.dezentraleDaten = 0.0;</b>
+<b class="fc"><i>27</i>&nbsp;        this.transaktionsrate = 0.0;</b>
+<b class="fc"><i>28</i>&nbsp;        this.rechenoperationen = 0.0;</b>
+<b class="fc"><i>29</i>&nbsp;        this.kontrollverfahren = 0.0;</b>
+<b class="fc"><i>30</i>&nbsp;        this.ausnahmeregelung = 0.0;</b>
+<b class="fc"><i>31</i>&nbsp;        this.logik = 0.0;</b>
+<b class="fc"><i>32</i>&nbsp;        this.wiederverwendbarkeit = 0.0;</b>
+<b class="fc"><i>33</i>&nbsp;        this.datenbestandskonvertierung = 0.0;</b>
+<b class="fc"><i>34</i>&nbsp;        this.anpassbarkeit = 0.0;</b>
+<b class="fc"><i>35</i>&nbsp;        this.setBemerkung(&quot;&quot;);</b>
+<i>36</i>&nbsp;
+<b class="fc"><i>37</i>&nbsp;	}</b>
+<i>38</i>&nbsp;
+<b class="fc"><i>39</i>&nbsp;    public Faktoren(Faktoren faktoren) {</b>
+<b class="fc"><i>40</i>&nbsp;        this.faktoren = new double[10];</b>
+<b class="fc"><i>41</i>&nbsp;        this.verfechtung = faktoren.verfechtung;</b>
+<b class="fc"><i>42</i>&nbsp;        this.dezentraleDaten = faktoren.dezentraleDaten;</b>
+<b class="fc"><i>43</i>&nbsp;        this.transaktionsrate = faktoren.transaktionsrate;</b>
+<b class="fc"><i>44</i>&nbsp;        this.rechenoperationen = faktoren.rechenoperationen;</b>
+<b class="fc"><i>45</i>&nbsp;        this.kontrollverfahren = faktoren.kontrollverfahren;</b>
+<b class="fc"><i>46</i>&nbsp;        this.ausnahmeregelung = faktoren.ausnahmeregelung;</b>
+<b class="fc"><i>47</i>&nbsp;        this.logik = faktoren.logik;</b>
+<b class="fc"><i>48</i>&nbsp;        this.wiederverwendbarkeit = faktoren.wiederverwendbarkeit;</b>
+<b class="fc"><i>49</i>&nbsp;        this.datenbestandskonvertierung = faktoren.datenbestandskonvertierung;</b>
+<b class="fc"><i>50</i>&nbsp;        this.anpassbarkeit = faktoren.anpassbarkeit;</b>
+<b class="fc"><i>51</i>&nbsp;        this.setBemerkung(&quot;&quot;);</b>
+<b class="fc"><i>52</i>&nbsp;    }</b>
+<b class="fc"><i>53</i>&nbsp;	public Faktoren(double[] faktoren){</b>
+<b class="fc"><i>54</i>&nbsp;		int pos=0;</b>
+<b class="fc"><i>55</i>&nbsp;		this.faktoren= new double[10];</b>
+<b class="fc"><i>56</i>&nbsp;		for(double faktor: faktoren){</b>
+<b class="fc"><i>57</i>&nbsp;			this.faktoren[pos]=faktor;</b>
+<b class="fc"><i>58</i>&nbsp;			pos++;</b>
+<i>59</i>&nbsp;		}
+<b class="fc"><i>60</i>&nbsp;		if(faktoren.length==10){</b>
+<b class="fc"><i>61</i>&nbsp;            this.verfechtung = faktoren[0];</b>
+<b class="fc"><i>62</i>&nbsp;            this.dezentraleDaten = faktoren[1];</b>
+<b class="fc"><i>63</i>&nbsp;            this.transaktionsrate = faktoren[2];</b>
+<b class="fc"><i>64</i>&nbsp;            this.rechenoperationen = faktoren[3];</b>
+<b class="fc"><i>65</i>&nbsp;            this.kontrollverfahren = faktoren[4];</b>
+<b class="fc"><i>66</i>&nbsp;            this.ausnahmeregelung = faktoren[5];</b>
+<b class="fc"><i>67</i>&nbsp;            this.logik = faktoren[6];</b>
+<b class="fc"><i>68</i>&nbsp;            this.wiederverwendbarkeit = faktoren[7];</b>
+<b class="fc"><i>69</i>&nbsp;            this.datenbestandskonvertierung = faktoren[8];</b>
+<b class="fc"><i>70</i>&nbsp;            this.anpassbarkeit = faktoren[9];</b>
+<i>71</i>&nbsp;        }
+<i>72</i>&nbsp;
+<b class="fc"><i>73</i>&nbsp;        this.setBemerkung(&quot;&quot;);</b>
+<i>74</i>&nbsp;
+<b class="fc"><i>75</i>&nbsp;	}</b>
+<b class="fc"><i>76</i>&nbsp;	public Faktoren(double[] faktoren, String bemerkung){</b>
+<b class="fc"><i>77</i>&nbsp;		int pos=0;</b>
+<b class="fc"><i>78</i>&nbsp;		this.faktoren= new double[10];</b>
+<b class="fc"><i>79</i>&nbsp;		for(double faktor: faktoren){</b>
+<b class="fc"><i>80</i>&nbsp;			this.faktoren[pos]=faktor;</b>
+<b class="fc"><i>81</i>&nbsp;			pos++;</b>
+<i>82</i>&nbsp;		}
+<b class="fc"><i>83</i>&nbsp;		this.bemerkung=bemerkung;</b>
+<b class="fc"><i>84</i>&nbsp;		if(faktoren.length==10){</b>
+<b class="fc"><i>85</i>&nbsp;			this.verfechtung = faktoren[0];</b>
+<b class="fc"><i>86</i>&nbsp;			this.dezentraleDaten = faktoren[1];</b>
+<b class="fc"><i>87</i>&nbsp;			this.transaktionsrate = faktoren[2];</b>
+<b class="fc"><i>88</i>&nbsp;			this.rechenoperationen = faktoren[3];</b>
+<b class="fc"><i>89</i>&nbsp;			this.kontrollverfahren = faktoren[4];</b>
+<b class="fc"><i>90</i>&nbsp;			this.ausnahmeregelung = faktoren[5];</b>
+<b class="fc"><i>91</i>&nbsp;			this.logik = faktoren[6];</b>
+<b class="fc"><i>92</i>&nbsp;			this.wiederverwendbarkeit = faktoren[7];</b>
+<b class="fc"><i>93</i>&nbsp;			this.datenbestandskonvertierung = faktoren[8];</b>
+<b class="fc"><i>94</i>&nbsp;			this.anpassbarkeit = faktoren[9];</b>
+<i>95</i>&nbsp;		}
+<i>96</i>&nbsp;
+<b class="fc"><i>97</i>&nbsp;		this.setBemerkung(&quot;&quot;);</b>
+<i>98</i>&nbsp;
+<b class="fc"><i>99</i>&nbsp;	}</b>
+<i>100</i>&nbsp;
+<i>101</i>&nbsp;    public double getVerfechtung() {
+<b class="fc"><i>102</i>&nbsp;		return this.verfechtung;</b>
+<i>103</i>&nbsp;	}
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;	public void setVerfechtung(double verfechtung) {
+<b class="nc"><i>106</i>&nbsp;		this.verfechtung = verfechtung;</b>
+<b class="nc"><i>107</i>&nbsp;	}</b>
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;    public double getDezentraleDaten() {
+<b class="fc"><i>110</i>&nbsp;        return this.dezentraleDaten;</b>
+<i>111</i>&nbsp;    }
+<i>112</i>&nbsp;
+<i>113</i>&nbsp;    public void setDezentraleDaten(double dezentraleDaten) {
+<b class="nc"><i>114</i>&nbsp;        this.dezentraleDaten = dezentraleDaten;</b>
+<b class="nc"><i>115</i>&nbsp;    }</b>
+<i>116</i>&nbsp;
+<i>117</i>&nbsp;    public double getTransaktionsrate() {
+<b class="fc"><i>118</i>&nbsp;        return this.transaktionsrate;</b>
+<i>119</i>&nbsp;    }
+<i>120</i>&nbsp;
+<i>121</i>&nbsp;    public void setTransaktionsrate(double transaktionsrate) {
+<b class="nc"><i>122</i>&nbsp;        this.transaktionsrate = transaktionsrate;</b>
+<b class="nc"><i>123</i>&nbsp;    }</b>
+<i>124</i>&nbsp;
+<i>125</i>&nbsp;    public double getRechenoperationen() {
+<b class="fc"><i>126</i>&nbsp;        return this.rechenoperationen;</b>
+<i>127</i>&nbsp;    }
+<i>128</i>&nbsp;
+<i>129</i>&nbsp;    public void setRechenoperationen(double rechenoperationen) {
+<b class="nc"><i>130</i>&nbsp;        this.rechenoperationen = rechenoperationen;</b>
+<b class="nc"><i>131</i>&nbsp;	}</b>
+<i>132</i>&nbsp;
+<i>133</i>&nbsp;	public double getKontrollverfahren() {
+<b class="fc"><i>134</i>&nbsp;		return this.kontrollverfahren;</b>
+<i>135</i>&nbsp;	}
+<i>136</i>&nbsp;
+<i>137</i>&nbsp;	public void setKontrollverfahren(double kontrollverfahren) {
+<b class="nc"><i>138</i>&nbsp;		this.kontrollverfahren = kontrollverfahren;</b>
+<b class="nc"><i>139</i>&nbsp;	}</b>
+<i>140</i>&nbsp;
+<i>141</i>&nbsp;	public double getAusnahmeregelung() {
+<b class="fc"><i>142</i>&nbsp;		return this.ausnahmeregelung;</b>
+<i>143</i>&nbsp;	}
+<i>144</i>&nbsp;
+<i>145</i>&nbsp;	public void setAusnahmeregelung(double ausnahmeregelung) {
+<b class="nc"><i>146</i>&nbsp;		this.ausnahmeregelung = ausnahmeregelung;</b>
+<b class="nc"><i>147</i>&nbsp;	}</b>
+<i>148</i>&nbsp;	public double getLogik() {
+<b class="fc"><i>149</i>&nbsp;		return this.logik;</b>
+<i>150</i>&nbsp;	}
+<i>151</i>&nbsp;	public void setLogik(double logik) {
+<b class="fc"><i>152</i>&nbsp;		this.logik = logik;</b>
+<b class="fc"><i>153</i>&nbsp;	}</b>
+<i>154</i>&nbsp;
+<i>155</i>&nbsp;	public double getWiederverwendbarkeit() {
+<b class="fc"><i>156</i>&nbsp;		return this.wiederverwendbarkeit;</b>
+<i>157</i>&nbsp;	}
+<i>158</i>&nbsp;
+<i>159</i>&nbsp;	public void setWiederverwendbarkeit(double wiederverwendbarkeit) {
+<b class="nc"><i>160</i>&nbsp;		this.wiederverwendbarkeit = wiederverwendbarkeit;</b>
+<b class="nc"><i>161</i>&nbsp;	}</b>
+<i>162</i>&nbsp;
+<i>163</i>&nbsp;	public double getDatenbestandskonvertierung() {
+<b class="fc"><i>164</i>&nbsp;		return this.datenbestandskonvertierung;</b>
+<i>165</i>&nbsp;	}
+<i>166</i>&nbsp;
+<i>167</i>&nbsp;	public void setDatenbestandskonvertierung(double datenbestandskonvertierung) {
+<b class="nc"><i>168</i>&nbsp;		this.datenbestandskonvertierung = datenbestandskonvertierung;</b>
+<b class="nc"><i>169</i>&nbsp;	}</b>
+<i>170</i>&nbsp;
+<i>171</i>&nbsp;	public double getAnpassbarkeit() {
+<b class="fc"><i>172</i>&nbsp;		return this.anpassbarkeit;</b>
+<i>173</i>&nbsp;	}
+<i>174</i>&nbsp;
+<i>175</i>&nbsp;	public void setAnpassbarkeit(double anpassbarkeit) {
+<b class="nc"><i>176</i>&nbsp;		this.anpassbarkeit = anpassbarkeit;</b>
+<b class="nc"><i>177</i>&nbsp;	}</b>
+<i>178</i>&nbsp;
+<i>179</i>&nbsp;	public void setBemerkung(String bemerkung) {
+<b class="fc"><i>180</i>&nbsp;		this.bemerkung = bemerkung;</b>
+<b class="fc"><i>181</i>&nbsp;	}</b>
+<i>182</i>&nbsp;
+<i>183</i>&nbsp;	public String getBemerkung() {
+<b class="fc"><i>184</i>&nbsp;		return this.bemerkung;</b>
+<i>185</i>&nbsp;	}
+<i>186</i>&nbsp;
+<i>187</i>&nbsp;	public double[] getFaktoren() {
+<b class="fc"><i>188</i>&nbsp;		this.faktoren[0]=this.verfechtung;</b>
+<b class="fc"><i>189</i>&nbsp;        this.faktoren[1] = this.dezentraleDaten;</b>
+<b class="fc"><i>190</i>&nbsp;        this.faktoren[2] = this.transaktionsrate;</b>
+<b class="fc"><i>191</i>&nbsp;        this.faktoren[3] = this.rechenoperationen;</b>
+<b class="fc"><i>192</i>&nbsp;		this.faktoren[4] = this.kontrollverfahren;</b>
+<b class="fc"><i>193</i>&nbsp;		this.faktoren[5] = this.ausnahmeregelung;</b>
+<b class="fc"><i>194</i>&nbsp;		this.faktoren[6] = this.logik;</b>
+<b class="fc"><i>195</i>&nbsp;		this.faktoren[7] = this.wiederverwendbarkeit;</b>
+<b class="fc"><i>196</i>&nbsp;		this.faktoren[8] = this.datenbestandskonvertierung;</b>
+<b class="fc"><i>197</i>&nbsp;		this.faktoren[9] = this.anpassbarkeit;</b>
+<b class="fc"><i>198</i>&nbsp;		return this.faktoren;</b>
+<i>199</i>&nbsp;	}
+<i>200</i>&nbsp;
+<i>201</i>&nbsp;	public static double calcunbewertefp(double bewertetefp, double[] factors){
+<b class="fc"><i>202</i>&nbsp;		double fac= Faktoren.calcfac(factors);</b>
+<b class="fc"><i>203</i>&nbsp;		double unbewertetefp=  bewertetefp/ fac;</b>
+<b class="fc"><i>204</i>&nbsp;		return unbewertetefp;</b>
+<i>205</i>&nbsp;	}
+<i>206</i>&nbsp;
+<i>207</i>&nbsp;	public static double calcbewertefp(double unbewertefp, double []factors){
+<b class="fc"><i>208</i>&nbsp;		double fac = Faktoren.calcfac(factors);</b>
+<b class="fc"><i>209</i>&nbsp;		return unbewertefp*fac;</b>
+<i>210</i>&nbsp;		
+<i>211</i>&nbsp;	}
+<i>212</i>&nbsp;
+<i>213</i>&nbsp;	public static double calcfac(double[] factors){
+<b class="fc"><i>214</i>&nbsp;		double sumfactors=0;</b>
+<i>215</i>&nbsp;		double fac;
+<b class="fc"><i>216</i>&nbsp;		for( double factor :factors){</b>
+<b class="fc"><i>217</i>&nbsp;			sumfactors+=factor;</b>
+<i>218</i>&nbsp;		}
+<b class="fc"><i>219</i>&nbsp;		fac= (sumfactors/100) +0.7;</b>
+<b class="fc"><i>220</i>&nbsp;		return fac;</b>
+<i>221</i>&nbsp;	}
+<i>222</i>&nbsp;
+<i>223</i>&nbsp;	public double calcunbewertetefp(double bewertetefp){
+<b class="nc"><i>224</i>&nbsp;		this.faktor= this.calcfac();</b>
+<b class="nc"><i>225</i>&nbsp;		double unbewertetefp=  bewertetefp/ this.faktor;</b>
+<b class="nc"><i>226</i>&nbsp;		return unbewertetefp;</b>
+<i>227</i>&nbsp;	}
+<i>228</i>&nbsp;
+<i>229</i>&nbsp;	public double calcbewertetefp(double unbewertetefp){
+<b class="fc"><i>230</i>&nbsp;		this.faktor= this.calcfac();</b>
+<b class="fc"><i>231</i>&nbsp;		return unbewertetefp* this.faktor;</b>
+<i>232</i>&nbsp;	}
+<i>233</i>&nbsp;
+<i>234</i>&nbsp;	public double calcfac(){
+<b class="fc"><i>235</i>&nbsp;		double sumfactors=0;</b>
+<b class="fc"><i>236</i>&nbsp;		for( double factor :this.faktoren){</b>
+<b class="fc"><i>237</i>&nbsp;			sumfactors+=factor;</b>
+<i>238</i>&nbsp;		}
+<b class="fc"><i>239</i>&nbsp;		return (sumfactors/100) +0.7;</b>
+<i>240</i>&nbsp;	}
+<i>241</i>&nbsp;
+<i>242</i>&nbsp;	@Override
+<i>243</i>&nbsp;	public String toString() {
+<b class="fc"><i>244</i>&nbsp;		return &quot;Faktoren{&quot; +</b>
+<i>245</i>&nbsp;				&quot;verfechtung=&quot; + verfechtung +
+<i>246</i>&nbsp;				&quot;, dezentraleDaten=&quot; + dezentraleDaten +
+<i>247</i>&nbsp;				&quot;, transaktionsrate=&quot; + transaktionsrate +
+<i>248</i>&nbsp;				&quot;, rechenoperationen=&quot; + rechenoperationen +
+<i>249</i>&nbsp;				&quot;, kontrollverfahren=&quot; + kontrollverfahren +
+<i>250</i>&nbsp;				&quot;, ausnahmeregelung=&quot; + ausnahmeregelung +
+<i>251</i>&nbsp;				&quot;, logik=&quot; + logik +
+<i>252</i>&nbsp;				&quot;, wiederverwendbarkeit=&quot; + wiederverwendbarkeit +
+<i>253</i>&nbsp;				&quot;, datenbestandskonvertierung=&quot; + datenbestandskonvertierung +
+<i>254</i>&nbsp;				&quot;, anpassbarkeit=&quot; + anpassbarkeit +
+<b class="fc"><i>255</i>&nbsp;				&quot;, faktoren=&quot; + Arrays.toString(faktoren) +</b>
+<i>256</i>&nbsp;				&quot;, faktor=&quot; + faktor +
+<i>257</i>&nbsp;				&#39;}&#39;;
+<i>258</i>&nbsp;	}
+<i>259</i>&nbsp;
+<i>260</i>&nbsp;
+<i>261</i>&nbsp;	public String Userausgabe(){
+<b class="fc"><i>262</i>&nbsp;		StringBuilder sb= new StringBuilder();</b>
+<b class="fc"><i>263</i>&nbsp;		sb.append(&quot;Verfechtung: &quot;);</b>
+<b class="fc"><i>264</i>&nbsp;		sb.append(this.verfechtung);</b>
+<b class="fc"><i>265</i>&nbsp;		sb.append(&quot;\nDezentrale Daten: &quot;);</b>
+<b class="fc"><i>266</i>&nbsp;		sb.append(this.dezentraleDaten);</b>
+<b class="fc"><i>267</i>&nbsp;		sb.append(&quot;\nTransaktionsrate: &quot;);</b>
+<b class="fc"><i>268</i>&nbsp;		sb.append(this.transaktionsrate);</b>
+<b class="fc"><i>269</i>&nbsp;		sb.append(&quot;\nRechenoperationen: &quot;);</b>
+<b class="fc"><i>270</i>&nbsp;		sb.append(this.rechenoperationen);</b>
+<b class="fc"><i>271</i>&nbsp;		sb.append(&quot;\nKontrollverfahren: &quot;);</b>
+<b class="fc"><i>272</i>&nbsp;		sb.append(this.kontrollverfahren);</b>
+<b class="fc"><i>273</i>&nbsp;		sb.append(&quot;\nAusnahmeregelung: &quot;);</b>
+<b class="fc"><i>274</i>&nbsp;		sb.append(this.ausnahmeregelung);</b>
+<b class="fc"><i>275</i>&nbsp;		sb.append(&quot;\nLogik: &quot;);</b>
+<b class="fc"><i>276</i>&nbsp;		sb.append(this.logik);</b>
+<b class="fc"><i>277</i>&nbsp;		sb.append(&quot;\nWiederverwendbarkeit: &quot;);</b>
+<b class="fc"><i>278</i>&nbsp;		sb.append(this.wiederverwendbarkeit);</b>
+<b class="fc"><i>279</i>&nbsp;		sb.append(&quot;\nDatenbestandskonvertierung: &quot;);</b>
+<b class="fc"><i>280</i>&nbsp;		sb.append(this.datenbestandskonvertierung);</b>
+<b class="fc"><i>281</i>&nbsp;		sb.append(&quot;\nAnpassbarkeit: &quot;);</b>
+<b class="fc"><i>282</i>&nbsp;		sb.append(this.anpassbarkeit);</b>
+<b class="fc"><i>283</i>&nbsp;		sb.append(&quot;\nBemerkung: &quot;);</b>
+<b class="fc"><i>284</i>&nbsp;		sb.append(this.bemerkung);</b>
+<b class="fc"><i>285</i>&nbsp;		return sb.toString();</b>
+<i>286</i>&nbsp;	}
+<i>287</i>&nbsp;
+<i>288</i>&nbsp;	@Override
+<i>289</i>&nbsp;	public boolean equals(Object obj) {
+<b class="fc"><i>290</i>&nbsp;		if (obj == this) {</b>
+<b class="nc"><i>291</i>&nbsp;			return true;</b>
+<i>292</i>&nbsp;		}
+<b class="fc"><i>293</i>&nbsp;		if (obj != null &amp;&amp; obj instanceof Faktoren) {</b>
+<b class="fc"><i>294</i>&nbsp;			Faktoren other = (Faktoren) obj;</b>
+<i>295</i>&nbsp;
+<b class="fc"><i>296</i>&nbsp;			for(int index=0; index &lt; this.getFaktoren().length; index++){</b>
+<i>297</i>&nbsp;
+<b class="fc"><i>298</i>&nbsp;				if(this.getFaktoren()[index] != other.getFaktoren()[index]) {return false;}</b>
+<i>299</i>&nbsp;			}
+<i>300</i>&nbsp;
+<b class="fc"><i>301</i>&nbsp;			return true;</b>
+<i>302</i>&nbsp;
+<i>303</i>&nbsp;		}
+<b class="nc"><i>304</i>&nbsp;		return false;</b>
+<i>305</i>&nbsp;	}
+<i>306</i>&nbsp;
+<i>307</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-07-06 10:48</div>
+</div>
+</body>
+</html>

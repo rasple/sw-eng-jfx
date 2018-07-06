@@ -1,0 +1,210 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Produktdaten</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">model</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Produktdaten (model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Produktdaten</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    64.7%
+  </span>
+  <span class="absValue">
+    (11/ 17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85.7%
+  </span>
+  <span class="absValue">
+    (36/ 42)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package model;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.io.Serializable;
+<i>4</i>&nbsp;import java.util.HashMap;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;public class Produktdaten implements Serializable, Produktdaten_I {
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;    private String id;
+<i>9</i>&nbsp;    private String desc;
+<i>10</i>&nbsp;    private int ret;
+<i>11</i>&nbsp;    private int det;
+<i>12</i>&nbsp;    private String type;
+<i>13</i>&nbsp;
+<b class="fc"><i>14</i>&nbsp;    public Produktdaten() {</b>
+<b class="fc"><i>15</i>&nbsp;        this.setId(&quot;&quot;);</b>
+<b class="fc"><i>16</i>&nbsp;        this.setDesc(&quot;&quot;);</b>
+<b class="fc"><i>17</i>&nbsp;        this.setRet(0);</b>
+<b class="fc"><i>18</i>&nbsp;        this.setDet(0);</b>
+<b class="fc"><i>19</i>&nbsp;        this.setType(&quot;&quot;);</b>
+<b class="fc"><i>20</i>&nbsp;    }</b>
+<i>21</i>&nbsp;
+<b class="fc"><i>22</i>&nbsp;    public Produktdaten(String id, String desc, int ret, int det, String type) {</b>
+<b class="fc"><i>23</i>&nbsp;        this.setId(id);</b>
+<b class="fc"><i>24</i>&nbsp;        this.setDesc(desc);</b>
+<b class="fc"><i>25</i>&nbsp;        this.setRet(ret);</b>
+<b class="fc"><i>26</i>&nbsp;        this.setDet(det);</b>
+<b class="fc"><i>27</i>&nbsp;        this.setType(type);</b>
+<b class="fc"><i>28</i>&nbsp;    }</b>
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;    /**
+<i>31</i>&nbsp;     * Berechnet die Functionpoints gemäß der übergebenen Matrix
+<i>32</i>&nbsp;     * @param fpmatrix Komplexitätsmatrix
+<i>33</i>&nbsp;     * @return Functionpoints
+<i>34</i>&nbsp;     */
+<i>35</i>&nbsp;    public int calcFp(HashMap&lt;String, int[][]&gt; fpmatrix){
+<b class="fc"><i>36</i>&nbsp;        return fpmatrix.get(this.type)[this.calcPosRet()][this.calcPosDet()];</b>
+<i>37</i>&nbsp;    }
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    /**
+<i>40</i>&nbsp;     *
+<i>41</i>&nbsp;     * @return true wenn alle Felder einen sinnvollen Wert besitzen
+<i>42</i>&nbsp;     */
+<i>43</i>&nbsp;    public boolean isValid(){
+<b class="fc"><i>44</i>&nbsp;        return this.ret&gt;0 &amp;&amp; this.det&gt;0 &amp;&amp; !this.type.isEmpty();</b>
+<i>45</i>&nbsp;    }
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    /**
+<i>48</i>&nbsp;     *
+<i>49</i>&nbsp;     * @return Zeile in der Komplexitätsmatrix
+<i>50</i>&nbsp;     */
+<i>51</i>&nbsp;    private int calcPosRet(){
+<b class="fc"><i>52</i>&nbsp;        if(this.ret&lt;2){</b>
+<b class="fc"><i>53</i>&nbsp;            return 0;</b>
+<i>54</i>&nbsp;        }
+<b class="fc"><i>55</i>&nbsp;        else if(this.ret&lt;6){</b>
+<b class="fc"><i>56</i>&nbsp;            return 1;</b>
+<i>57</i>&nbsp;        }
+<i>58</i>&nbsp;        else{
+<b class="fc"><i>59</i>&nbsp;            return 2;</b>
+<i>60</i>&nbsp;        }
+<i>61</i>&nbsp;    }
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;    /**
+<i>64</i>&nbsp;     *
+<i>65</i>&nbsp;     * @return Spalte in der Komplexitätsmatrix
+<i>66</i>&nbsp;     */
+<i>67</i>&nbsp;    private int calcPosDet(){
+<b class="fc"><i>68</i>&nbsp;        if(this.det&lt;20){</b>
+<b class="fc"><i>69</i>&nbsp;            return 0;</b>
+<i>70</i>&nbsp;        }
+<b class="fc"><i>71</i>&nbsp;        else if(this.det&lt;51){</b>
+<b class="fc"><i>72</i>&nbsp;            return 1;</b>
+<i>73</i>&nbsp;        }
+<b class="fc"><i>74</i>&nbsp;        else return 2;</b>
+<i>75</i>&nbsp;    }
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;    public String getId() {
+<b class="nc"><i>78</i>&nbsp;        return id;</b>
+<i>79</i>&nbsp;    }
+<i>80</i>&nbsp;
+<i>81</i>&nbsp;    public void setId(String id) {
+<b class="fc"><i>82</i>&nbsp;        this.id = id;</b>
+<b class="fc"><i>83</i>&nbsp;    }</b>
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;    public String getDesc() {
+<b class="nc"><i>86</i>&nbsp;        return desc;</b>
+<i>87</i>&nbsp;    }
+<i>88</i>&nbsp;
+<i>89</i>&nbsp;    public void setDesc(String desc) {
+<b class="fc"><i>90</i>&nbsp;        this.desc = desc;</b>
+<b class="fc"><i>91</i>&nbsp;    }</b>
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;    public int getRet() {
+<b class="nc"><i>94</i>&nbsp;        return ret;</b>
+<i>95</i>&nbsp;    }
+<i>96</i>&nbsp;
+<i>97</i>&nbsp;    public void setRet(int ret) {
+<b class="fc"><i>98</i>&nbsp;        this.ret = ret;</b>
+<b class="fc"><i>99</i>&nbsp;    }</b>
+<i>100</i>&nbsp;
+<i>101</i>&nbsp;    public int getDet() {
+<b class="nc"><i>102</i>&nbsp;        return det;</b>
+<i>103</i>&nbsp;    }
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;    public void setDet(int det) {
+<b class="fc"><i>106</i>&nbsp;        this.det = det;</b>
+<b class="fc"><i>107</i>&nbsp;    }</b>
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;    public String getType() {
+<b class="nc"><i>110</i>&nbsp;        return type;</b>
+<i>111</i>&nbsp;    }
+<i>112</i>&nbsp;
+<i>113</i>&nbsp;    public void setType(String type) {
+<b class="fc"><i>114</i>&nbsp;        this.type = type;</b>
+<b class="fc"><i>115</i>&nbsp;    }</b>
+<i>116</i>&nbsp;
+<i>117</i>&nbsp;    @Override
+<i>118</i>&nbsp;    public String toString() {
+<b class="nc"><i>119</i>&nbsp;        return &quot;Produktdaten{&quot; +</b>
+<i>120</i>&nbsp;                &quot;id=&#39;&quot; + id + &#39;\&#39;&#39; +
+<i>121</i>&nbsp;                &quot;, desc=&#39;&quot; + desc + &#39;\&#39;&#39; +
+<i>122</i>&nbsp;                &quot;, ret=&quot; + ret +
+<i>123</i>&nbsp;                &quot;, det=&quot; + det +
+<i>124</i>&nbsp;                &quot;, type=&#39;&quot; + type + &#39;\&#39;&#39; +
+<i>125</i>&nbsp;                &#39;}&#39;;
+<i>126</i>&nbsp;    }
+<i>127</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-07-06 10:48</div>
+</div>
+</body>
+</html>

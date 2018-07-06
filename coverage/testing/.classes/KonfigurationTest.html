@@ -1,0 +1,151 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: KonfigurationTest</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">testing</a> ]
+</div>
+
+<h1>Coverage Summary for Class: KonfigurationTest (testing)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">KonfigurationTest</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (29/ 29)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package testing;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import static org.junit.Assert.*;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import org.junit.Test;
+<i>6</i>&nbsp;import model.Konfiguration;
+<i>7</i>&nbsp;import model.Konfiguration_I;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;import java.util.HashMap;
+<i>10</i>&nbsp;
+<b class="fc"><i>11</i>&nbsp;public class KonfigurationTest {</b>
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;    @Test
+<i>14</i>&nbsp;    public void evaluateHashMapFunktion(){
+<i>15</i>&nbsp;
+<b class="fc"><i>16</i>&nbsp;       Konfiguration_I konfiguration = new Konfiguration();</b>
+<i>17</i>&nbsp;
+<b class="fc"><i>18</i>&nbsp;       HashMap&lt;?,?&gt; HMFunktion = konfiguration.getHashMapFunktion();</b>
+<i>19</i>&nbsp;
+<b class="fc"><i>20</i>&nbsp;       assertFalse(HMFunktion.isEmpty());</b>
+<b class="fc"><i>21</i>&nbsp;       assertEquals(3, HMFunktion.size());</b>
+<b class="fc"><i>22</i>&nbsp;       assertNotNull(HMFunktion.hashCode());</b>
+<b class="fc"><i>23</i>&nbsp;       assertEquals(java.util.HashMap.class, HMFunktion.getClass());</b>
+<b class="fc"><i>24</i>&nbsp;    }</b>
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    @Test
+<i>27</i>&nbsp;    public void evaluateHashMapDaten(){
+<i>28</i>&nbsp;
+<b class="fc"><i>29</i>&nbsp;        Konfiguration_I konfiguration = new Konfiguration();</b>
+<i>30</i>&nbsp;
+<b class="fc"><i>31</i>&nbsp;        HashMap&lt;?,?&gt; HMDaten = konfiguration.getHashMapDaten();</b>
+<i>32</i>&nbsp;
+<b class="fc"><i>33</i>&nbsp;        assertFalse(HMDaten.isEmpty());</b>
+<b class="fc"><i>34</i>&nbsp;        assertEquals(2, HMDaten.size());</b>
+<b class="fc"><i>35</i>&nbsp;        assertNotNull(HMDaten.hashCode());</b>
+<b class="fc"><i>36</i>&nbsp;        assertEquals(HashMap.class, HMDaten.getClass());</b>
+<b class="fc"><i>37</i>&nbsp;    }</b>
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    @Test
+<i>40</i>&nbsp;    public void evaluateCalcMannMonate(){
+<i>41</i>&nbsp;
+<b class="fc"><i>42</i>&nbsp;        Konfiguration_I config = new Konfiguration();</b>
+<b class="fc"><i>43</i>&nbsp;        int[] testValues = new int[]{-1, 20,50, 1000, 1400, 1700, 2000, 2200, 2500, 2600, 2700, 2800, 2900, 3000};</b>
+<b class="fc"><i>44</i>&nbsp;        int [] expectedValues = new int[]{0,2, 5, 76, 112, 142, 175, 201, 245, 263, 284, 287, 341, 341};</b>
+<b class="fc"><i>45</i>&nbsp;        for (int index=0; index &lt; testValues.length; index++) {</b>
+<b class="fc"><i>46</i>&nbsp;            assertEquals(expectedValues[index], config.calcmannmonate(testValues[index]), 0);</b>
+<i>47</i>&nbsp;        }
+<i>48</i>&nbsp;
+<b class="fc"><i>49</i>&nbsp;        assert(config.calcmannmonate(-1)==0);</b>
+<i>50</i>&nbsp;        
+<b class="fc"><i>51</i>&nbsp;    }</b>
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;    @Test
+<i>54</i>&nbsp;    public void evaluateCalcFP(){
+<i>55</i>&nbsp;
+<b class="fc"><i>56</i>&nbsp;        Konfiguration_I config = new Konfiguration();</b>
+<b class="fc"><i>57</i>&nbsp;        int[] expectedValues = new int[]{0,20, 50, 1000, 1400, 1700, 2000, 2200, 2500, 2600, 2700, 2800, 2900, 2900};</b>
+<b class="fc"><i>58</i>&nbsp;        int [] testValues= new int[]{-1, 2,5, 76, 112, 142, 175, 201, 245, 263, 284, 287, 341, 345};</b>
+<b class="fc"><i>59</i>&nbsp;        for (int index=0; index &lt; testValues.length; index++) {</b>
+<b class="fc"><i>60</i>&nbsp;            assertEquals(expectedValues[index], config.calcfp(testValues[index]), 0);</b>
+<i>61</i>&nbsp;        }
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;
+<b class="fc"><i>64</i>&nbsp;        assert(config.calcfp(-1)==0);</b>
+<i>65</i>&nbsp;
+<b class="fc"><i>66</i>&nbsp;    }</b>
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-07-06 10:48</div>
+</div>
+</body>
+</html>
