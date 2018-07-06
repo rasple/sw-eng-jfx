@@ -16,5 +16,6 @@ public interface Produktdaten_I {
     void setDesc(String desc);
     void setDet(int det);
     void setRet(int ret);
+    boolean equals(Produktdaten daten);
 }
 

@@ -13,4 +13,5 @@ public interface Produktfunktion_I {
     void setDesc(String desc);
     void setDet(int det);
     void setFtr(int ftr);
+    boolean equals(Produktfunktion daten);
 }

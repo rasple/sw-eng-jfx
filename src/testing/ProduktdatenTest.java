@@ -88,4 +88,19 @@ public class ProduktdatenTest {
 
     }
 
+    /**
+     * Die Equalsmethode wird hier bestätigt, um sie bei den utilTest einsätzen zu können
+     */
+    @Test
+    public void checkEquals(){
+        Produktdaten test= new Produktdaten("test1", "test1", 2, 3, "EIF");
+        assertFalse(test.equals(new Produktdaten("test1", "test1", 2,3, "ILF")));
+        assertFalse(test.equals(new Produktdaten("test2", "test1", 2, 3, "EIF")));
+        assertFalse(test.equals(new Produktdaten("test1", "test1", 2, 4, "EIF")));
+        assertFalse(test.equals(new Produktdaten("test1", "test1", 5, 3, "EIF")));
+        assertFalse(test.equals(new Produktdaten("test1", "test2", 2, 3, "EIF")));
+        assertTrue(test.equals(new Produktdaten("test1", "test1", 2, 3, "EIF")));
+
+    }
+
 }

@@ -153,4 +153,13 @@ public class Produktfunktion implements Serializable, Produktfunktion_I {
                 ", type='" + type + '\'' +
                 '}';
     }
+    @Override
+    public boolean equals(Produktfunktion funktion){
+        if(this.ftr!= funktion.getFtr()) return false;
+        if(this.det!= funktion.getDet()) return false;
+        if(!(this.id.contentEquals(funktion.getId()))) return false;
+        if(!(this.desc.contentEquals(funktion.getDesc())))return false;
+        if(!(this.type.contentEquals(funktion.getType()))) return false;
+        return true;
+    }
 }

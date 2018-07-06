@@ -98,6 +98,17 @@ public class Produktdaten implements Serializable, Produktdaten_I {
         this.ret = ret;
     }
 
+    @Override
+    public boolean equals(Produktdaten daten) {
+        if(this.ret!= daten.getRet()) return false;
+        if(this.det!= daten.getDet()) return false;
+        if(!(this.id.contentEquals(daten.getId()))) return false;
+        if(!(this.desc.contentEquals(daten.getDesc())))return false;
+        if(!(this.type.contentEquals(daten.getType()))) return false;
+        return true;
+
+    }
+
     public int getDet() {
         return det;
     }

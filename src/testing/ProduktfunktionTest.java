@@ -123,5 +123,15 @@ public class ProduktfunktionTest {
         assertFalse(produktdaten.isValid());
 
     }
+    @Test
+    public void checkEquals(){
+        Produktfunktion test = new Produktfunktion("test1", "test1", 5,8,"EQ");
+        assertFalse(test.equals(new Produktfunktion("test1", "test1", 5,8,"EO")));
+        assertFalse(test.equals(new Produktfunktion("test1", "test1", 5,4,"EQ")));
+        assertFalse(test.equals(new Produktfunktion("test1", "test1", 3,8,"EQ")));
+        assertFalse(test.equals(new Produktfunktion("test1", "test2", 5,8,"EQ")));
+        assertFalse(test.equals(new Produktfunktion("test2", "test1", 5,8,"EQ")));
+        assertTrue(test.equals(new Produktfunktion("test1", "test1", 5,8,"EQ")));
+    }
 
 }
