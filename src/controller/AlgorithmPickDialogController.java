@@ -45,6 +45,7 @@ public class AlgorithmPickDialogController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.algorithmBox.setItems(FXCollections.observableArrayList(Anforderungsanalyse.getInstance().getFpOpti()));
         this.algorithmBox.getSelectionModel().select(0);
+        this.textBox.setText(this.algorithmBox.getSelectionModel().getSelectedItem().getBeschreibung());
         this.algorithmBox.valueProperty().addListener(new javafx.beans.value.ChangeListener<Optimieren_I>() {
             @Override
             public void changed(ObservableValue<? extends Optimieren_I> observableValue, Optimieren_I optimieren_i, Optimieren_I t1) {

@@ -11,7 +11,7 @@ public class DefaultOptimierung implements Optimieren_I {
 
 
 	public DefaultOptimierung(){
-		this.beschreibung="Default Optimierung";
+		this.beschreibung="Bei dem Algorithmus wird nacheinander ein Faktor vergößert oder verkleinert. Ist das Limit erreicht wird der nächste Faktor verändert.";
 		this.name = "Default Optimierung";
 	}
 	
