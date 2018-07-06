@@ -1,0 +1,268 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Konfiguration</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">model</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Konfiguration (model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Konfiguration</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    96.4%
+  </span>
+  <span class="absValue">
+    (107/ 111)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package model;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.io.Serializable;
+<i>4</i>&nbsp;import java.util.Arrays;
+<i>5</i>&nbsp;import java.util.HashMap;
+<i>6</i>&nbsp;import java.util.Map;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;public class Konfiguration implements Konfiguration_I, Serializable {
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;	private int[][] kompILF;
+<i>11</i>&nbsp;	private int[][] kompEIF;
+<i>12</i>&nbsp;	private int[][] kompEI;
+<i>13</i>&nbsp;	private int[][] kompEO;
+<i>14</i>&nbsp;	private int[][] kompEQ;
+<i>15</i>&nbsp;	private HashMap&lt;String, int[][]&gt; HashMapFunktion;
+<i>16</i>&nbsp;	private HashMap&lt;String, int[][]&gt; HashMapDaten;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;	/**
+<i>19</i>&nbsp;	 * Initialisierung der Komplexitätsmatrizen. Es werden an den entsprechenden Stellen gleich die Werte
+<i>20</i>&nbsp;	 * der FunctionPoints gespeichert;
+<i>21</i>&nbsp;	 */
+<b class="fc"><i>22</i>&nbsp;	public Konfiguration(){</b>
+<b class="fc"><i>23</i>&nbsp;		int[] pos={0,0,1,2,2}, wertILF={7,10,15}, wertEIF={5,7,10}, wertEI={3,4,6}, wertEO ={4,5,7}, wertEQ={3,4,6,};</b>
+<b class="fc"><i>24</i>&nbsp;		this.kompILF= new int[3][3];</b>
+<b class="fc"><i>25</i>&nbsp;		this.kompEIF= new int[3][3];</b>
+<b class="fc"><i>26</i>&nbsp;		this.kompEI= new int[3][3];</b>
+<b class="fc"><i>27</i>&nbsp;		this.kompEO= new int[3][3];</b>
+<b class="fc"><i>28</i>&nbsp;		this.kompEQ= new int[3][3];</b>
+<b class="fc"><i>29</i>&nbsp;		for(int i=0; i&lt;3; i++){</b>
+<b class="fc"><i>30</i>&nbsp;			for(int j=0; j&lt;3;j++){</b>
+<b class="fc"><i>31</i>&nbsp;				this.kompILF[i][j]=wertILF[pos[j+i]];</b>
+<b class="fc"><i>32</i>&nbsp;				this.kompEIF[i][j]=wertEIF[pos[j+i]];</b>
+<b class="fc"><i>33</i>&nbsp;				this.kompEI[i][j]=wertEI[pos[j+i]];</b>
+<b class="fc"><i>34</i>&nbsp;				this.kompEO[i][j]=wertEO[pos[j+i]];</b>
+<b class="fc"><i>35</i>&nbsp;				this.kompEQ[i][j]=wertEQ[pos[j+i]];</b>
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;			}
+<i>38</i>&nbsp;		}
+<b class="fc"><i>39</i>&nbsp;		this.HashMapFunktion= new HashMap&lt;&gt;();</b>
+<b class="fc"><i>40</i>&nbsp;		this.HashMapFunktion.put(&quot;EO&quot;, this.kompEO);</b>
+<b class="fc"><i>41</i>&nbsp;		this.HashMapFunktion.put(&quot;EI&quot;, this.kompEI);</b>
+<b class="fc"><i>42</i>&nbsp;		this.HashMapFunktion.put(&quot;EQ&quot;, this.kompEQ);</b>
+<b class="fc"><i>43</i>&nbsp;		this.HashMapDaten= new HashMap&lt;&gt;();</b>
+<b class="fc"><i>44</i>&nbsp;		this.HashMapDaten.put(&quot;ILF&quot;, this.kompILF);</b>
+<b class="fc"><i>45</i>&nbsp;		this.HashMapDaten.put(&quot;EIF&quot;, this.kompEIF);</b>
+<b class="fc"><i>46</i>&nbsp;	}</b>
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;	public HashMap&lt;String, int[][]&gt; getHashMapFunktion(){
+<b class="fc"><i>49</i>&nbsp;		return this.HashMapFunktion;</b>
+<i>50</i>&nbsp;	}
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;	public HashMap&lt;String, int[][]&gt; getHashMapDaten(){
+<b class="fc"><i>53</i>&nbsp;		return this.HashMapDaten;</b>
+<i>54</i>&nbsp;	}
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;	/**
+<i>57</i>&nbsp;	 * Rechnet die Functionpoints nach der IBM-MM Tabelle in Mannmonate um
+<i>58</i>&nbsp;	 * Zwischen den Stützstellen wird linear interpoliert
+<i>59</i>&nbsp;	 * @param fp, bewertete Function Points
+<i>60</i>&nbsp;	 * @return Mannmonate passend zu den Functionpoints
+<i>61</i>&nbsp; 	*/
+<i>62</i>&nbsp;	public double calcmannmonate(double fp) {
+<b class="fc"><i>63</i>&nbsp;		double mannmonate=-1;</b>
+<b class="fc"><i>64</i>&nbsp;		if(fp&lt;0){</b>
+<b class="fc"><i>65</i>&nbsp;			mannmonate=0;</b>
+<b class="fc"><i>66</i>&nbsp;		}else if(fp&lt;50){</b>
+<b class="fc"><i>67</i>&nbsp;			mannmonate=  fp/10;</b>
+<b class="fc"><i>68</i>&nbsp;		} else if (fp &gt;= 50 &amp;&amp; fp &lt;= 300) {</b>
+<b class="fc"><i>69</i>&nbsp;			mannmonate = 2 + (3 * fp / 50);</b>
+<b class="fc"><i>70</i>&nbsp;		} else if (fp &gt; 300 &amp;&amp; fp &lt;= 1000) {</b>
+<b class="fc"><i>71</i>&nbsp;			mannmonate = -4 + (fp * 2 / 25);</b>
+<b class="fc"><i>72</i>&nbsp;		} else if (fp &gt; 1000 &amp;&amp; fp &lt;= 1400) {</b>
+<b class="fc"><i>73</i>&nbsp;			mannmonate = -14 + (9 * fp / 100);</b>
+<b class="fc"><i>74</i>&nbsp;		} else if (fp &gt; 1400 &amp;&amp; fp &lt;= 1700) {</b>
+<b class="fc"><i>75</i>&nbsp;			mannmonate = -28 + (fp / 10);</b>
+<b class="fc"><i>76</i>&nbsp;		} else if (fp &gt; 1700 &amp;&amp; fp &lt;= 2000) {</b>
+<b class="fc"><i>77</i>&nbsp;			mannmonate = -45 + (11 * fp / 100);</b>
+<b class="fc"><i>78</i>&nbsp;		} else if (fp &gt; 2000 &amp;&amp; fp &lt;= 2200) {</b>
+<b class="fc"><i>79</i>&nbsp;			mannmonate = -85 + (fp * 13 / 100);</b>
+<b class="fc"><i>80</i>&nbsp;		} else if (fp &gt; 2200 &amp;&amp; fp &lt;= 2500) {</b>
+<b class="fc"><i>81</i>&nbsp;			mannmonate = -130 + (3 * fp / 20);</b>
+<b class="fc"><i>82</i>&nbsp;		} else if (fp &gt; 2500 &amp;&amp; fp &lt;= 2600) {</b>
+<b class="fc"><i>83</i>&nbsp;			mannmonate = -205 + (9 * fp / 50);</b>
+<b class="fc"><i>84</i>&nbsp;		} else if (fp &gt; 2600 &amp;&amp; fp &lt;= 2700) {</b>
+<b class="fc"><i>85</i>&nbsp;			mannmonate = -283 + (fp * 21 / 100);</b>
+<b class="fc"><i>86</i>&nbsp;		} else if (fp &gt; 2700 &amp;&amp; fp &lt;= 2800) {</b>
+<b class="fc"><i>87</i>&nbsp;			mannmonate = -357 + (23 * fp / 100);</b>
+<b class="fc"><i>88</i>&nbsp;		} else if (fp &gt; 2800 &amp;&amp; fp &lt;= 2900) {</b>
+<b class="fc"><i>89</i>&nbsp;			mannmonate = -645 + (17 * fp / 50);</b>
+<b class="fc"><i>90</i>&nbsp;		} else if (fp &gt;= 2900) {</b>
+<b class="fc"><i>91</i>&nbsp;			mannmonate = 341;</b>
+<i>92</i>&nbsp;		}
+<b class="fc"><i>93</i>&nbsp;		return mannmonate;</b>
+<i>94</i>&nbsp;	}
+<i>95</i>&nbsp;
+<i>96</i>&nbsp;	/**
+<i>97</i>&nbsp;	 * Rechnet die Mannmonate nach der IBM-MM Tabelle in Functionpoints um
+<i>98</i>&nbsp;	 * Zwischen den Stützstellen wird linear interpoliert
+<i>99</i>&nbsp;	 * @param mannmonate
+<i>100</i>&nbsp;	 * @return Funtionspoints
+<i>101</i>&nbsp;	 */
+<i>102</i>&nbsp;	public double calcfp(double mannmonate) {
+<b class="fc"><i>103</i>&nbsp;		double fp = 0;</b>
+<b class="fc"><i>104</i>&nbsp;		if(mannmonate&lt;0){</b>
+<b class="fc"><i>105</i>&nbsp;			fp=0;</b>
+<b class="fc"><i>106</i>&nbsp;		}else if(mannmonate&lt;5){</b>
+<b class="fc"><i>107</i>&nbsp;			fp=mannmonate*10;</b>
+<b class="fc"><i>108</i>&nbsp;		} else if ( mannmonate &lt;= 20) {</b>
+<b class="fc"><i>109</i>&nbsp;			fp = (mannmonate - 2)/3 * (50 );</b>
+<b class="fc"><i>110</i>&nbsp;		} else if (mannmonate &lt;= 76) {</b>
+<b class="fc"><i>111</i>&nbsp;			fp = (mannmonate + 4)/2 * (25);</b>
+<b class="fc"><i>112</i>&nbsp;		} else if ( mannmonate &lt;= 112) {</b>
+<b class="fc"><i>113</i>&nbsp;			fp = (mannmonate + 14)/9 * (100);</b>
+<b class="fc"><i>114</i>&nbsp;		} else if (mannmonate &lt;= 142) {</b>
+<b class="fc"><i>115</i>&nbsp;			fp = (mannmonate + 28) * (10);</b>
+<b class="fc"><i>116</i>&nbsp;		} else if ( mannmonate &lt;= 175) {</b>
+<b class="fc"><i>117</i>&nbsp;			fp = (mannmonate + 45)/11 * (100);</b>
+<b class="fc"><i>118</i>&nbsp;		} else if (mannmonate &lt;= 201) {</b>
+<b class="fc"><i>119</i>&nbsp;			fp = (mannmonate + 85)/13 * (100);</b>
+<b class="fc"><i>120</i>&nbsp;		} else if ( mannmonate &lt;= 245) {</b>
+<b class="fc"><i>121</i>&nbsp;			fp = (mannmonate + 130)/3 * (20);</b>
+<b class="fc"><i>122</i>&nbsp;		} else if (mannmonate &lt;= 263) {</b>
+<b class="fc"><i>123</i>&nbsp;			fp = (mannmonate + 205)/9 * (50);</b>
+<b class="fc"><i>124</i>&nbsp;		} else if (mannmonate &lt;= 284) {</b>
+<b class="fc"><i>125</i>&nbsp;			fp = (mannmonate + 283)/21 * (100);</b>
+<b class="fc"><i>126</i>&nbsp;		} else if (mannmonate &lt;= 307) {</b>
+<b class="fc"><i>127</i>&nbsp;			fp = (mannmonate + 357)/23 * (100);</b>
+<b class="fc"><i>128</i>&nbsp;		} else if (mannmonate &lt;= 341) {</b>
+<b class="fc"><i>129</i>&nbsp;			fp = (mannmonate + 645)/17 * (50);</b>
+<b class="fc"><i>130</i>&nbsp;		} else if (mannmonate &gt; 341) {</b>
+<b class="fc"><i>131</i>&nbsp;			fp = 2900;</b>
+<i>132</i>&nbsp;		}
+<b class="fc"><i>133</i>&nbsp;		return fp;</b>
+<i>134</i>&nbsp;	}
+<i>135</i>&nbsp;
+<i>136</i>&nbsp;	@Override
+<i>137</i>&nbsp;	public String toString() {
+<b class="fc"><i>138</i>&nbsp;		return &quot;Konfiguration{&quot; +</b>
+<b class="fc"><i>139</i>&nbsp;				&quot;kompILF=&quot; + Arrays.toString(kompILF) +</b>
+<b class="fc"><i>140</i>&nbsp;				&quot;, kompEIF=&quot; + Arrays.toString(kompEIF) +</b>
+<b class="fc"><i>141</i>&nbsp;				&quot;, kompEI=&quot; + Arrays.toString(kompEI) +</b>
+<b class="fc"><i>142</i>&nbsp;				&quot;, kompEO=&quot; + Arrays.toString(kompEO) +</b>
+<b class="fc"><i>143</i>&nbsp;				&quot;, kompEQ=&quot; + Arrays.toString(kompEQ) +</b>
+<i>144</i>&nbsp;				&quot;, HashMapFunktion=&quot; + HashMapFunktion +
+<i>145</i>&nbsp;				&quot;, HashMapDaten=&quot; + HashMapDaten +
+<i>146</i>&nbsp;				&#39;}&#39;;
+<i>147</i>&nbsp;	}
+<i>148</i>&nbsp;
+<i>149</i>&nbsp;	@Override
+<i>150</i>&nbsp;	public boolean equals(Object obj) {
+<b class="fc"><i>151</i>&nbsp;		if (obj == this) {</b>
+<b class="nc"><i>152</i>&nbsp;			return true;</b>
+<i>153</i>&nbsp;		}
+<b class="fc"><i>154</i>&nbsp;		if (obj != null &amp;&amp; obj instanceof Konfiguration) {</b>
+<b class="fc"><i>155</i>&nbsp;			Konfiguration other = (Konfiguration) obj;</b>
+<i>156</i>&nbsp;
+<b class="fc"><i>157</i>&nbsp;			if(!Arrays.deepEquals(this.kompILF, other.kompILF)) {return false;}</b>
+<b class="fc"><i>158</i>&nbsp;			if(!Arrays.deepEquals(this.kompEIF, other.kompEIF)) {return false;}</b>
+<b class="fc"><i>159</i>&nbsp;			if(!Arrays.deepEquals(this.kompEI, other.kompEI)) {return false;}</b>
+<b class="fc"><i>160</i>&nbsp;			if(!Arrays.deepEquals(this.kompEO, other.kompEO)) {return false;}</b>
+<b class="fc"><i>161</i>&nbsp;			if(!Arrays.deepEquals(this.kompEQ, other.kompEQ)) {return false;}</b>
+<i>162</i>&nbsp;
+<b class="fc"><i>163</i>&nbsp;			if(!this.HashMapFunktion.keySet().equals(other.HashMapFunktion.keySet())) {return false;}</b>
+<b class="fc"><i>164</i>&nbsp;			if(!this.HashMapDaten.keySet().equals(other.HashMapDaten.keySet())) {return false;}</b>
+<i>165</i>&nbsp;
+<b class="fc"><i>166</i>&nbsp;			for(Map.Entry&lt;String, int[][]&gt; entry : this.HashMapFunktion.entrySet()){</b>
+<b class="fc"><i>167</i>&nbsp;				if(!other.HashMapFunktion.containsKey(entry.getKey())){</b>
+<b class="nc"><i>168</i>&nbsp;					if(!entry.equals(other.HashMapDaten.get(entry.getKey()))) {return false;}</b>
+<i>169</i>&nbsp;				}
+<b class="fc"><i>170</i>&nbsp;			}</b>
+<i>171</i>&nbsp;
+<b class="fc"><i>172</i>&nbsp;			for(Map.Entry&lt;String, int[][]&gt; entry : this.HashMapDaten.entrySet()){</b>
+<b class="fc"><i>173</i>&nbsp;				if(!other.HashMapDaten.containsKey(entry.getKey())){</b>
+<b class="nc"><i>174</i>&nbsp;					if(!entry.equals(other.HashMapDaten.get(entry.getKey()))) {return false;}</b>
+<i>175</i>&nbsp;				}
+<b class="fc"><i>176</i>&nbsp;			}</b>
+<i>177</i>&nbsp;
+<i>178</i>&nbsp;
+<b class="fc"><i>179</i>&nbsp;			return true;</b>
+<i>180</i>&nbsp;
+<i>181</i>&nbsp;		}
+<b class="nc"><i>182</i>&nbsp;		return false;</b>
+<i>183</i>&nbsp;	}
+<i>184</i>&nbsp;
+<i>185</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-07-06 10:48</div>
+</div>
+</body>
+</html>
