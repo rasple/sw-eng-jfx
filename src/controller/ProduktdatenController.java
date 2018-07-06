@@ -105,7 +105,7 @@ public class ProduktdatenController implements Initializable {
                 produktdaten.remove(produktdaten.size());
             }
         } catch (Exception ex) {
-            
+
         }
     }
 

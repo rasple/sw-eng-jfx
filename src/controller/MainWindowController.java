@@ -189,28 +189,11 @@ public class MainWindowController {
                 algorithmPickDialog.showAndWait();
             } catch (LoadException ex) {
                 Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
-                return;
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
-            return;
-        }
-
-
-        Stage optiWindow = new Stage();
-        optiWindow.initModality(Modality.APPLICATION_MODAL);
-        try {
-            optiWindow.getIcons().add(new Image("/res/dhbw.png"));
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/view/Opti.fxml"));
-                optiWindow.setScene(new Scene(root));
-                optiWindow.setTitle("Selbstoptimierende Nachkalkulation");
-                optiWindow.showAndWait();
-            } catch (LoadException ex) {
             }
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, "", ex);
         }
+
     }
 
     public void onClickAufwabsch(MouseEvent event) {
